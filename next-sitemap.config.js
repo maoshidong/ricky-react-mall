@@ -5,7 +5,7 @@
 // const baseDomain = 'https://www.origin-ic.net111'
 // module.exports = withPlugins(
 //   [
-//     // 其他插件...
+//     // 其他插件... 
 //     withSitemap({
 //     siteUrl: baseDomain,
 //     changefreq: 'daily',
