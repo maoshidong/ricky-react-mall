@@ -1,0 +1,72 @@
+@import '/scss//utils/variable';
+// 新闻左侧筛选
+.refine-search-com {
+    height: fit-content;
+    .refine-search-title {
+        padding: 0 20px 4px;
+        margin: 0px -20px;
+        border-bottom: 1px solid $color-bgcd346;
+    }
+    .filter-pair {
+        position: relative;
+        display: block;
+        width: auto;
+        height: auto;
+        margin: 10px -10px 0;
+        padding: 0;
+        border: 1px solid $color-bgc37ee;
+        border-radius: 5px;
+        box-sizing: border-box;
+        .filter-header {
+            display: block;
+            width: inherit;
+            height: inherit;
+            padding: 8px 10px 8px 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-weight: bold;
+            cursor: pointer;
+            // transition: all .2s ease;
+//     -webkit-transform: rotate(.5turn);
+//     transform: rotate(.5turn);
+        }
+        .filter-header.active {
+            // border-bottom: 1px solid $color-bgc37ee;
+            border-radius: 5px 5px 0 0;
+            .open-icon {
+                -webkit-transform: rotate(.5turn);
+                transform: rotate(.5turn);
+            }
+        }
+        .open-icon {
+            transition: all .2s ease;
+        }
+        .filter-group.active {
+            border-top: 1px solid $color-bgc37ee;
+
+        }
+     
+        .filter-group {
+            display: none;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 10px 10px;
+
+            border: 0;
+            border-radius: 0 0 5px 5px;
+            box-sizing: border-box;
+            .refinement {
+                position: relative;
+                display: block;
+                border: 0;
+                cursor: pointer;
+            }
+        }
+        .filter-group.active {
+            max-height: 140px;
+            overflow-y: auto;
+            display: block;
+        }
+    }
+}

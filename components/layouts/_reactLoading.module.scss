@@ -1,0 +1,43 @@
+@import '/scss//utils/variable';
+@keyframes moveRight {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(100vw);
+	}
+}
+.headerLoadeBgc {
+	background-color: #a2c6f2 !important;
+	width: 100vw;
+	position: fixed;
+	height: 3px;
+	z-index: 9999;
+    .headerLoader {
+        width: 0;
+        height: 3px;
+        border-radius: $radius6;
+        background-color: $color-link;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999999;
+        // transition: width 2s ease-in-out;
+    }
+    .headerLoader.active {
+        width: 30%;
+        animation: moveRight 0.6s linear infinite;
+    }
+}
+.pubModalBgc {
+	position: fixed;
+	top: 3px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	outline: 0;
+	z-index: 99999;
+	background-color: rgba(0, 0, 0, .2) !important;
+}

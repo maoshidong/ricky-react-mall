@@ -1,0 +1,238 @@
+// 2.23检查都有使用
+.ps-footer {
+	background-color: $color-bgcf5;
+	color: $color-bgc555;
+	// background: #2c2c2c;
+	// color: #fff;
+
+	&__widgets {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		padding-top: 50px;
+	}
+
+	&__links {
+		padding: 60px 0;
+		border-top: 1px solid #e1e1e1;
+
+		p {
+			strong {
+				color: $color-heading;
+				margin-right: 20px;
+				font-weight: 600;
+			}
+
+			a {
+				display: inline-block;
+				color: $color-text;
+				line-height: 20px;
+				margin-right: 10px;
+				position: relative;
+
+				&:after {
+					content: '|';
+					margin-left: 5px;
+				}
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 100%;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background-color: $color-heading;
+					@include transform(scale3d(0, 1, 1));
+					transition: transform 0.4s $timing-1;
+					@include transform-origin(100% 50%);
+				}
+
+				&:hover {
+					&:before {
+						@include transform(scale3d(1, 1, 1));
+						@include transform-origin(0 50%);
+					}
+				}
+
+				&:last-child {
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	&__copyright {
+		padding: 10px 0;
+		text-align: center;
+		border-top: 1px solid $color-bgcd346;
+
+		.ps-footer-privacy {
+			display: flex;
+			align-items: center;
+			height: 20px;
+			color: $color-bgc555;
+
+			a {
+				display: inline-block;
+				padding: 0 10px;
+				font-size: 13px;
+				color: $color-bgc555;
+				line-height: 16px;
+
+				&:after {
+					content: "";
+					position: absolute;
+					top: 1px;
+					right: 0;
+					width: 1px;
+					height: 13px;
+					background-color: $color-font9;
+				}
+
+				&:hover {
+					color: $color-link;
+				}
+
+				&:last-child {
+					&:after {
+						content: "";
+						width: 0;
+					}
+				}
+			}
+		}
+
+		p {
+			margin-bottom: 0;
+			line-height: 20px;
+			color: $color-bgc555;
+			font-size: 13px;
+
+			&:last-child {
+				span {
+					display: inline-block;
+					line-height: inherit;
+					vertical-align: middle;
+				}
+
+				a {
+					display: inline-block;
+					margin-left: 20px;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+
+	.ps-footer__copyright {
+		.need-link:hover {
+			color: $color-link !important;
+		}
+	}
+
+	@include media('<sm') {
+		&__widgets {
+			flex-flow: row wrap;
+
+			>* {
+				width: 100%;
+				max-width: 25%;
+			}
+
+			.widget_contact-us {
+				max-width: 100%;
+				width: 100%;
+			}
+		}
+	}
+
+	@include media('<xs') {
+		&__widgets {
+			>* {
+				max-width: 50%;
+				flex-basis: 50%;
+			}
+		}
+
+		&__copyright {
+			flex-flow: row wrap;
+			text-align: center;
+
+			p {
+				display: block;
+				width: 100%;
+
+				span {
+					display: block;
+					padding-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+
+.footer-contact-us {
+	padding: 0 0 30px;
+	color: $color-white;
+	min-height: 192px;
+
+	.pub-top-bgc-content {
+		padding-left: 130px;
+		padding-bottom: 20px;
+	}
+
+	.contact-us-content {
+		min-height: 192px;
+
+		.contact-btn {
+			height: 32px;
+			border-radius: $radius6;
+			background-color: $color-white;
+			color: $color-link !important;
+			cursor: pointer;
+
+			&:hover {
+				background: #E7F0FC;
+			}
+		}
+	}
+
+	@media (max-width: 1440px) {
+		.content-quote {
+			display: flex;
+		}
+
+		.contact-btn {
+			margin-left: 20px;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.contact-us-content {
+			min-height: 160px;
+		}
+	}
+}
+
+.footer-service {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0 60px 38px 60px;
+	border-bottom: 1px solid $color-bgcd346;
+
+	.footer-service-item {
+		display: flex;
+		align-items: center;
+		min-width: 210px;
+		margin-bottom: 10px;
+
+		.footer-service-label {
+			font-size: 16px;
+			color: $color-font18;
+		}
+	}
+}

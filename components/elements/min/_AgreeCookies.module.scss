@@ -1,0 +1,71 @@
+@import '/scss/utils/variable';
+
+.agreeCookies {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9999999;
+	display: flex;
+	align-items: flex-end;
+
+	.agreeCookiesContent {
+		position: relative;
+		width: 100vw;
+		padding: 0 20px;
+		background: $color-white;
+		box-shadow: $box-shadow-modal;
+		pointer-events: auto;
+
+		.agreeCookiesText {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			padding: 20px;
+			// background-color: $color-bgcf5;
+			border-radius: $radius6;
+		}
+
+		.text {
+			width: 60%;
+		}
+
+		.btn {
+			display: flex !important;
+			align-items: center;
+			justify-content: center;
+			width: 40%;
+			margin: 10px auto;
+		}
+
+		@media (max-width: '900px') {
+
+			.text,
+			.btn {
+				width: 100%;
+			}
+		}
+
+		.acceptAll {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 180px;
+			height: 38px;
+			color: $color-white;
+			font-weight: 600;
+			background: $color-success;
+			border-radius: 19px;
+			cursor: pointer;
+
+			&:hover {
+				opacity: .9;
+			}
+		}
+
+		.agree {
+			width: 21px;
+			height: 14px;
+		}
+	}
+}

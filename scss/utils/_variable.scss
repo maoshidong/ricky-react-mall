@@ -1,0 +1,66 @@
+$font-1st: Arial;
+$font-2nd: Arial;
+$font-3rd: Arial;
+// $font-1st: 'Work Sans', sans-serif;
+// $font-2nd: 'Libre Baskerville', serif;
+// $font-3rd: 'Playfair Display', serif;
+$home: true !default;
+
+$color-1st: #1770DE;
+$color-layout-2-1st: #dd2400;
+$color-autopart: #dd2400;
+$color-technology: #0071df;
+$color-electronic: #dd2400;
+$color-furniture: #FF6B01;
+$color-organic: #5fa30f;
+$color-2nd: #222222;
+$color-3rd: #5e6b9d;
+$color-heading: #000;
+$color-text: #666;
+$color-font888: #888;
+$color-text-2: #555;
+$color-dark: #161824;
+$color-link-bgc: rgba(23, 112, 222, .1);
+$color-link: #1770DE;
+$color-font18: #181818;
+$color-font3: #333;
+$color-font9: #999;
+$color-bgcf5: #f5f7fa;
+$color-bgc555: #555;
+$color-bgcd3: #d3d7de; // #d3d7de #D3D3D3
+$color-bgcd346: #e3e7ee; // #e3e7ee #E3E4E6
+$color-bgc37ee: #E3E7EE;
+$color-bgcde8: #FEFBE8;
+$color-bgcd98: #FAE598;
+$color-font3b: #ED3B3B;
+$color-box-shadow3d: #3d3d3d26;
+$color-borderd9: #d9d9d9;
+$placeholder-color: #888; // #747171
+$color-success: #4FA72D;
+$color-warning: #FF6B01;
+$color-danger: #ff4d4f;
+$color-gray: #9e9e9e;
+$color-black: #000;
+$color-white: #fff;
+$color-default: #1770DE;
+$color-default2: #0B4993;
+$color-facebook: #3b5999;
+$color-twitter: #55acee;
+$color-google: #dd4b39;
+$color-linkedin: #0077b5;
+$document-font-size: 13px;
+$distance15: 15px;
+$radius6: 6px;
+$box-shadow: 0px 2px 12px 0px rgba(211, 215, 222, 0.5); // #d3d7de #D3D3D3  0px 0px 8px 0px #d3d7de
+$box-shadow-modal: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
+// $box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16); // 0 1px 2px 1px rgba(0,0,0,.16);;
+// $box-shadow: 0 4px 8px 0 rgba(0,0,0,.16), 0 1px 2px 1px rgba(0,0,0,.16);
+
+$timing: cubic-bezier(0.77, 0, 0.175, 1);
+$timing-1: cubic-bezier(0.7, 0, 0.3, 1);
+$timing-2: cubic-bezier(0.2, 1, 0.3, 1);
+$timing-3: cubic-bezier(0.4, 0, 0.2, 1);
+
+
+$page-min-width: 375px !important;
+$page-head-height: 60px;
