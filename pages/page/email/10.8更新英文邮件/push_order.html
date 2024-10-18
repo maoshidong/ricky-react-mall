@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>push_order</title>
+	<style>
+		a {
+			text-decoration: none !important;
+		}
+
+		.pub-btn {
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			background-color: #1770DE;
+			border-radius: 6px;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.pub-btn:hover {
+			background-color: #137dff;
+		}
+
+		.pub-btn a {
+			padding: 0 20px;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.pub-table {
+			width: 100%;
+			border: 1px solid #e3e7ee;
+			border-spacing: 0;
+			border-collapse: collapse;
+			font-size: 13px;
+			color: #333;
+		}
+
+		.pub-table thead {
+			background-color: #f5f7fa;
+			color: #fff;
+		}
+
+		.pub-table thead th {
+			padding: 6px;
+			text-align: left;
+		}
+
+		.pub-table td {
+			padding: 6px;
+			text-align: left;
+		}
+
+		.pub-table tr {
+			border-bottom: 1px solid #e3e7ee;
+		}
+
+		/* 签名 */
+		a {
+			text-decoration: none !important;
+		}
+
+		/* 签名结束 */
+
+		.safety-content {
+			max-width: calc(840px - 30px);
+			padding: 0 15px 10px;
+			margin-top: 10px;
+			font-size: 12px;
+			color: #555;
+			font-style: italic;
+		}
+	</style>
+</head>
+
+<body style="background-color: #f5f7fa;font-family: Arial !important;color: #333;font-size: 14px;">
+	<table width="840" border="0" cellspacing="0" cellpadding="0"
+		style="padding: 15px; background: #fff;border: 1px solid #e3e7ee; border-collapse: initial;">
+		<tbody>
+			<tr>
+				<td>
+					<div style="margin-bottom: 20px;">Dear ${userName},</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<div class="content">
+							<div style="margin-bottom: 30px;">This is our special offer for you only. Please click the 'Add to Cart'
+								button below to place your order and complete the payment. If you have any further question,please feel
+								free to reach out to us. We're here to help you. Thanks!</div>
+
+							<!-- payapl支付内容-开始 -->
+							<table class="pub-table" style="margin-bottom: 30px;">
+								<thead style="background-color: #f5f7fa;color: #333;">
+									<tr class="firstRow">
+										<th>PartNum</th>
+										<th>Manufacturer</th>
+										<th>Quantity</th>
+										<th>Unit Price</th>
+										<th>Selling Currency</th>
+										<th>Sales Subtotal</th>
+									</tr>
+								</thead>
+								<tbody>${details}</tbody>
+
+							</table>
+
+							<a id="selectedBtn" class="pub-btn" style="padding: 0 20px; margin-bottom: 20px;"
+								href='https://www.origin-ic.com/account/shopping-cart?pushNo=${pushNo}' target="_blank">Add
+								to Cart</a>
+
+							<div style="margin-bottom: 20px;">Thank you for your order!</div>
+
+							<!-- 有签名的：deliver, quotation, payment, Submit Order Information bank, Submit Order Information paypal, submit_pay -->
+							<!-- 签名-s -->
+							${emailFooter}
+							<!-- 签名-e -->
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- max-width: 840px;
+		font-size: 14px;
+		border: 1px solid #e3e7ee;
+		color: #333;
+		background: #fff -->
+
+
+	<div class="safety-content" style="margin-top: 30px;">
+		The contents of this e-mail and any file transmitted with it are confidential and intended solely for the
+		individual
+		or entity to whom they are addressed. The content may also contain legal, professional or other privileged
+		information. If you received this e-mail in error, please inform the sender AND destroy it immediately. You should
+		not copy or use it for any purpose nor disclose its contents to any other person.
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+@import '/scss//utils/variable';
+
+.contactbtn {
+	width: 140px;
+	height: 32px;
+	margin-top: 10px;
+	// border-radius: $radius6;
+	// background-color: $color-white;
+	// color: $color-link !important;
+	// cursor: pointer;
+
+	// &:hover {
+	// 	background: #E7F0FC;
+	// }
+}
+
+.title {
+	&::before {
+		-ms-flex-negative: 0;
+		flex-shrink: 0;
+		display: block;
+		content: "";
+		height: 32px;
+		width: 32px;
+		margin-right: 12px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url('/static/img/bg/rotate4.png');
+	}
+}
+
+// .footerBox {
+//     &::before {
+//         content: '';
+//         display: inline-block;
+//         width: 100%;
+//         height: 50px;
+//         background-color: $color-white;
+//     }
+// }
+.contactBox {
+	padding: 0 10px;
+	background-image: linear-gradient(to right, #1e232c 50%, #0052d9 0);
+	position: relative;
+	z-index: 0;
+
+	.contactCenter {
+		background-image: url('/static/img/bg/rotate2.png'), url('/static/img/bg/rotate1.png'), linear-gradient(to right, #1e232c 45%, #0052d9 0);
+		background-repeat: no-repeat;
+		background-position: calc(45% + 483px) top, calc(45% + 110px) bottom, 0 0;
+		background-size: 220px auto, 188px auto, auto;
+		color: #fff;
+		margin: 0 auto;
+		max-width: 1250px;
+		min-height: 160px;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-align: center;
+		align-items: center;
+		overflow: hidden;
+		position: relative;
+		box-sizing: border-box;
+		padding: 20px 0;
+
+		&::before {
+			content: "";
+			display: block;
+			height: 300px;
+			width: 80px;
+			background-color: #1e232c;
+			position: absolute;
+			left: 45%;
+			bottom: 0;
+			margin-left: -80px;
+			transform: rotate(25deg);
+			transform-origin: right bottom;
+		}
+
+	}
+
+}
+
+.rotate3 {
+	width: 200px;
+	top: -40px;
+	position: absolute;
+	left: calc(50% + 140px);
+	z-index: 1;
+	height: 200px;
+	background: url('/static/img/bg/rotate3.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.contactMobile {
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: none;
+	height: auto;
+	// background-image: radial-gradient(25% 245%, #242933 0, #242933 0);
+	// 	使用 circle 表示径向渐变的形状。
+	// 使用 at 指定渐变中心的位置。
+	// 将 0 和 0 替换为百分比 0% 和 100%，以明确表示渐变的开始和结束位置。
+	background-image: radial-gradient(circle at 25% 245%, #242933 0%, #242933 100%);
+	overflow: hidden;
+}
+
+.rotate3Mobile {
+	width: 170px;
+	opacity: .2;
+	top: 15px;
+	left: auto;
+	right: -65px;
+}

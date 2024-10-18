@@ -1,0 +1,59 @@
+.drawerContainer {
+	width: 298px;
+	overflow: hidden;
+	// position: relative;
+
+	.menuSections {
+		width: 100%;
+
+		.menuItem {
+			// line-height: 13px;
+			padding: calc(20px / 3) 20px;
+
+			.menuItemTitle {
+				line-height: 28px;
+				height: 28px;
+				display: flex;
+				align-items: center;
+				position: relative;
+			}
+
+			&:hover {
+				padding-left: calc(20px - 3px);
+				border-left: 3px solid #1770DE;
+				color: #1770DE !important;
+
+				i {
+					color: #1770DE !important;
+				}
+			}
+		}
+
+		.menuSubItem {
+			position: absolute;
+			width: 300px;
+			top: 0;
+			left: 100%;
+			z-index: 1;
+			background: gray;
+			height: 600px;
+			display: none;
+		}
+
+		.menuItem:hover.menuSubItem {
+			display: block;
+		}
+	}
+}
+
+// 动画效果
+.slidingDiv {
+	transition: left 0.3s ease-out;
+	left: calc(100% - 300px);
+	/* 300px 是你希望的最终位置的宽度 */
+}
+
+.slidingDiv.active {
+	left: 0;
+	/* 将元素移动到屏幕左侧 */
+}

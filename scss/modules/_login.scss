@@ -1,0 +1,192 @@
+.login-page-box {
+	.login-page-header {
+		display: flex;
+		align-items: center;
+		height: 60px;
+		padding-left: 20px;
+
+		.login-page-name {
+			padding-left: 5px;
+			color: $color-font18;
+			font-size: 18px;
+			font-weight: 500;
+		}
+	}
+
+	.login-sign-up {
+		color: $color-bgc555;
+
+		.login-sign-up-title {
+			text-align: center;
+			font-weight: 600;
+			font-size: 18px;
+		}
+
+		.login-sign-up-email {
+			margin-top: 5px;
+			margin-bottom: 25px;
+			text-align: center;
+			font-size: 14px;
+		}
+
+		.login-sign-up-resend {
+			margin-top: -13px;
+
+			span {
+				margin-left: 5px;
+			}
+
+			.code-retry {
+				color: $color-link;
+			}
+		}
+
+		.login-cancel {
+			margin-top: 15px;
+			font-size: 12px;
+			color: $color-link;
+			text-align: center;
+			cursor: pointer;
+		}
+	}
+
+	.register-success {
+		margin: 5px 0 10px 0;
+		text-align: center;
+		color: #555;
+		font-size: 18px;
+		font-weight: 600;
+
+	}
+
+}
+
+.or-login-type {
+	font-size: 14px;
+	color: $color-font888;
+
+	.or-line {
+		width: 100%;
+		height: 1px;
+		background-color: $color-bgcd3;
+	}
+}
+
+// facebook登录
+.facebook-login-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 32px;
+	background: $color-white;
+	border: 1px solid $color-bgcd3;
+	border-radius: $radius6;
+	color: $color-bgc555;
+	font-size: 14px;
+
+	&:hover {
+		color: $color-link;
+		border-color: $color-link;
+	}
+}
+
+.facebook-google-1 {
+	display: inline-block;
+	margin-right: 10px;
+	background-image: url(/static/img/icons/Facebook_Google.svg);
+	background-repeat: no-repeat;
+	background-size: 44px 21px;
+	width: 18px;
+	height: 19px;
+	background-position: -2px -1px;
+}
+
+.facebook-google-2 {
+	display: inline-block;
+	margin-right: 10px;
+	background-image: url(/static/img/icons/Facebook_Google.svg);
+	background-repeat: no-repeat;
+	background-size: 44px 21px;
+	width: 18px;
+	height: 19px;
+	background-position: -23px -1px;
+}
+
+.login-page-box {
+	.login-page-content {
+		height: calc(100vh - 60px);
+		background: url(/static/img/bg/login-bg.png) no-repeat 100%;
+		background-size: cover;
+
+		.login-page-handle-box {
+			position: absolute;
+			right: 25%;
+			top: calc(50vh - 210px);
+			width: 400px;
+			min-height: 420px;
+			padding: 25px 30px 30px 30px;
+			// border: 1px solid $color-text-2;
+			font-size: 12px;
+			color: $color-bgc555;
+			// box-shadow: 0px 0px 8px 0px #888;
+			box-shadow: 2px 1px 16px 0px #CADEF2;
+			border-radius: 6px;
+			background-color: $color-white;
+		}
+
+		.login-page-login-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 340px;
+			height: 32px;
+			margin-top: 38px;
+			border-radius: 6px;
+			border: none;
+		}
+
+		.ant-form-item {
+			margin-bottom: 20px;
+		}
+
+		.form-item {
+			margin-top: 5px;
+		}
+
+		.login-page-handle {
+			.login-page-privacy {
+				margin-top: 10px;
+				color: $color-bgc555;
+				font-size: 12px;
+				line-height: 14px;
+			}
+		}
+
+		.register-page-handle {
+			.register-tip {
+				margin-bottom: 20px;
+				font-size: 14px;
+				color: $color-bgc555;
+				text-align: center;
+			}
+		}
+	}
+
+}
+
+@media (width <=750px) {
+	.login-page-box {
+		.login-page-content {
+			.login-page-handle-box {
+				right: 50%;
+				width: calc(100% - 32px);
+				transform: translateX(50%);
+			}
+
+			.login-page-login-btn {
+				width: 100%;
+			}
+		}
+	}
+}

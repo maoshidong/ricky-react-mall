@@ -1,0 +1,40 @@
+.container {
+	height: 100%;
+
+	.title {
+		color: #181818;
+		font-size: 12px;
+		line-height: 12px;
+		font-weight: 600;
+		padding: 8px;
+		// min-height: 54px;
+		min-height: 40px;
+	}
+
+	.opration {
+		border-top: 1px solid #d3d7de;
+
+		:first-child {
+			border-right-width: 1px;
+		}
+
+		.divSeat {
+			height: 20px;
+		}
+	}
+
+	button {
+		width: 50%;
+		height: 20px;
+		border: 1px solid #d3d7de;
+		background-color: #e3e7ee;
+		border-bottom-width: 0;
+		border-right-width: 0;
+		border-left-width: 0;
+		border-top-width: 0;
+	}
+
+	.isSelect {
+		background-color: #dadee4 !important;
+	}
+}

@@ -1,0 +1,77 @@
+@import '/scss/utils/variable';
+
+.quoteTable {
+	display: table;
+	width: 100%;
+	// text-indent: initial;
+	// unicode-bidi: isolate;
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid $color-bgcd346 !important;
+	border-radius: $radius6 !important;
+	background-color: $color-white !important;
+	margin-bottom: 1rem;
+	color: #212529;
+	font-size: 13px;
+
+	thead {
+		>tr {
+			>th {
+				padding: 4px 15px;
+				padding-top: 7px;
+				height: 32px;
+				width: 33.33%;
+				font-family: Arial;
+				font-weight: 500;
+				color: $color-font18;
+				text-transform: uppercase;
+				background: #f5f7fa;
+				text-align: left;
+
+				&:last-child {
+					text-align: right;
+				}
+			}
+		}
+	}
+
+	tbody {
+		>tr {
+			&:hover {
+				background: none !important;
+				box-shadow: none !important;
+				cursor: auto;
+			}
+
+			>td {
+				vertical-align: middle;
+				height: 32px !important;
+				padding: 4px 15px;
+				padding-top: 7px;
+				color: $color-bgc555;
+				border-top: 1px solid $color-bgcd346;
+				border-bottom: none;
+				border-right: none;
+				text-align: left;
+
+				&:last-child {
+					text-align: right;
+				}
+			}
+
+		}
+	}
+}
+.discountTh {
+	th { width: auto !important; }
+}
+.discountTh {
+	tbody {
+		tr {
+			td:nth-child(2) {
+				text-decoration: line-through
+			}
+		}
+	}
+}
+// className={classNames(styles.requireTip, cn, 'pub-danger', className)}

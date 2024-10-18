@@ -1,0 +1,48 @@
+# Google-Adsbot
+User-agent: AdsBot-Google
+
+# all crawlers
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: *
+Disallow: /account/
+Disallow: /account/*
+Disallow: */api/*
+Disallow: */api/
+Disallow: /api/*
+Disallow: */uploads/
+Disallow: /uploads/*
+Disallow: */app/
+Disallow: /app/
+Disallow: /app/*
+Disallow: */console/*
+Disallow: */console/
+Disallow: /console/*
+Disallow: */biz/
+Disallow: /biz/*
+
+Disallow: /app/api/*
+Disallow: /app/app/*
+Disallow: /app/erp/*
+Disallow: /app/productViewCount/*
+Disallow: /app/web/*
+Disallow: /app/order/*
+Disallow: /app/cart/*
+Disallow: /_next/*
+Disallow: /_next/image/*
+Disallow: /prod-api/*
+Disallow: /prod-api/biz/*
+Disallow: /prod-api/biz/
+Disallow: /app/api/app/*
+Disallow: /prod-api/biz/news/*
+Disallow: *.pdf
+
+# Sitemaps   
+Sitemap: https://www.szxlxc.com/sitemap-head-cn.xml
+Sitemap: https://www.szxlxc.com/sitemap-cn.xml
+Sitemap: https://www.szxlxc.com/product-list-cn.xml
+Sitemap: https://www.szxlxc.com/sitemap-cn.txt

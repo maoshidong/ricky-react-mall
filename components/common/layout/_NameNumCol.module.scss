@@ -1,0 +1,67 @@
+@import '/scss/utils/variable';
+
+.nameNumCol {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 15px;
+	margin-bottom: 0;
+	// display: grid;
+	// grid-template-columns: repeat(3, 1fr);
+	/* 创建3列，每列等宽 */
+	/* 列之间的间距 */
+	// -moz-column-count: 3;
+	// column-count: 3;
+	border: 1px solid $color-bgcd346;
+	border-radius: $radius6 !important;
+	background-color: $color-white;
+
+	.nameNumColItem {
+		display: flex;
+		align-items: center;
+		padding-right: 50px;
+		margin-bottom: 10px;
+		font-size: 13px;
+		color: $color-font18;
+		// overflow: hidden;
+		// white-space: nowrap;
+		// text-overflow: ellipsis;
+		width: 33.33%;
+
+		// .nameNumColItemName {
+		// 	overflow: hidden;
+		// 	white-space: nowrap;
+		// 	text-overflow: ellipsis;
+		// }
+
+		.num {
+			margin-left: 10px;
+			color: $color-bgc555;
+			font-size: 12px;
+		}
+
+		&:hover {
+			color: $color-link;
+
+			.num {
+				color: $color-link;
+			}
+		}
+	}
+}
+
+@media (max-width: 1400px) {
+	.nameNumColItem {
+		width: 50% !important;
+	}
+
+	// .nameNumCol {
+	// 	-moz-column-count: 2;
+	// 	column-count: 2;
+	// }
+}
+
+@media (max-width: 500px) {
+	.nameNumColItem {
+		width: 100% !important;
+	}
+}

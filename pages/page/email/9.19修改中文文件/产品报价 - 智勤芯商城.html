@@ -1,0 +1,331 @@
+<style>
+	/* 所有邮件基础样式-s */
+	* {
+		font-family: Arial !important
+	}
+
+	.font12 {
+		font-size: 12px
+	}
+
+	.font13 {
+		font-size: 13px
+	}
+
+	.font16 {
+		font-size: 16px
+	}
+
+	.fontw {
+		font-weight: 600
+	}
+
+	.mb10 {
+		margin-bottom: 10px
+	}
+
+	.mb20 {
+		margin-bottom: 20px
+	}
+
+	.mb30 {
+		margin-bottom: 30px
+	}
+
+	.mt30 {
+		margin-top: 30px
+	}
+
+	.colorLink {
+		color: #1770DE
+	}
+
+	a {
+		text-decoration: none !important
+	}
+
+	.containter {
+		background-color: #f5f7fa;
+		min-height: 100vh
+	}
+
+	.origin-email-box {
+		max-width: 840px;
+		font-size: 14px;
+		border: 1px solid #e3e7ee;
+		color: #333;
+		background: #fff;
+		line-height: 20px
+	}
+
+	.content {
+		padding: 15px
+	}
+
+	/* 所有邮件基础样式-e */
+	/* 按钮样式-s */
+	.pub-btn {
+		display: inline-block;
+		height: 30px;
+		line-height: 30px;
+		background-color: #1770DE;
+		border-radius: 6px;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.pub-btn:hover {
+		background-color: #137dff
+	}
+
+	.pub-btn a {
+		padding: 0 20px;
+		color: #fff;
+		text-decoration: none
+	}
+
+	/* 按钮样式-e */
+	/* 表格样式-s */
+	.pub-table {
+		width: 100%;
+		border: 1px solid #e3e7ee;
+		border-spacing: 0;
+		border-collapse: collapse;
+		font-size: 13px;
+		color: #333;
+	}
+
+	.pub-table thead {
+		background-color: #f5f7fa;
+		color: #fff
+	}
+
+	.pub-table thead th {
+		padding: 6px;
+		text-align: left
+	}
+
+	.pub-table td {
+		padding: 6px;
+		text-align: left
+	}
+
+	.pub-table tr {
+		border-bottom: 1px solid #e3e7ee
+	}
+
+	.total {
+		color: #d76a0b;
+		font-weight: 600
+	}
+
+	/* 表格样式-e */
+	.suc {
+		color: #4FA72D;
+	}
+
+	.content .toPay {
+		display: flex;
+		align-items: center;
+	}
+
+	.content .toPayBtn {
+		margin-left: 10px;
+	}
+
+	.logo-bgc {
+		width: 197px;
+		height: 40px;
+		background-image: url("https://www.szxlxc.com/static/img/logo.svg");
+		/* background-image: url("https://www.szxlxc.com/static/img/certificarions/email-all.png"); */
+		background-repeat: no-repeat;
+		background-position: 0px 0px;
+		background-size: 100%;
+		margin-bottom: 17px;
+	}
+
+	.logo-bgc-white {
+		width: 139px;
+		height: 28px;
+		background-image: url("https://www.szxlxc.com/static/img/white-logo.svg");
+		/* background-image: url("https://www.szxlxc.com/static/img/certificarions/email-all.png"); */
+		background-repeat: no-repeat;
+		background-position: 0px 0px;
+		background-size: 100%;
+	}
+
+	/* 签名 */
+	a {
+		text-decoration: none !important;
+	}
+
+	.signature {
+		font-size: 12px;
+	}
+
+	.signature .name {
+		color: #1770DE;
+		font-size: 20px;
+	}
+
+	.signature .type {
+		margin-bottom: 12px;
+		color: #666;
+		font-size: 12px;
+		margin-top: 3px;
+	}
+
+	.signature .signature-content {
+		/* display: flex; */
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.signature .signature-content .left {
+		display: inline-block;
+	}
+
+	.signature .signature-content .left .icon {
+		/* display: flex; */
+		align-items: center;
+		margin-top: 7px;
+	}
+
+	.signature .signature-content .left .mr6 {
+		margin-right: 6px;
+	}
+
+	.signature .logo {
+		width: 197px;
+		height: 40px;
+	}
+
+	.signature .bgc {
+		width: 42px;
+		height: 136px;
+		background: #3073BA;
+		opacity: 0.2;
+		/* border-radius: 50%; */
+	}
+
+	.signature .certification {
+		/* display: flex; */
+		flex-wrap: wrap;
+	}
+
+	.signature .certification .img {
+		flex-basis: calc(33.33% - 10px);
+		width: 40px;
+		/* height: 34px; */
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+
+	.signature .certification .view {
+		/* display: flex; */
+		align-items: center;
+		justify-content: space-around;
+		margin-top: 6px;
+		border: 1px solid #3073BA;
+		color: #3073BA;
+		border-radius: 4px;
+		height: 20px;
+		line-height: 10px;
+		cursor: pointer;
+	}
+
+	.signature .certification .view div {
+		transform: scale(0.8);
+	}
+
+	.signature .all-certification {
+		max-width: 390px;
+	}
+
+	.signature .column-line {
+		background-image: url("https://www.szxlxc.com/static/img/certificarions/column-line.png");
+		background-repeat: no-repeat;
+		width: 32px;
+		height: 134px;
+		background-position: 0px 0px;
+	}
+
+	.flex-center {
+		display: flex;
+		align-items: center;
+	}
+
+	.signature .contact-item {
+		display: flex;
+		align-items: center;
+		margin-top: 8px;
+	}
+
+	.signature .contact-item::first-child {
+		margin-top: 0;
+	}
+
+	.signature .contact-num {
+		margin-left: 8px;
+		color: #333;
+		font-size: 12px;
+	}
+
+	.signature .contact-item a {
+		text-decoration: none !important;
+	}
+
+	/* 签名结束 */
+	.no-reply {
+		margin-top: 20px;
+		padding-top: 15px;
+		padding-bottom: 5px;
+		border-top: 1px solid #e3e7ee;
+		color: #555;
+	}
+
+	.safety-content {
+		max-width: calc(840px - 30px);
+		padding: 0 15px 10px;
+		margin-top: 10px;
+		font-size: 12px;
+		color: #555;
+		font-style: italic;
+	}
+</style>
+<div class="containter">
+	<div class="origin-email-box">
+		<div class="content">
+			<div class="mb30"> 亲爱的 ${userName}, </div>
+			<div class="mb20"> 谢谢您的询价。这是我们的报价单，请查收。 </div><!--<input type="checkbox" checked>-->
+			<table id="dataTable" class="pub-table mb20">
+				<thead style="background-color: #f5f7fa;color: #333;">
+					<tr class="firstRow"> <!--<th>Select</th>-->
+						<th> 产品型号 </th>
+						<th> 品牌 </th>
+						<th> 包装 </th>
+						<th> 年份 </th>
+						<th> Rohs </th>
+						<th> 数量 </th>
+						<th> 单价 </th>
+						<th> 发货时间 </th>
+						<th> 备注 </th>
+					</tr>
+				</thead>
+				<tbody>${details}</tbody>
+			</table><a id="selectedBtn" class="pub-btn mb30" style="padding: 0 20px;"
+				href="https://www.szxlxc.com/account/shopping-cart?emailQuoteIds=${quoteIds}" target="_blank">添加到购物车</a>
+			<div class=""> 如果您对我们的报价有任何问题，请告诉我们，我们将非常乐意为您服务你。 </div>
+			<div class="mb20"> 如果您需要零件，我们可以在一天内发货!还有3年保修期。 </div>
+			<div class=""> 如果您有任何问题，请随时与我联系。 </div>
+			<div class="mb30"> 期待收到反馈。谢谢你！ </div><!-- 有签名的：deliver, quotation, payment, submit_pay_bank, submit_pay -->
+			<!-- 签名-s -->
+			${emailFooter}
+			<!-- 签名-e -->
+		</div>
+	</div>
+	<div class="safety-content mt30">
+		本电子邮件的内容和随邮件传输的任何文件均为机密，仅供接收邮件的个人或实体使用。内容也可能包含法律、专业或其他特权信息。如果您错误地收到了这封邮件，请通知发件人并立即销毁它。您不应将其复制或用于任何目的，也不应将其内容透露给任何其他人。
+	</div>
+</div>
+<script>// function goAddCart() { // window.open(`https://www.szxlxc.com/account/shopping-cart?emailQuoteIds=${quoteIds}`, '_blank') // } // console.log(window.language, 'getSelectedRows--del选中的'); // document.getElementById('selectedBtn').addEventListener('click', function() { // alert('Button clicked!'); // });</script>

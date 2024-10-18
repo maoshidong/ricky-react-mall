@@ -1,0 +1,118 @@
+button {
+    cursor: pointer;
+    @include transition(all 0.4s ease);
+}
+.ps-operation_btn{
+    padding:10px 16px !important;
+    font-size:13px !important;
+}
+
+.ps-btn,
+button.ps-btn {
+    display: inline-block;
+    padding: 15px 45px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: $color-white;
+    border: none;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: $color-link;
+    transition: all 0.4s ease;
+    cursor: pointer;
+
+    &--rounded {
+        @include border-radius(50px);
+    }
+
+    &--curve {
+        @include border-radius(5px);
+    }
+
+    &--outline {
+        border: 2px solid $color-1st;
+        color: $color-1st;
+        background-color: transparent;
+        @include box-shadow(none);
+        font-weight: 500;
+
+        &:hover {
+            color: $color-white;
+            background-color: $color-default2;
+        }
+    }
+
+    &--fullwidth {
+        width: 100%;
+        text-align: center;
+    }
+
+    &--sm {
+        padding: 0.5rem 2rem;
+        font-size: 1.2rem;
+
+        &.ps-btn--curve {
+            @include border-radius(3px);
+        }
+    }
+
+    &--lg {
+        padding: 1.5rem 4rem;
+    }
+
+    &--xl {
+        padding: 2rem 6rem;
+        font-size: 1.6rem;
+    }
+
+    &.ps-btn--reverse {
+        background-color: #576391;
+
+        &:hover {
+            background-color: $color-2nd;
+        }
+    }
+
+    &.ps-btn--gray {
+        background-color: #e5e5e5;
+        color: #000000;
+        font-size: 1.6rem;
+    }
+
+    &.ps-btn--black {
+        background-color: $color-heading;
+
+        &.ps-btn--outline {
+            background-color: transparent;
+            border: 2px solid $color-heading;
+            color: $color-heading;
+
+            &:hover {
+                background-color: $color-heading;
+                color: #ffffff;
+            }
+        }
+    }
+
+    &:hover,
+    &:active {
+        background-color: $color-link;
+        color: $color-white;
+
+        &.ps-btn--black {
+            background-color: $color-1st;
+        }
+
+        &[disabled] {
+            color: #fefefe;
+            background-color: $color-gray;
+        }
+    }
+
+    &[disabled] {
+        opacity: 0.2;
+        color: #fefefe;
+        background-color: $color-gray;
+    }
+}

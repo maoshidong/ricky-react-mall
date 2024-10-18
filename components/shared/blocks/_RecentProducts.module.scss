@@ -1,0 +1,17 @@
+@import '/scss/utils/variable';
+.blocksRecentProducts {
+	.recentProductsItem {
+		position: relative;
+		min-width: 222px;
+		max-width: 260px;
+		height: 200px; // 265px
+		border-radius: 6px;
+		padding: 5px 20px 20px;
+		border: 1px solid $color-white;
+		background-color: $color-white;
+		cursor: pointer;
+	}
+	.recentProductsItem:hover {
+		border: 1px solid $color-link;
+	}
+}
