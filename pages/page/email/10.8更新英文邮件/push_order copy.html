@@ -1,0 +1,196 @@
+<style>
+	* {
+		font-family: Arial !important;
+	}
+
+	.mb10 {
+		margin-bottom: 10px;
+	}
+
+	.mb20 {
+		margin-bottom: 20px;
+	}
+
+	.mb30 {
+		margin-bottom: 30px;
+	}
+
+	.mt30 {
+		margin-top: 30px;
+	}
+
+	a {
+		text-decoration: none !important;
+	}
+
+	.pub-btn {
+		display: inline-block;
+		height: 30px;
+		line-height: 30px;
+		background-color: #1770DE;
+		border-radius: 6px;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.pub-btn:hover {
+		background-color: #137dff;
+	}
+
+	.pub-btn a {
+		padding: 0 20px;
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.pub-table {
+		width: 100%;
+		border: 1px solid #e3e7ee;
+		border-spacing: 0;
+		border-collapse: collapse;
+		font-size: 13px;
+		color: #333;
+	}
+
+	.pub-table thead {
+		background-color: #f5f7fa;
+		color: #fff;
+	}
+
+	.pub-table thead th {
+		padding: 6px;
+		text-align: left;
+	}
+
+	.pub-table td {
+		padding: 6px;
+		text-align: left;
+	}
+
+	.pub-table tr {
+		border-bottom: 1px solid #e3e7ee;
+	}
+
+	.total {
+		color: #d76a0b;
+		font-weight: 600;
+	}
+
+
+	.origin-email-box {
+		max-width: 840px;
+		font-size: 14px;
+		border: 1px solid #e3e7ee;
+		color: #333;
+		background: #fff
+	}
+
+
+	.content {
+		padding: 15px;
+	}
+
+	.content .toPay {
+		display: flex;
+		align-items: center;
+	}
+
+	.content .toPayBtn {
+		margin-left: 10px;
+	}
+
+	/* 签名 */
+	a {
+		text-decoration: none !important;
+	}
+
+	/* 签名结束 */
+	.no-reply {
+		margin-top: 20px;
+		padding-top: 15px;
+		padding-bottom: 5px;
+		border-top: 1px solid #e3e7ee;
+		color: #555;
+	}
+
+	.safety-content {
+		max-width: calc(840px - 30px);
+		padding: 0 15px 10px;
+		margin-top: 10px;
+		font-size: 12px;
+		color: #555;
+		font-style: italic;
+	}
+</style>
+
+<body>
+	<table width="840" border="0" cellspacing="0" cellpadding="0"
+		style="padding: 13px; height: 60px; background-color: #f5f7fa; min-height: 100vh;">
+		<tbody>
+			<tr>
+				<td width="20%">
+
+				</td>
+				<td width="50%"> </td>
+				<td width="370">
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="background-color: #f5f7fa; min-height: 100vh;">
+		<div class="origin-email-box">
+
+			<div class="content">
+				<div class="mb30">
+					Dear ${userName},
+				</div>
+
+				<div class="mb30">This is our special product offer, please click Add to Cart to proceed with your order.</div>
+
+
+				<!-- payapl支付内容-开始 -->
+				<table class="pub-table mb30">
+					<thead style="background-color: #f5f7fa;color: #333;">
+						<tr class="firstRow">
+							<th>
+								partNum
+							</th>
+							<th>
+								Product Deail
+							</th><!-- 不展示了-通知后端 --> <!--<th>Manufacturer</th>-->
+							<th>
+								Ordered
+							</th>
+							<th>
+								Unit Price
+							</th>
+							<th>
+								Ext.Price
+							</th>
+						</tr>
+					</thead>
+					<tbody>${details}</tbody>
+
+				</table>
+
+				<a id="selectedBtn" class="pub-btn mb30" style="padding: 0 20px;"
+					href='https://www.origin-ic.com/account/shopping-cart?emailQuoteIds=${quoteIds}' target="_blank">Add
+					to Cart</a>
+
+				<!-- 有签名的：deliver, quotation, payment, Submit Order Information bank, Submit Order Information paypal, submit_pay -->
+				<!-- 签名-s -->
+				${emailFooter}
+				<!-- 签名-e -->
+			</div>
+		</div>
+
+		<div class="safety-content mt30">
+			The contents of this e-mail and any file transmitted with it are confidential and intended solely for the
+			individual
+			or entity to whom they are addressed. The content may also contain legal, professional or other privileged
+			information. If you received this e-mail in error, please inform the sender AND destroy it immediately. You should
+			not copy or use it for any purpose nor disclose its contents to any other person.
+		</div>
+	</div>
+</body>

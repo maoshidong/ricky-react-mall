@@ -1,0 +1,236 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
+	<title>Create My Account - Origin Data</title>
+	<style>
+		.font12 {
+			font-size: 12px;
+		}
+
+		.font16 {
+			font-size: 16px;
+		}
+
+		.fontw {
+			font-weight: 600;
+		}
+
+		.mb10 {
+			margin-bottom: 10px;
+		}
+
+		.mb20 {
+			margin-bottom: 20px;
+		}
+
+		.mb30 {
+			margin-bottom: 30px;
+		}
+
+		.mt30 {
+			margin-top: 30px;
+		}
+
+		.colorLink {
+			color: #1770DE
+		}
+
+		.pub-btn {
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			padding: 0 20px;
+			background-color: #1770DE;
+			border-radius: 6px;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.pub-btn:hover {
+			background-color: #137dff;
+		}
+
+		.pub-table {
+			width: 100%;
+			border: 1px solid #e3e7ee;
+			border-spacing: 0;
+			border-collapse: collapse;
+			font-size: 14px;
+			color: #333;
+		}
+
+		.pub-table thead {
+			background-color: #1770DE;
+			color: #fff;
+		}
+
+		.pub-table thead th {
+			padding: 6px;
+			text-align: left;
+		}
+
+		.pub-table td {
+			padding: 6px;
+			text-align: left;
+		}
+
+		.pub-table tr {
+			border-bottom: 1px solid #e3e7ee;
+		}
+
+		.total {
+			color: #d76a0b;
+			font-weight: 600;
+		}
+
+		.containter {
+			background-color: #f5f7fa;
+			min-height: 100vh;
+		}
+
+		.origin-email-box {
+			width: 810px;
+			/* max-width: 1000px; */
+			font-size: 14px;
+			border: 1px solid #e3e7ee;
+			color: #333;
+			background: #fff
+		}
+
+		/* 头部-s */
+		.head {
+			display: flex;
+			justify-content: space-between;
+			padding: 15px 0 15px 15px;
+			background-color: #1770DE;
+		}
+
+		.head .logo {
+			width: 145px;
+			height: 29px;
+		}
+
+		.head .head-right {
+			display: flex;
+			justify-content: space-between;
+			padding-right: 15px;
+		}
+
+		.head .head-right .item {
+			position: relative;
+			display: flex;
+			align-items: center;
+		}
+
+		.head .head-right .item::after {
+			content: '';
+			display: flex;
+			width: 1px;
+			height: 14px;
+			position: absolute;
+			background-color: #e3e7ee;
+			right: 0;
+		}
+
+		.head .head-right .item:last-child::after {
+			content: '';
+			width: 0;
+			height: 0;
+			border-top: 6px solid transparent;
+			/* 三角形上边框 */
+			border-bottom: 6px solid transparent;
+			/* 三角形下边框 */
+			border-left: 6px solid #fff;
+			/* 三角形左边框 */
+			background-color: transparent;
+			right: 3px;
+		}
+
+		.head .head-right a {
+			padding: 0 15px;
+			display: inline-block;
+			color: #fff;
+			text-decoration: none !important;
+		}
+
+		/* 头部-e */
+		.logo-bgc-white {
+			width: 139px;
+			height: 28px;
+			background-image: url("https://www.origin-ic.com/static/img/white-logo.svg");
+			/* background-image: url("https://www.origin-ic.com/static/img/certificarions/email-all.png"); */
+			background-repeat: no-repeat;
+			background-position: 0px 0px;
+			background-size: 100%;
+		}
+
+
+		.content {
+			padding: 15px;
+		}
+
+		.no-reply {
+			margin-top: 20px;
+			padding-top: 15px;
+			padding-bottom: 5px;
+			border-top: 1px solid #e3e7ee;
+			color: #555;
+		}
+
+		.safety-content {
+			width: calc(810px - 30px);
+			/* max-width: 1000px; */
+			padding: 0 15px 10px;
+			margin-top: 10px;
+			font-size: 12px;
+			color: #555;
+			font-style: italic;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="containter">
+		<div class="origin-email-box">
+			${emailHead}
+
+			<div class="content">
+				<div class="mb30">Dear ${userName},</div>
+				<div class="mb30">
+					Thank you for creating an MyOrigin account. This code will expire in 10 minutes.
+					<div>Please enter the verification code into registration window.</div>
+				</div>
+
+				<div class="mb30 font16 fontw colorLink">Verification Code: ${code}</div>
+
+				<div class="mb30">
+					If you have any questions, please contact us, we will be happy to help you.
+					<div>
+						Our email:<a class="colorLink" href="mailto:${serviceEmail}"> ${serviceEmail}</a>
+					</div>
+				</div>
+
+				<div>Thank you,</div>
+				<div>The Origin Data Team</div>
+
+				<div class="no-reply">
+					<div>Do not reply. This is an automated email from us.</div>
+					<div>Copyright © 2024 Origin Data Global Limited, All rights reserved.</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="safety-content mt30">
+			The contents of this e-mail and any file transmitted with it are confidential and intended solely for the
+			individual or entity to whom they are addressed. The content may also contain legal, professional or other
+			privileged information. If you received this e-mail in error, please inform the sender AND destroy it
+			immediately. You should not copy or use it for any purpose nor disclose its contents to any other person.
+		</div>
+
+	</div>
+</body>
+
+</html>

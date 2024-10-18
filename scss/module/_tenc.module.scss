@@ -1,0 +1,26 @@
+.tenc {
+	background-image: url('/static/img/icons/tenc.svg');
+	background-repeat: no-repeat;
+	background-size: 256px 244px;
+	display: inline-block;
+}
+
+// 上下21间距（第二个参数）  左右间距31
+// 第一行
+.tenc11 {
+	background-position: -3px -6px;
+	min-width: 26px;
+	height: 20px;
+}
+
+.tenc35 {
+	background-position: -135px -66px;
+	min-width: 25px;
+	height: 28px;
+}
+
+.tenc64 {
+	background-position: -99px -163px;
+	min-width: 28px;
+	height: 26px;
+}

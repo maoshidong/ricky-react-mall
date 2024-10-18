@@ -1,0 +1,44 @@
+@import '/scss/utils/variable';
+@import '/scss/elements/helpers';
+.psShoppingTotal {
+    margin-bottom: 16px;   
+    @extend %list-reset;
+}
+.psHeader {
+    color: $color-font18;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px;
+}
+.psSub {
+    border-bottom: 1px solid $color-bgcd346;
+}
+.psNewContent {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+
+    // .ant-select-selector{
+    //     height: 32px !important;
+    //     border-radius: 6px;
+    //     border: 1px solid $color-bgcd346;
+    // }
+
+    div {
+        width: 100%;
+        font-size: 13px;
+        color: $color-font18;
+        span {
+            float: right;
+        }
+    }
+}
+
+.psTotalAmount {
+    margin-bottom: 10px;
+    margin-top: 15px; 
+    font-size: 16px !important;
+    span {
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,568 @@
+<html lang="en">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
+<title>quote</title>
+
+<head>
+	<style>
+		a {
+			text-decoration: none !important;
+		}
+
+		.font12 {
+			font-size: 12px;
+		}
+
+		.font13 {
+			font-size: 13px;
+		}
+
+		.font16 {
+			font-size: 16px;
+		}
+
+		.fontw {
+			font-weight: 600;
+		}
+
+		.mb10 {
+			margin-bottom: 10px;
+		}
+
+		.mb20 {
+			margin-bottom: 20px;
+		}
+
+		.mb30 {
+			margin-bottom: 30px;
+		}
+
+		.mt30 {
+			margin-top: 30px;
+		}
+
+		.colorLink {
+			color: #1770DE
+		}
+
+		.pub-btn {
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			background-color: #1770DE;
+			border-radius: 6px;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.pub-btn:hover {
+			background-color: #137dff;
+		}
+
+		.pub-btn a {
+			padding: 0 20px;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.pub-table {
+			width: 100%;
+			border: 1px solid #e3e7ee;
+			border-spacing: 0;
+			border-collapse: collapse;
+			font-size: 12px;
+			color: #333;
+		}
+
+		.pub-table thead {
+			/* background-color: #1770DE;
+            color: #fff; */
+		}
+
+		.pub-table thead th {
+			padding: 6px;
+			text-align: left;
+			font-weight: 500;
+		}
+
+		.pub-table td {
+			padding: 6px;
+			text-align: left;
+		}
+
+		.pub-table tr {
+			border-bottom: 1px solid #e3e7ee;
+		}
+
+		.total {
+			color: #d76a0b;
+			font-weight: 600;
+		}
+
+		.containter {
+			background-color: #f5f7fa;
+			min-height: 100vh;
+		}
+
+		.origin-email-box {
+			max-width: 840px;
+			/* max-width: 1000px; */
+			font-size: 13px;
+			border: 1px solid #e3e7ee;
+			color: #333;
+			background: #fff
+		}
+
+		.head {
+			display: flex;
+			justify-content: space-between;
+			padding: 15px 0 15px 15px;
+			background-color: #1770DE;
+		}
+
+		.head .logo {
+			width: 139px;
+			height: 28px;
+		}
+
+
+		.head .head-right {
+			display: flex;
+			justify-content: space-between;
+			padding-right: 15px;
+		}
+
+		.head .head-right .item {
+			position: relative;
+			display: flex;
+			align-items: center;
+		}
+
+		.head .head-right .item::after {
+			content: '';
+			display: flex;
+			width: 1px;
+			height: 14px;
+			position: absolute;
+			background-color: #e3e7ee;
+			right: 0;
+		}
+
+		.head .head-right .item:last-child::after {
+			content: '';
+			width: 0;
+			height: 0;
+			border-top: 6px solid transparent;
+			/* 三角形上边框 */
+			border-bottom: 6px solid transparent;
+			/* 三角形下边框 */
+			border-left: 6px solid #fff;
+			/* 三角形左边框 */
+			background-color: transparent;
+			right: 3px;
+		}
+
+		.head .head-right a {
+			padding: 0 15px;
+			display: inline-block;
+			color: #fff;
+			text-decoration: none !important;
+		}
+
+
+		.content {
+			padding: 15px;
+		}
+
+		.suc {
+			color: #4FA72D;
+		}
+
+		.content .toPay {
+			display: flex;
+			align-items: center;
+		}
+
+		.content .toPayBtn {
+			margin-left: 10px;
+		}
+
+
+		.logo-bgc {
+			width: 197px;
+			height: 40px;
+			background-image: url("https://www.origin-ic.com/static/img/logo.svg");
+			/* background-image: url("https://www.origin-ic.com/static/img/certificarions/email-all.png"); */
+			background-repeat: no-repeat;
+			background-position: 0px 0px;
+			background-size: 100%;
+			margin-bottom: 17px;
+		}
+
+		.logo-bgc-white {
+			width: 139px;
+			height: 28px;
+			background-image: url("https://www.origin-ic.com/static/img/white-logo.svg");
+			/* background-image: url("https://www.origin-ic.com/static/img/certificarions/email-all.png"); */
+			background-repeat: no-repeat;
+			background-position: 0px 0px;
+			background-size: 100%;
+		}
+
+		/* 签名 */
+		a {
+			text-decoration: none !important;
+		}
+
+		.signature {
+			font-size: 12px;
+		}
+
+		.signature .name {
+			color: #1770DE;
+			font-size: 20px;
+		}
+
+		.signature .type {
+			margin-bottom: 12px;
+			color: #666;
+			font-size: 12px;
+			margin-top: 3px;
+		}
+
+		.signature .signature-content {
+			/* display: flex; */
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.signature .signature-content .left {
+			display: inline-block;
+		}
+
+		.signature .signature-content .left .icon {
+			/* display: flex; */
+			align-items: center;
+			margin-top: 7px;
+		}
+
+		.signature .signature-content .left .mr6 {
+			margin-right: 6px;
+		}
+
+		.signature .logo {
+			width: 197px;
+			height: 40px;
+		}
+
+		.signature .bgc {
+			width: 42px;
+			height: 136px;
+			background: #3073BA;
+			opacity: 0.2;
+			/* border-radius: 50%; */
+		}
+
+		.signature .certification {
+			/* display: flex; */
+			flex-wrap: wrap;
+		}
+
+		.signature .certification .img {
+			flex-basis: calc(33.33% - 10px);
+			width: 40px;
+			/* height: 34px; */
+			margin-right: 5px;
+			margin-bottom: 5px;
+		}
+
+		.signature .certification .view {
+			/* display: flex; */
+			align-items: center;
+			justify-content: space-around;
+			margin-top: 6px;
+			border: 1px solid #3073BA;
+			color: #3073BA;
+			border-radius: 4px;
+			height: 20px;
+			line-height: 10px;
+			cursor: pointer;
+		}
+
+		.signature .certification .view div {
+			transform: scale(0.8);
+		}
+
+		.signature .all-certification {
+			max-width: 390px;
+		}
+
+		.signature .column-line {
+			background-image: url("https://www.origin-ic.com/static/img/certificarions/column-line.png");
+			background-repeat: no-repeat;
+			width: 32px;
+			height: 134px;
+			background-position: 0px 0px;
+		}
+
+		.flex-center {
+			display: flex;
+			align-items: center;
+		}
+
+		.signature .contact-item {
+			display: flex;
+			align-items: center;
+			margin-top: 8px;
+		}
+
+		.signature .contact-item::first-child {
+			margin-top: 0;
+		}
+
+		.signature .contact-num {
+			margin-left: 8px;
+			color: #333;
+			font-size: 12px;
+		}
+
+		.signature .contact-item a {
+			text-decoration: none !important;
+		}
+
+		/* 签名结束 */
+
+		.no-reply {
+			margin-top: 20px;
+			padding-top: 15px;
+			padding-bottom: 5px;
+			border-top: 1px solid #e3e7ee;
+			color: #555;
+		}
+
+		.safety-content {
+			max-width: calc(840px - 30px);
+			padding: 0 15px 10px;
+			margin-top: 10px;
+			font-size: 12px;
+			color: #555;
+			font-style: italic;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="containter">
+		<div class="origin-email-box">
+
+			<div class="content">
+				<div class="mb30">Dear ${userName},</div>
+
+				<div class="mb20">
+					Thank you for your inquiry. This is our quotation, please check it.
+				</div>
+
+				<!-- <input type="checkbox" checked> -->
+				<table id="dataTable" class="pub-table mb20">
+					<thead style="background-color: #f5f7fa;color: #333;">
+						<tr>
+							<!-- <th>Select</th> -->
+							<th>Part Number</th>
+							<th>Manufacturer</th>
+							<th>Package</th>
+							<th>DC</th>
+							<th>Rohs</th>
+							<th>Quantity</th>
+							<th>Unit Price (usd)</th>
+							<th>Lead time</th>
+							<th>Remark</th>
+						</tr>
+					</thead>
+					<tbody>
+						${details}
+					</tbody>
+				</table>
+
+				<a id="selectedBtn" class="pub-btn mb30" style="padding: 0 20px;"
+					href='https://www.origin-ic.com/account/shopping-cart?emailQuoteIds=${quoteIds}' target="_blank">Add
+					to cart</a>
+
+				<div class="">If you have any problem about our offer, please tell us, we will be very glad to serve
+					you.</div>
+				<div class="mb20">If you need the parts ,we can ship out within one day! Also 3 years warranty.</div>
+
+				<div class="">If you have any questions pls feel free to contact me, </div>
+				<div class="mb30">Look forward to receiving feedback. Thank you!</div>
+				<!-- 有签名的：deliver, quotation, payment, submit_pay_bank, submit_pay -->
+
+				<table width="810" border="0" cellspacing="0" cellpadding="8">
+					<tr>
+						<td>
+							<table width="810" border="0" cellspacing="0" cellpadding="0">
+								<!-- <tbody> -->
+								<tr height="30" style="font-size: 13px;color: #333;">
+									<td>Best Regards,</td>
+								</tr>
+
+								<tr height="20">
+									<td style="color: #1770DE;font-size: 20px; ">Aling Chen</td>
+								</tr>
+
+								<tr>
+									<td style="color: #666;font-size: 12px;    color: #666;">Senior Sales Representative</td>
+								</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<table width="810" border="0" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td width="30%">
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
+												<tbody>
+													<tr>
+														<td width="100%" valign="top" align="left"><img width="197" height="40"
+																src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/logo.png" /></td>
+													</tr>
+													<tr height="15"></tr>
+													<tr width="150">
+														<td width="100" valign="top" align="left"
+															style="color: #333; font-size: 12px; line-height: 16px;">
+															${address}
+														</td>
+														<td width="15"></td>
+													</tr>
+
+													<tr width="50">
+														<td>
+															<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																<tbody>
+																	<tr height="5"></tr>
+																	<tr width="50">
+																		<td width="21" valign="top" align="left"><a href=${facebookUrl} target="_blank">
+																				<img width="15" height="15"
+																					src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon1.png" />
+																			</a></td>
+																		<td width="21" valign="top" align="left"><a href=${twitterUrl} target="_blank">
+																				<img width="15" height="15"
+																					src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon2.png" />
+																			</a></td>
+																		<td width="21" valign="top" align="left"><a href=${youTubeUrl} target="_blank">
+																				<img width="15" height="15"
+																					src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon3.png" />
+																			</a></td>
+																		<td width="21" valign="top" align="left"><a href=${tiktokUrl} target="_blank">
+																				<img width="15" height="15"
+																					src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon4.png" />
+																			</a></td>
+																		<td></td>
+
+																	</tr>
+																</tbody>
+															</table>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+
+										<td width="21%">
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
+												<tbody>
+													<tr height="15"></tr>
+													<tr>
+														<td width="100%" valign="middle" align="left"><img width="15" height="15"
+																src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon5.png" />
+															<span style="color: #333; font-size: 12px;">${phone}</span>
+														</td>
+													</tr>
+													<tr height="5"></tr>
+													<tr>
+														<td width="100%" valign="middle" align="left"><img width="15" height="15"
+																src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon6.png" />
+															<span style="color: #333; font-size: 12px;">${faxes}</span>
+														</td>
+													</tr>
+													<tr height="5"></tr>
+													<tr>
+														<td width="100%" valign="middle" align="left"><a href="mailto:${email}"><img width="15"
+																	height="15" src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon7.png" />
+																<span style="color: #333; font-size: 12px;">${email}</span>
+															</a>
+														</td>
+													</tr>
+													<tr height="5"></tr>
+													<tr>
+														<td width="100%" valign="middle" align="left"><a href=${skype}><img width="15" height="15"
+																	src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon8.png" />
+																<span style="color: #333; font-size: 12px;">Skype Live Chat</span>
+															</a>
+														</td>
+													</tr>
+													<tr height="5"></tr>
+													<tr>
+														<td width="100%" valign="middle" align="left"><a href="https://www.origin-ic.com/"><img
+																	width="15" height="15"
+																	src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/icon9.png" />
+																<span style="color: #333; font-size: 12px;">www.origin-ic.com</span>
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</td>
+										<td width="49%">
+											<a href="https://www.origin-ic.com/page/certifications" target="_blank" rel="no">
+												<img width="100%" src="http://origindata.oss-cn-hongkong.aliyuncs.com/email/email-all.png" />
+											</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</table>
+
+
+			</div>
+
+		</div>
+		<table width="810" border="0" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr height="10"></tr>
+				<tr style="color: #555;font-style: italic;font-size: 12px;">
+					<td width="15"></td>
+					<td>The contents of this e-mail and any file transmitted with it are confidential and intended solely for the
+						individual or entity to whom they are addressed. The content may also contain legal, professional or other
+						privileged information. If you received this e-mail in error, please inform the sender AND destroy it
+						immediately. You should not copy or use it for any purpose nor disclose its contents to any other person.
+					</td>
+				</tr>
+				<tr height="10"></tr>
+			</tbody>
+		</table>
+		<!-- <div class="safety-content mt30">
+			The contents of this e-mail and any file transmitted with it are confidential and intended solely for the
+			individual or entity to whom they are addressed. The content may also contain legal, professional or other
+			privileged information. If you received this e-mail in error, please inform the sender AND destroy it
+			immediately. You should not copy or use it for any purpose nor disclose its contents to any other person.
+		</div> -->
+
+	</div>
+	<script>
+		// function goAddCart() {
+		//     window.open(`https://www.origin-ic.com/account/shopping-cart?emailQuoteIds=${quoteIds}`, '_blank')
+		// }
+		// console.log(window.language, 'getSelectedRows--del选中的');
+		// document.getElementById('selectedBtn').addEventListener('click', function() {
+		//     alert('Button clicked!');
+		// });
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+@import '/scss//utils/variable';
+
+// 环境
+.psEnvironmental {
+	.environmentalContent {
+		display: flex;
+		padding-bottom: 5px;
+	}
+
+	@media (max-width: 1200px) {
+		.environmentalContent {
+			flex-direction: column;
+		}
+
+		.environmentalImg {
+			margin-top: 15px;
+			margin-left: 0 !important;
+		}
+	}
+}
+
+// 解决方案
+.psInventorySolutions {
+	.leftTitle {
+		padding: 15px 15px 15px 20px;
+		font-size: 16px;
+		font-weight: 600;
+		color: $color-font18;
+		border-bottom: 1px solid $color-bgcd346;
+	}
+
+	.uploadCenter {
+		flex-direction: column;
+		padding-bottom: 30px;
+	}
+
+	.uploadBox {
+		padding: 30px 45px 20px;
+		margin: 20px 20px 0px;
+		width: fit-content;
+		border: 1px dashed $color-link;
+		border-radius: $radius6;
+		cursor: pointer;
+
+		.uploadText {
+			font-size: 14px;
+			font-weight: 600;
+		}
+	}
+
+	.inventorySolutionsRow {
+		max-width: 1280px;
+	}
+}

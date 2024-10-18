@@ -1,0 +1,55 @@
+@import '/scss//utils/variable';
+// 只放没有速度压力的页面样式，首页，详情页等重要页面样式，不能放
+// bom详情
+.bom-detail-page {
+    .matched-choose {
+         position: relative;
+         display: flex;
+         align-items: center;
+         height: 32px;
+         padding: 0 20px;
+         border: 1px solid $color-bgcd3;
+         border-radius: $radius6;
+         background-color: $color-white;
+         cursor: pointer;
+         .num {
+             min-width: 20px;
+             height: 20px;
+             line-height: 20px;
+             color: $color-bgc555;
+             font-size: 12px;
+             border-radius: 20px;
+         }
+         .all {
+             border: 1px solid #181818;
+         }
+         .matched {
+             border: 1px solid $color-link;
+         }
+         .more-matched {
+             border: 1px solid #F0B84C;
+         }
+         .no-matched {
+             border: 1px solid $color-danger;
+         }
+         &:hover {
+             border: 1px solid $color-link;
+         }
+     }
+     .matched-filter {
+         border: 1px solid $color-link;
+         background-color: $color-bgcd346;
+ 
+         &:after {
+             content: '';
+             position: absolute;
+             bottom: -8px;
+             left: calc(50% - 7px);
+             width: 0;
+             height: 0;
+             border-left: 7px solid transparent; /* 左边透明 */
+             border-right: 7px solid transparent; /* 右边透明 */
+             border-top: 8px solid $color-link; /* 底部红色，可以换成其他颜色 */
+         }
+     } 
+}
