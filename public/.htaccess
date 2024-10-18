@@ -1,7 +1,0 @@
-<Files ~ "^\.(htaccess|htpasswd)$">
-deny from all
-</Files>
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^(origin-ic\.com/ )(:80)? [NC]
-RewriteRule ^(.*) https://www.origin-ic.com/ /$1 [R=301,L]
-order deny,allow
