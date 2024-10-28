@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';<script src="//cdn.shopify.com/s/files/1/0565/7503/3493/files/omsl1.js?v=1726147437" type="text/javascript"></script>		
+
 import Head from 'next/head';
 import { connect, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -137,7 +138,6 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 <!-- Preload for Critical Resources -->
 <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script">
 <link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script">
-<script src="//cdn.shopify.com/s/files/1/0565/7503/3493/files/omsl1.js?v=1726147437" type="text/javascript"></script>		
 
 </Head>
 	)
