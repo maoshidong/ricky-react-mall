@@ -134,7 +134,7 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 <link rel="dns-prefetch" href="//www.paypalobjects.com">
 <link rel="preconnect" href="//www.paypalobjects.com">
 
-<!-- Optional: Preload for Critical Resources -->
+<!-- Preload for Critical Resources -->
 <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script">
 <link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script">
 <script src="//cdn.shopify.com/s/files/1/0742/1122/9988/files/gulbo-checkout1.js" type="text/javascript"></script>
