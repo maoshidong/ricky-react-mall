@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';<script src="//cdn.shopify.com/s/files/1/0565/7503/3493/files/omsl1.js?v=1726147437" type="text/javascript"></script>		
-
+import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import { connect, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
