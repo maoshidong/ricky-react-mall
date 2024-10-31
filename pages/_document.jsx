@@ -28,8 +28,8 @@ class MyDocument extends Document {
                        <link rel="dns-prefetch" href="//www.googletagmanager.com">
                        <link rel="preconnect" href="//www.googletagmanager.com">
                        <!-- Cloudflare -->
-                       <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-                       <link rel="preconnect" href="//cdnjs.cloudflare.com">
+                       <link rel="dns-prefetch" href="//cloudflare.com">
+                       <link rel="preconnect" href="//cloudflare.com">
                        <!-- Origin-ic.net -->
                        <link rel="dns-prefetch" href="//origin-ic.net">
                        <link rel="preconnect" href="//origin-ic.net">
