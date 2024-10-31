@@ -49,7 +49,6 @@ class MyDocument extends Document {
                         <link rel="dns-prefetch" href="//www.paypalobjects.com">
                         <link rel="preconnect" href="//www.paypalobjects.com">
                         <!-- Preload for Critical Resources -->
-                        <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script">
                         <link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script">
 					{/* <script type="text/javascript" src="//www.17track.net/externalcall.js"></script> */}
 					{/* Google tag (gtag.js) */}
