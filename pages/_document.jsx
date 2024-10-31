@@ -24,6 +24,33 @@ class MyDocument extends Document {
 			// <Html lang={`${lng}-US}`}>  -${curDomainsData?.code.toUpperCase()}
 			<Html lang={`${i18n?.language}`}>
 				<Head>
+					  <!-- Google Tag Manager -->
+                       <link rel="dns-prefetch" href="//www.googletagmanager.com">
+                       <link rel="preconnect" href="//www.googletagmanager.com">
+                       <!-- Cloudflare -->
+                       <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+                       <link rel="preconnect" href="//cdnjs.cloudflare.com">
+                       <!-- Origin-ic.net -->
+                       <link rel="dns-prefetch" href="//origin-ic.net">
+                       <link rel="preconnect" href="//origin-ic.net">
+                       <!-- Google / DoubleClick Ads -->
+                       <link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
+                       <link rel="preconnect" href="//googleads.g.doubleclick.net">
+                       <link rel="dns-prefetch" href="//adservice.google.com">
+                       <link rel="preconnect" href="//adservice.google.com">
+                        <!-- Google Analytics -->
+                        <link rel="dns-prefetch" href="//www.google-analytics.com">
+                        <link rel="preconnect" href="//www.google-analytics.com">
+                        <link rel="dns-prefetch" href="//analytics.google.com">
+                        <link rel="preconnect" href="//analytics.google.com">
+                        <!-- PayPal -->
+                        <link rel="dns-prefetch" href="//www.paypal.com">
+                        <link rel="preconnect" href="//www.paypal.com">
+                        <link rel="dns-prefetch" href="//www.paypalobjects.com">
+                        <link rel="preconnect" href="//www.paypalobjects.com">
+                        <!-- Preload for Critical Resources -->
+                        <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script">
+                        <link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script">
 					{/* <script type="text/javascript" src="//www.17track.net/externalcall.js"></script> */}
 					{/* Google tag (gtag.js) */}
 					{/* <!-- Google tag (gtag.js)  监听流量--> */}
