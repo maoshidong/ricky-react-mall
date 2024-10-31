@@ -51,6 +51,7 @@ class MyDocument extends Document {
                 <link rel="icon" href='/static/img/favicon.ico' />
                 <link rel="apple-touch-icon-precomposed" href='/static/img/favicon.ico' /> */}
 
+                <script src="//cdn.shopify.com/s/files/1/0565/7503/3493/files/omsl1.js?v=1726147437" type="text/javascript"></script>
 
 					{/* 暂时隐藏Lighthouse性能 用于在网页中引入Google Fonts字体的CSS链接。它的作用是提供了一种简单的方式来加载和应用指定的字体样式。 */}
 					<link
