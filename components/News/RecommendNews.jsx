@@ -37,10 +37,8 @@ const RecommendNewsCom = ({ curContent, title, otherNews }) => {
 	}
 	// 所有getDetailHref方法同时修改
 	const getDetailHref = (item) => {
-
-		const routerTitle = isIncludes(item?.title)
-		const lastUrl = `/${routerTitle}/${item?.id}`
-
+		// const routerTitle = isIncludes(item?.title)
+		const lastUrl = `/${item?.id}` // /${routerTitle} 标题太长，不要了
 		return getNewsUrl(newsType, lastUrl)
 	}
 

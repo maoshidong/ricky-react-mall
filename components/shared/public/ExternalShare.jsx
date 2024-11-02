@@ -3,7 +3,7 @@ import { DETAIL_FOLLOW_US } from '~/utilities/constant';
 import useLanguage from '~/hooks/useLanguage';
 
 // 对外分享公共组件
-const ExternalShare = ({ paramMap, name, manufacturerName }) => {
+const ExternalShareCom = ({ paramMap, jointUrl='' }) => {
 	const { getLanguageHost } = useLanguage();
 
 	const Router = useRouter();
@@ -21,9 +21,9 @@ const ExternalShare = ({ paramMap, name, manufacturerName }) => {
 		} else if (item?.name === 'linkedin') {
 			shareUrl = shareUrl + `?url=${pubUrl}`;
 		} else if (item?.name === 'twitter') {
-			shareUrl = shareUrl + `?text=${name || ''} ${manufacturerName || ''} - ${process.env.title} &url=${pubUrl}`;
+			shareUrl = shareUrl + `?text=${jointUrl}${process.env.title} &url=${pubUrl}`;
 		} else if (item?.name === 'mailto') {
-			shareUrl = shareUrl + `?subject=${name || ''} ${manufacturerName || ''} - ${process.env.title} &body=${pubUrl}`;
+			shareUrl = shareUrl + `?subject=${jointUrl}${process.env.title} &body=${pubUrl}`;
 		}
 		return shareUrl;
 	};
@@ -31,20 +31,20 @@ const ExternalShare = ({ paramMap, name, manufacturerName }) => {
 	return (
 		<>
 			{DETAIL_FOLLOW_US.map((item, index) => {
-				return <div className={'pub-cursor-pointer mr10 share-icon ' + item.class} key={index} onClick={() => window.open(getShareUrl(item), '_blank')}></div>;
-				// <a
-				//     {...helpersHrefNofollow(item.url)}
-				//     key={index}
-				//     href={getShareUrl(item)}
-				// >
-				//     <div
+				// return <div className={'pub-cursor-pointer mr10 share-icon ' + item.class} key={index} onClick={() => window.open(getShareUrl(item), '_blank')}></div>;
+				return <a
+				    // {...helpersHrefNofollow(item.url)}
+				    key={index}
+				    href={getShareUrl(item)}
+				>
+				    <div
 
-				//         className={"mr10 sprite-home-min " + item.class}
-				//     ></div>
-				// </a>
+				        className={"mr10 sprite-home-min " + item.class}
+				    ></div>
+				</a>
 			})}
 		</>
 	);
 };
 
-export default ExternalShare
+export default ExternalShareCom

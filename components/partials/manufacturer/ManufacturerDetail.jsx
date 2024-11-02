@@ -198,9 +198,9 @@ const StoreDetail = ({
 	return (
 		<div className="ps-vendor-store" style={{ paddingBottom: (website || introduce) ? 0 : '80px' }}>
 			<div className="ps-container">
-				<div className="ps-section__container manufacturer-detail-container">
+				<div name="0" className="ps-section__container manufacturer-detail-container">
 					{/* 左侧 */}
-					<div ref={fContainerRef} className="pub-layout-left catalogs__top-fixed">
+					<div ref={fContainerRef} className="pub-layout-left catalogs__top-fixed" style={{top: '130px'}}>
 						<div className='pub-left-title'>{i18Translate('i18PubliceTable.PartNumber', 'Part Number')}</div>
 						<div ref={filterRef} className='mt10'>
 							<MinSearch
@@ -328,11 +328,15 @@ const StoreDetail = ({
                     /> 
                 </div> */}
 				{/* FEATURED PRODUCTS */}
-				<HotProductsCatalog
-					hotProductsList={hotProductsListServer}
-					recommendResServer={recommendResServer}
-					greatResServer={greatResServer}
-				/>
+	
+					{ [...hotProductsListServer, ...recommendResServer, ...greatResServer]?.length !== 0 && <div className='mt60' name="1">
+						<HotProductsCatalog
+							hotProductsList={hotProductsListServer}
+							recommendResServer={recommendResServer}
+							greatResServer={greatResServer}
+						/>
+					</div>}
+			
 
 				{/* {
                     hotProductsListServer?.length > 0 && <div style={{marginBottom: '-80px'}}>
@@ -382,7 +386,7 @@ const StoreDetail = ({
 
 				{/* 相关新闻 */}
 				{
-					relaNews?.data?.length > 0 && <div className='mt60 mb30 pub-title-more'>
+					relaNews?.data?.length > 0 && <div className='mt60 mb30 pub-title-more' name="2">
 						<div className='pub-title'>{iRelatedContent}</div>
 					</div>
 				}
@@ -427,7 +431,7 @@ const StoreDetail = ({
 			</div>
 			{/* website || introduce */}
 			{(introduce) && (
-				<div className='mt60' style={{
+				<div className='mt60' name="3" style={{
 					background: '#fff',
 					paddingTop: '20px'
 				}}>

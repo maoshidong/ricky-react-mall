@@ -69,8 +69,8 @@ const ProductsRecommended = ({ hotProductsList, recommendResServer = [], greatRe
 		);
 	};
 	return (
-		// ps-product-list
-		<div className={'blocks-products-recommended pt-60'}>
+		// ps-product-list  pt-60
+		<div className={'blocks-products-recommended pt-0'}>
 			<div className="">
 				<TitleMore
 					title={i18Translate('i18HomeNextPart.productsTitle', 'Featured Products')}

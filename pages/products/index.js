@@ -8,20 +8,23 @@ import dynamic from 'next/dynamic';
 const PageContainer = dynamic(() => import('~/components/layouts/PageContainer'));
 const CatalogTop = dynamic(() => import('~/components/partials/shop/CatalogTop'));
 const PubProductsTable = dynamic(() => import('~/components/ecomerce/minTableCom/PubProductsTable'));
+import { Tabs } from '~/components/partials';
+
 // import MobilePageTopBanner from '~/components/mobile/section/PageTopBanner';
 import { useRouter } from 'next/router';
 import ProductRepository from '~/repositories/zqx/ProductRepository';
+import outProductRepository from '~/repositories/ProductRepository';
 
 import { PUB_PAGINATION, All_SEO1 } from '~/utilities/constant';
-import { AllCatalogTree } from '~/utilities/AllCatalogTree'
+// import { AllCatalogTree } from '~/utilities/AllCatalogTree'
 import { decrypt } from '~/utilities/common-helpers';
 import useLanguage from '~/hooks/useLanguage';
-import { changeServerSideLanguage } from '~/utilities/easy-helpers';
+import { getLocale, changeServerSideLanguage } from '~/utilities/easy-helpers';
 
 
-const CatalogPage = ({ paramMap, seo, global, query, keywordsProducts, queryKeywords, top20Flag }) => {
+const CatalogPage = ({ paramMap, query, keywordsProducts, queryKeywords, top20Flag, AllCatalogTree }) => {
 	const { i18Translate, getLanguageHost, getDomainsData, getLanguageName } = useLanguage();
-
+	// console.log(AllCatalogTree, 'AllCatalogTree----del')
 	const tableRef = useRef();
 	const Router = useRouter();
 
@@ -184,6 +187,15 @@ const CatalogPage = ({ paramMap, seo, global, query, keywordsProducts, queryKeyw
 	const uniqueCategoriesArr = [...new Map(newCategories?.map(item => [item.id, item])).values()]; //去重
 	const letNavArr = (isHaveQueryKeywords && results > 0) ? uniqueCategoriesArr : AllCatalogTree
 
+	const isShowRelatedProducts = (queryKeywords?.length > 0 || !!top20Flag) && productsList?.length > 0
+	const iRelatedCategories = i18Translate('i18AboutProduct.Related Categories', 'Related Categories')
+	const iRelatedProducts = i18Translate('i18AboutProduct.Related Products', 'Related products')
+	let tabsArr = [
+		{ label: iRelatedCategories, value: '0' },
+		{ label: iRelatedProducts, value: '1' },
+	]
+	if(!isShowRelatedProducts) tabsArr = []
+
 	const getName = (str = ', ') => {
 		if (flag) {
 			const cur = getLanguageName(letNavArr?.[0]) + str + (getLanguageName(letNavArr?.[1])) + str
@@ -193,7 +205,7 @@ const CatalogPage = ({ paramMap, seo, global, query, keywordsProducts, queryKeyw
 	}
 
 	return (
-		<PageContainer paramMap={paramMap} seo={seo} global={global} isResetCanonical={false}>
+		<PageContainer paramMap={paramMap} isResetCanonical={false}>
 			<Head>
 				<link rel="canonical" href={hUrl} />
 				<title>{getName(" & ") + i18Title}</title>
@@ -228,6 +240,7 @@ const CatalogPage = ({ paramMap, seo, global, query, keywordsProducts, queryKeyw
             /> */}
 
 			<div id="shop-categories" className="ps-page--shop pb60">
+				<Tabs tabsArr={tabsArr} offset={-150} duration={300} />
 				<div className="ps-container">
 					{
 						(queryKeywords?.length > 0 && !resultsIsNone) && (
@@ -238,17 +251,20 @@ const CatalogPage = ({ paramMap, seo, global, query, keywordsProducts, queryKeyw
 						)
 					}
 					{/* 展示所有分类组件 */}
-					<CatalogTop
-						paramMap={paramMap}
-						allCatalog={AllCatalogTree}
-						queryKeywords={queryKeywords}
-						top20Flag={top20Flag}
-						results={results}
-						keywordsProducts={keywordsProducts} query={query} resultsIsNone={resultsIsNone}
-					/>
+					<div name="0">
+						<CatalogTop
+							
+							paramMap={paramMap}
+							allCatalog={AllCatalogTree}
+							queryKeywords={queryKeywords}
+							top20Flag={top20Flag}
+							results={results}
+							keywordsProducts={keywordsProducts} query={query} resultsIsNone={resultsIsNone}
+						/>
+					</div>
 					{
-						((queryKeywords?.length > 0 || !!top20Flag) && productsList?.length > 0) && (
-							<div className='mt20' ref={tableRef}>
+						isShowRelatedProducts && (
+							<div className='mt20' ref={tableRef} name="1">
 								<PubProductsTable productsList={productsList} total={total} pages={pages} callback={productCallback} />
 							</div>
 						)
@@ -277,14 +293,17 @@ export async function getServerSideProps({ req, query }) {
 		params.top20Flag = _top20Flag
 	}
 
-	const [translations, serverProducts] = await Promise.all([
+	const languageType = getLocale(req);
+	const [translations, serverProducts, allCatalogTreeRes] = await Promise.all([
 		changeServerSideLanguage(req), 
 		ProductRepository.apiSearchProductByEs(params),
+		outProductRepository.apiGetRecommendCatalogList(0, languageType), // 新的分类树
 	]);
 
 	return {
 		props: {
 			...translations,
+			AllCatalogTree: allCatalogTreeRes?.data || [],
 			keywordsProducts: serverProducts?.data || {},
 			queryKeywords: keyword ? keywordList : [],
 			top20Flag: !!_top20Flag,

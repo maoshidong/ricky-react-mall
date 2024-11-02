@@ -13,7 +13,7 @@ import useDebounce from '~/hooks/useDebounce';
 import useLanguage from '~/hooks/useLanguage';
 import { handleMomentTime } from '~/utilities/common-helpers';
 import { TABLE_COLUMN, DEL_ONE_TEXT } from '~/utilities/constant';
-import { getEnvUrl, ACCOUNT_CART_DETAIL, ACCOUNT_SHOPPING_CART, ACCOUNT_CART_CART_HASH } from '~/utilities/sites-url'
+import { ACCOUNT_CART_DETAIL, ACCOUNT_SHOPPING_CART, ACCOUNT_CART_CART_HASH } from '~/utilities/sites-url'
 
 import ZqxCartRepository from '~/repositories/zqx/CartRepository';
 import MinTopTitle from '~/components/ecomerce/minCom/MinTopTitle'
@@ -154,7 +154,7 @@ const MyCartCom = ({ showTitle = true, tabActive, getTotal }) => {
 			width: 400,
 			render: (text, record) => {
 				return <div className='pub-flex-align-center'>
-					<Link href={getEnvUrl(ACCOUNT_CART_DETAIL) + `/${record?.id}`}>
+					<Link href={ACCOUNT_CART_DETAIL + `/${record?.id}`}>
 						<a className='pub-color-hover-link' style={{ maxWidth: '300px' }} >{editId !== record?.id && text}</a>
 					</Link>
 					{editId === record?.id && (
@@ -196,11 +196,11 @@ const MyCartCom = ({ showTitle = true, tabActive, getTotal }) => {
 		{
 			title: iOperation,
 			render: (text, record) => (
-				<Link href={getEnvUrl(ACCOUNT_CART_DETAIL) + `/${record?.id}`}>
+				<Link href={ACCOUNT_CART_DETAIL + `/${record?.id}`}>
 					<a><button
 						type="submit" ghost='true'
 						className='login-page-login-btn custom-antd-primary w80'
-						onClick={() => Router.push(getEnvUrl(ACCOUNT_CART_DETAIL) + `/${record?.id}`)}
+						onClick={() => Router.push(ACCOUNT_CART_DETAIL + `/${record?.id}`)}
 					>{iView}</button></a>
 				</Link>
 			),
@@ -287,7 +287,7 @@ const MyCartCom = ({ showTitle = true, tabActive, getTotal }) => {
 		setCurCartDataHok(selectedRows?.[0])
 		addToLoadCarts('', selectedRows?.[0]?.id)
 		setIsShowModal(false)
-		Router.push(getEnvUrl(ACCOUNT_SHOPPING_CART))
+		Router.push(ACCOUNT_SHOPPING_CART)
 		// const infoList = projectProdect?.map(item => {
 		//     return {
 		//         productId: item?.productId,

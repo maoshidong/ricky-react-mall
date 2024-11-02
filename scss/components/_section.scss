@@ -1455,12 +1455,7 @@ $strength-gap: 6px;
 	.featured-manufacturer-item:hover {
 		border: 1px solid $color-bgcd3;
 		border-top: 3px solid $color-link;
-		// box-shadow: 0px 0px 8px 0px rgba(153, 153, 153, 0.7);
-		box-shadow: 3px 3px 12px rgba(55, 99, 170, .2),
-			3px -3px 12px rgba(55, 99, 170, .2),
-			-3px 3px 12px rgba(55, 99, 170, .2),
-			-3px -3px 12px rgba(55, 99, 170, .2) !important;
-		border-radius: 6px;
+		box-shadow: $box-shadow-hover;
 	}
 
 	@media (min-width: 1440px) {
@@ -1479,7 +1474,11 @@ $strength-gap: 6px;
 	object-fit: contain;
 	margin-left: 20px;
 }
-
+.products-recommended-bottom {
+	a {
+		position: static;
+	}
+}
 // 热卖，推荐，折扣
 .hot-product-catalog {
 	position: relative;
@@ -1538,6 +1537,7 @@ $strength-gap: 6px;
 				position: absolute;
 				bottom: 30px;
 			}
+
 		}
 
 		// 热门产品
@@ -1970,7 +1970,7 @@ $strength-gap: 6px;
 .ps-page--shop {
 	& .ps-header--manufacturer {
 		width: 100% !important;
-		overflow: auto !important;
+		overflow: auto;
 		box-sizing: border-box;
 	}
 }
@@ -2496,9 +2496,9 @@ $strength-gap: 6px;
 			width: 300px !important;
 		}
 
-		.pub-modal-arrow {
-			display: none;
-		}
+		// .pub-modal-arrow {
+		// 	display: none;
+		// }
 	}
 
 }

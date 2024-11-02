@@ -3,7 +3,6 @@ import last from 'lodash/last';
 import BreadCrumb from '~/components/elements/BreadCrumb';
 import PageContainer from '~/components/layouts/PageContainer';
 import RecommendNews from '~/components/News/RecommendNews';
-import ExternalShare from '~/components/shared/public/ExternalShare';
 import AddAttributesToImages from '~/components/elements/min/AddAttributesToImages';
 import TagRelaManu from '~/components/News/MinCom/TagRelaManu';
 import { Flex } from '~/components/common';
@@ -80,15 +79,9 @@ const BlogDetail = ({ paramMap, res, otherNews }) => {
 			</Head>
 			<div className="articles-detail-page ps-page--single pub-bgc-f5 pb-60 pub-minh-1">
 				<div className='ps-container'>
-					{/* <BreadCrumb breacrumb={breadcrumb} layout="fullwidth" /> */}
-					<Flex justifyBetween>
-						<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
-						<Flex alignCenter style={{ paddingTop: '14px', paddingRight: '6px' }}>
-							<i className="fa fa-share-alt pub-color-link" style={{ cursor: 'auto' }} />
-							<span className='ml10 mr10 pub-font14'>{iShare}</span>
-							<ExternalShare paramMap={paramMap} />
-						</Flex>
-					</Flex>
+
+					<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
+
 
 					<div className='pub-flex mt25 blog-detail'>
 						<div className='pub-flex-grow pub-border15 mr20' style={{ minHeight: '500px' }}>
@@ -113,10 +106,7 @@ const BlogDetail = ({ paramMap, res, otherNews }) => {
 						</div>
 						{/* 详情右侧 */}
 						<div className='pub-flex-shrink pub-fit-content pb-10 w300'>
-							{/* <div className='pub-border15'>
-                                <h2 className='mb12 pub-font14 pub-fontw'>{iShare}</h2>
-                                <ExternalShare paramMap={paramMap} />
-                            </div> */}
+
 							<div>
 								<RecommendNews otherNews={otherNews} curContent={content} newsType={newsType} curNewId={id} />
 							</div>
@@ -128,8 +118,9 @@ const BlogDetail = ({ paramMap, res, otherNews }) => {
 	);
 };
 export default BlogDetail;
-
+// getServerSideProps -> getStaticProps
 export async function getServerSideProps({ req, params, query }) {
+	// slugs -> id
 	let { slugs } = params;
 	const { isNeedPreview } = query; // 未发布也可预览
 	let newsId = Number(last(slugs));
@@ -169,4 +160,27 @@ export async function getServerSideProps({ req, params, query }) {
 		},
 	}
 };
+
+
+// export async function getStaticPaths() {
+//   // const res = await fetch('https://api.example.com/blog');
+//   // const posts = await res.json();
+// 	// pages/blog/[id].js
+// 	// const posts = [
+// 	// 	{id: '23498'},
+// 	// ]
+// 	// pages/blog/[...slugs].js
+// 		const posts = [
+// 			{slugs: '23498'},
+// 		]
+	
+//   const paths = posts.map(post => ({
+//     params: { slugs: post.slugs.split('/') },
+//   }));
+
+//   return {
+//     paths,
+//     fallback: false, // 如果你不希望返回未生成的页面，可以设置为false
+//   };
+// }
 

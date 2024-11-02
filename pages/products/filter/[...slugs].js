@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import last from 'lodash/last';
+import qs from 'qs';
 
 import BreadCrumb from '~/components/elements/BreadCrumb';
 import dynamic from 'next/dynamic';
@@ -32,6 +33,7 @@ const FilterPage = ({
 	filterDataSer, // 属性
 	queryCatalogId, // 分类id
 	queryAttrList, // url搜索条件
+	manufacturerIdList, //供应商属性条件id
 	queryKeywordList, // 关键词列表
 	manufacturerRes,
 	productListServer,
@@ -153,7 +155,7 @@ const FilterPage = ({
 		setIsOneInitial(val)
 	}
 
-	async function getPageProducts(selectedItems, keywordArr, otherObj) {
+	async function getPageProducts() {
 		window.scrollBy({
 			top: -window.scrollY,
 			left: 0,
@@ -318,9 +320,20 @@ const FilterPage = ({
 
 	const rUrl = Router.asPath?.split("?")
 	let hUrl = getLanguageHost() + rUrl?.[0]
+	// if (attrList) {
+	// 	hUrl = hUrl + `?attrList=${attrList}`
+	// }
+	let params = {};
 	if (attrList) {
-		hUrl = hUrl + `?attrList=${attrList}`
+		params.attrList = attrList
 	}
+	if (query?.manufacturerIdList) {
+		params.manufacturerIdList = query?.manufacturerIdList
+	}
+	if(qs.stringify(params)) {
+		hUrl = `${hUrl}?${qs.stringify(params)}`
+	}
+	console.log(hUrl,'hUrl---del')
 	// 标题1：    - Series, Machine Safety - Mats / Machine Safety / Industrial Automation and Controls | Origin Data  
 	// 标题2：   * Series, Machine Safety - Mats / Machine Safety / Industrial Automation and Controls | Origin Data为什么检测网站工具 https://sem.3ue.com/     还提示页面没有 h1 标题
 	// 为什么检测网站工具 https://sem.3ue.com/     还提示以上两个页面的 标题一样   某些检测工具可能不够智能，无法识别细微的差异。
@@ -365,6 +378,7 @@ const FilterPage = ({
 							<ProductTable
 								loading={loading}
 								queryAttrList={queryAttrList} // url属性参数
+								manufacturerIdList={manufacturerIdList} // url属性参数
 								queryKeywordList={queryKeywordList} // url搜索条件
 								catalogsBreadcrumb={catalogsBreadcrumb}
 								dataServer={productListServer} // 产品
@@ -400,7 +414,8 @@ export async function getServerSideProps({ req, query, res }) {
 		const keywordList = query?.keywords ? decrypt(query?.keywords || '').split('____') : []
 		const keyword = last(keywordList) || ''
 		// 属性条件
-		const attrList = query?.attrList ? ((query?.attrList || '').split(',')) : []
+		const manufacturerIdList = query?.manufacturerIdList ? ((query?.manufacturerIdList || '').split(',')) : []
+		const attributeIdList = query?.attrList ? ((query?.attrList || '').split(',')) : []
 
 		const catalogId = last(query.slugs);
 		if (isNaN(catalogId)) {
@@ -436,7 +451,8 @@ export async function getServerSideProps({ req, query, res }) {
 		const filterServerParams = {
 			keyword,
 			keywordList: keywordList || [],
-			attributeIdList: attrList || [],
+			manufacturerIdList,
+			attributeIdList,
 			catalogKeyword: catalogId || '',
 			manufacturerKeyword: manufacturerRes?.data?.manufacturerId || '',  // 暂时先不传
 			pageListNum: query?.pageNum || PUB_PAGINATION?.pageNum,
@@ -478,7 +494,8 @@ export async function getServerSideProps({ req, query, res }) {
 				filterServerParams,
 				filterDataSer: filterData?.data?.data || [],  // 属性筛选条件集合
 				queryCatalogId: catalogId, // 分类id
-				queryAttrList: attrList || [], // url属性条件id
+				queryAttrList: attributeIdList || [], // url属性条件id
+				manufacturerIdList, // 供应商属性条件id
 				queryKeywordList: keywordList, // url关键词
 				manufacturerRes: manufacturerRes?.data, // 供应商数据
 				productListServer: responseData?.data || [], // 产品列表

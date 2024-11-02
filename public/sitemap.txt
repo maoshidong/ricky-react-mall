@@ -8786,7 +8786,7 @@ https://www.origin-ic.com/manufacturer/littelfuse-cvp?catalogId=5
 https://www.origin-ic.com/all-tags/features-and-advantages/1427
 https://www.origin-ic.com/manufacturer/serpac
 https://www.origin-ic.com/all-tags/low-ESR/2976
-https://www.origin-ic.com/static/img/bg/freeSampleAll/free-sample.png
+https://www.origin-ic.com/static/img/bg/freeSampleAll/free-sample.webp
 https://www.origin-ic.com/manufacturer/plazmo-industries?catalogId=1105
 https://www.origin-ic.com/manufacturer/utd-semiconductor?catalogId=14
 https://www.origin-ic.com/manufacturer/vector-electronics?catalogId=195
@@ -18042,7 +18042,7 @@ https://www.origin-ic.com/product-highlights/What-is-a-Resistors-/190
 https://www.origin-ic.com/manufacturer/rosenberger?catalogId=202
 https://www.origin-ic.com/products/unclassified?manufacturerId=11336
 https://www.origin-ic.com/manufacturer/rosenberger?catalogId=201
-https://www.origin-ic.com/static/img/bg/manufacturerBgc2Mobile.jpg
+https://www.origin-ic.com/static/img/bg/manufacturerBgc2Mobile.webp
 https://www.origin-ic.com/manufacturer/amphenol-cables-on-demand?catalogId=34
 https://www.origin-ic.com/manufacturer/ch-products?catalogId=44
 https://www.origin-ic.com/application-notes/EPF10K30RI240-4N-Intel-Comprehensive-Product-Analysis/39591

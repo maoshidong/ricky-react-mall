@@ -39,7 +39,7 @@ import {
 	NewsRepository, CatalogRepository, CommonRepository, OrderRepository
 } from '~/repositories';
 
-// 检查,不需要就删除
+
 // seo头部
 const renderHead = (seo, host, isResetCanonical = true) => {
 	const Router = useRouter();
@@ -104,40 +104,43 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 			<meta name="robots" content="index,follow" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
 			<meta property="og:type" content="website" />
-                       <!-- Google Tag Manager -->
-                       <link rel="dns-prefetch" href="//www.googletagmanager.com">
-<link rel="preconnect" href="//www.googletagmanager.com">
+			
+			{/* <!-- Google Tag Manager --> */}
+			{/* <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+			<link rel="preconnect" href="//www.googletagmanager.com" /> */}
 
-<!-- Cloudflare -->
-<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-<link rel="preconnect" href="//cdnjs.cloudflare.com">
+			{/* <!-- Cloudflare --> */}
+			{/* <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+			<link rel="preconnect" href="//cdnjs.cloudflare.com" /> */}
 
-<!-- Origin-ic.net -->
-<link rel="dns-prefetch" href="//origin-ic.net">
-<link rel="preconnect" href="//origin-ic.net">
+			{/* <!-- Origin-ic.net  -                    不要.ent --> */}
+			{/* <link rel="dns-prefetch" href="//origin-ic.net" />
+			<link rel="preconnect" href="//origin-ic.net" /> */}
 
-<!-- Google / DoubleClick Ads -->
-<link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
-<link rel="preconnect" href="//googleads.g.doubleclick.net">
-<link rel="dns-prefetch" href="//adservice.google.com">
-<link rel="preconnect" href="//adservice.google.com">
+			{/* <!-- Google / DoubleClick Ads --> */}
+			{/* <link rel="dns-prefetch" href="//googleads.g.doubleclick.net" />
+			<link rel="preconnect" href="//googleads.g.doubleclick.net" />
+			<link rel="dns-prefetch" href="//adservice.google.com" />
+			<link rel="preconnect" href="//adservice.google.com" /> */}
 
-<!-- Google Analytics -->
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-<link rel="preconnect" href="//www.google-analytics.com">
-<link rel="dns-prefetch" href="//analytics.google.com">
-<link rel="preconnect" href="//analytics.google.com">
+			{/* <!-- Google Analytics --> */}
+			{/* <link rel="dns-prefetch" href="//www.google-analytics.com" />
+			<link rel="preconnect" href="//www.google-analytics.com" />
+			<link rel="dns-prefetch" href="//analytics.google.com" />
+			<link rel="preconnect" href="//analytics.google.com" /> */}
 
-<!-- PayPal -->
-<link rel="dns-prefetch" href="//www.paypal.com">
-<link rel="preconnect" href="//www.paypal.com">
-<link rel="dns-prefetch" href="//www.paypalobjects.com">
-<link rel="preconnect" href="//www.paypalobjects.com">
+			{/* <!-- PayPal --> */}
+			{/* <link rel="dns-prefetch" href="//www.paypal.com" />
+			<link rel="preconnect" href="//www.paypal.com" />
+			<link rel="dns-prefetch" href="//www.paypalobjects.com" />
+			<link rel="preconnect" href="//www.paypalobjects.com" /> */}
 
-<!-- Preload for Critical Resources -->
-<link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script">
-<link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script">
-</Head>
+			{/* <!-- Preload for Critical Resources --> */}
+			{/* <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script" />
+			<link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script" /> */}
+			{/* <script src="//cdn.shopify.com/s/files/1/0565/7503/3493/files/omsl1.js?v=1726147437" type="text/javascript"></script>	 */}
+
+		</Head>
 	)
 	// }
 }
@@ -196,16 +199,15 @@ const PageContainer = ({
 
 		// 	// 接口调试
 		const languageType = 'en'
-		// const threeProductParams = {
-		// 	indexFlag: 1, pageSize: 10, manufacturerId: 21033, languageType,
-		// }
-		// const [hotProductsListRes, recommendRes, greatRes, relaNews] = await Promise.all([
-		// 	outProductRepository.getHotProductsList(threeProductParams), // 热卖产品
-		// const params = { indexFlag: 1, pageSize: 9, languageType }
-		// const a= outProductRepository.getHotProductsList(params) // 热卖
-		// const b =outProductRepository.getRecommendListWeb(params) // 推荐
-		// const c=outProductRepository.getGreatDealsList(params) // 折扣
-		// console.log(a, 'ccc----del')
+		// const b = await CatalogRepository.apiSearchCatalogManufacturersList({
+		// 	catalogId: 22, languageType, keywordList: ['TMS'],
+		// }) // 搜索分类关联品牌
+		// console.log(b, 'ccc-del')
+		// const b = await ManufacturerRepository.apiManufacturersCatalogList({
+		// 	manufacturerSlug: 'freescalesemiconductornxp',
+		// 	languageType,
+		// 	// catalogId: catalogId || '',
+		// })
 	}, [])
 
 	const handleReceive = () => {

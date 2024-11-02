@@ -239,14 +239,14 @@ const ContactUsPage = ({ paramMap, seo, global, isMobile }) => {
 			<div className="ps-contact-us ps-page--single ps-about-us pub-bgc-f5 pb60 pub-minh-1">
 				{/* https://cloud.tencent.com/act/pro/game-social?from=18150 */}
 				<PubPageBanner
-					bgcImg="contactUsBgc.jpg"
+					bgcImg="contactUsBgc.webp"
 					title={iContactUsBnTit}
 					titleH1={true}
 					description={iContactUsBnDes}
 					outerClassName='contactUsBgc'
 				/>
 				{/* <PageTopBanner
-					bgcImg="contactUsBgc.jpg"
+					bgcImg="contactUsBgc.webp"
 					title={iContactUsBnTit}
 					titleH1={true}
 					description={iContactUsBnDes}

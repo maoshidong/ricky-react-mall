@@ -3,6 +3,24 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from 'react';
 import { I18NEXT_DOMAINS, I18NEXT_LOCALE } from '~/utilities/constant'
 import { useTranslation, i18n } from 'next-i18next';
+// import Script from 'next/script';
+{/* <Script
+                src="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z"
+                strategy="afterInteractive" // or "lazyOnload"
+                defer
+            />
+            <Script
+                id="google-analytics"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-CDWFBKFV3Z');
+                    `,
+                }}
+            /> */}
 
 class MyDocument extends Document {
 
@@ -24,32 +42,36 @@ class MyDocument extends Document {
 			// <Html lang={`${lng}-US}`}>  -${curDomainsData?.code.toUpperCase()}
 			<Html lang={`${i18n?.language}`}>
 				<Head>
-					  <!-- Google Tag Manager -->
-                       <link rel="dns-prefetch" href="//www.googletagmanager.com">
-                       <link rel="preconnect" href="//www.googletagmanager.com">
-                       <!-- Cloudflare -->
-                       <link rel="dns-prefetch" href="//cloudflare.com">
-                       <link rel="preconnect" href="//cloudflare.com">
-                       <!-- Origin-ic.net -->
-                       <link rel="dns-prefetch" href="//origin-ic.net">
-                       <link rel="preconnect" href="//origin-ic.net">
-                       <!-- Google / DoubleClick Ads -->
-                       <link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
-                       <link rel="preconnect" href="//googleads.g.doubleclick.net">
-                       <link rel="dns-prefetch" href="//adservice.google.com">
-                       <link rel="preconnect" href="//adservice.google.com">
-                        <!-- Google Analytics -->
-                        <link rel="dns-prefetch" href="//www.google-analytics.com">
-                        <link rel="preconnect" href="//www.google-analytics.com">
-                        <link rel="dns-prefetch" href="//analytics.google.com">
-                        <link rel="preconnect" href="//analytics.google.com">
-                        <!-- PayPal -->
-                        <link rel="dns-prefetch" href="//www.paypal.com">
-                        <link rel="preconnect" href="//www.paypal.com">
-                        <link rel="dns-prefetch" href="//www.paypalobjects.com">
-                        <link rel="preconnect" href="//www.paypalobjects.com">
-                        <!-- Preload for Critical Resources -->
-                        <link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script">
+				{/* <!-- Google Tag Manager --> */}
+				<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+				<link rel="preconnect" href="//www.googletagmanager.com" />
+				{/* <!-- Cloudflare --> */}
+				<link rel="dns-prefetch" href="//cloudflare.com" />
+				<link rel="preconnect" href="//cloudflare.com" />
+				{/* <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+				<link rel="preconnect" href="//cdnjs.cloudflare.com" /> */}
+				{/* <!-- Origin-ic.net --> */}
+				{/* <link rel="dns-prefetch" href="//origin-ic.net" />
+				<link rel="preconnect" href="//origin-ic.net" /> */}
+				{/* <!-- Google / DoubleClick Ads --> */}
+				<link rel="dns-prefetch" href="//googleads.g.doubleclick.net" />
+				<link rel="preconnect" href="//googleads.g.doubleclick.net" />
+				<link rel="dns-prefetch" href="//adservice.google.com" />
+				<link rel="preconnect" href="//adservice.google.com" />
+				{/* <!-- Google Analytics --> */}
+				<link rel="dns-prefetch" href="//www.google-analytics.com" />
+				<link rel="preconnect" href="//www.google-analytics.com" />
+				<link rel="dns-prefetch" href="//analytics.google.com" />
+				<link rel="preconnect" href="//analytics.google.com" />
+				{/* <!-- PayPal --> */}
+				<link rel="dns-prefetch" href="//www.paypal.com" />
+				<link rel="preconnect" href="//www.paypal.com" />
+				<link rel="dns-prefetch" href="//www.paypalobjects.com" />
+				<link rel="preconnect" href="//www.paypalobjects.com" />
+				{/* <!-- Preload for Critical Resources --> */}
+				{/* <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script" /> */}
+				<link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script" />
+												
 					{/* <script type="text/javascript" src="//www.17track.net/externalcall.js"></script> */}
 					{/* Google tag (gtag.js) */}
 					{/* <!-- Google tag (gtag.js)  监听流量--> */}
@@ -77,8 +99,8 @@ class MyDocument extends Document {
                 <link rel="icon" href='/static/img/favicon.ico' />
                 <link rel="apple-touch-icon-precomposed" href='/static/img/favicon.ico' /> */}
 
-                <script src="//cdn.shopify.com/s/files/1/0565/7503/3493/files/omsl1.js?v=1726147437" type="text/javascript"></script>
-
+					<script src="//cdn.shopify.com/s/files/1/0565/7503/3493/files/omsl1.js?v=1726147437" type="text/javascript"></script>
+					
 					{/* 暂时隐藏Lighthouse性能 用于在网页中引入Google Fonts字体的CSS链接。它的作用是提供了一种简单的方式来加载和应用指定的字体样式。 */}
 					<link
 						href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext"

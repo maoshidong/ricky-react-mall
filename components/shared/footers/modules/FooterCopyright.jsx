@@ -73,7 +73,7 @@ const FooterCopyright = () => {
 			</div>
 
 			<p>{iAddress}</p>
-			<p className='pub-flex-center'>{iCopyright}
+			<p className='pub-flex-center'>{iCopyright}&nbsp;&nbsp;
 				<span
 					className={`pub-flex ${curLanguageCodeZh() ? '' : 'pub-seo-visibility1'}`}
 					// style={{ width: curLanguageCodeZh() ? '0' : '1px' }}>
@@ -90,7 +90,7 @@ const FooterCopyright = () => {
 					{strongText()}</a>
 				<a href={`${getLanguageHost()}/sitemap.html`} {...objPro}>
 					{strongText()}</a>
-				<a href={`${getLanguageHost()}/${curLanguageCodeZh() ? 'product-list-cn.xml' : 'product-list.xml'}`} {...objPro}>
+				<a href={`${getLanguageHost()}/${curLanguageCodeZh() ? 'product-list-cn.xml' : 'sitemapindex.xml'}`} {...objPro}>
 					{strongText()}</a>
 				<a href={`${getLanguageHost()}/${curLanguageCodeZh() ? 'sitemap-head-cn.xml' : 'sitemap-head.xml'}`} {...objPro}>
 					{strongText()}</a>

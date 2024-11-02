@@ -64,7 +64,7 @@ export default function useEcomerce(props) {
     // 删除时机 1. SAVED FOR LATER列表删除的id和当前存储的id一致时删除 2. /account/shopping-cart新建购物车时删除  3. 点击支付跳转下一页时 4. 账号登录前
     // 存储时机：1. 激活购物车时 2.添加产品提示新建购物车时
     const setCurCartDataHok = data => {
-        setCookie('cur_cart_data', data, { path: '/' })
+        setCookie('cur_cart_data', data || {}, { path: '/' })
         dispatch(setCurCartData(data));
     }
 
@@ -347,7 +347,7 @@ export default function useEcomerce(props) {
             }
         },
 
-        // 添加多个产品 unitPrice 添加购物车: 全量改为增量 第二个参数不用了 object.type: 1 默认 2 报价 3 多订单 4 推送订单
+        // 添加多个产品 unitPrice 添加购物车: 全量改为增量 第二个参数不用了 object.type: 1 默认 2 报价（旧版的type也改为4了） 3 多订单 4 推送订单
         useAddMoreCart: async (newAddCarts, object) => {
             if(newAddCarts?.length === 0) {
                 addToLoadCarts(object?.newToken)  // 不新增购物车，但是要请求购物车列表

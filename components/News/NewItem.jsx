@@ -17,8 +17,8 @@ const NewItemCom = ({ item }) => {
 	const filterImg = coverImageThumb || coverImage; // 先拿小图
 	// 所有getDetailHref方法同时修改
 	const getDetailHref = () => {
-		const routerTitle = isIncludes(title)
-		const lastUrl = `/${routerTitle}/${id}`
+		// const routerTitle = isIncludes(title)
+		const lastUrl = `/${id}` // /${routerTitle} 标题太长，不要了
 
 		return getNewsUrl(newsType, lastUrl)
 		// let href = '/';

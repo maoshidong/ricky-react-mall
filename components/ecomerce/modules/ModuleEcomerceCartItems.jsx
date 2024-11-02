@@ -21,10 +21,9 @@ import {
 } from '~/utilities/ecomerce-helpers';
 import { onlyNumber, isIncludes, getExpiresTime } from '~/utilities/common-helpers';
 import { TABLE_COLUMN } from '~/utilities/constant';
-import { getEnvUrl, PRODUCTS_DETAIL, ACCOUNT_CART_HASH } from '~/utilities/sites-url'
+import { PRODUCTS_DETAIL, ACCOUNT_CART_HASH } from '~/utilities/sites-url'
 import CartRepository from '~/repositories/zqx/CartRepository';
-import AccountRepository from '~/repositories/zqx/AccountRepository';
-import { setToken } from '~/repositories/Repository';
+
 import { getCurrencyInfo } from '~/repositories/Utils';
 import dynamic from 'next/dynamic'
 const ShareCart = dynamic(() => import('~/components/ecomerce/modules/shoppingCartCom/ShareCart')); // 分享
@@ -402,7 +401,7 @@ const ModuleEcomerceCartItems = (props) => {
 					<Flex column>
 						<div className=" product-name">
 							{
-								record?.productId > 0 ? <Link href={`${getEnvUrl(PRODUCTS_DETAIL)}/${isIncludes(record.productName)}/${record?.productId}`}>
+								record?.productId > 0 ? <Link href={`${PRODUCTS_DETAIL}/${isIncludes(record.productName)}/${record?.productId}`}>
 									<a target='_blank' className="ps-product__title color-link" >{record.productName}</a>
 								</Link> : record.productName
 							}
@@ -529,7 +528,7 @@ const ModuleEcomerceCartItems = (props) => {
 				<div className='product-detail'>
 					<div className="color-link product-name">
 						{/* 产品详情页减少层级 */}
-						<Link href={`${getEnvUrl(PRODUCTS_DETAIL)}/${isIncludes(record.productName)}/${record?.productId}`}>
+						<Link href={`${PRODUCTS_DETAIL}/${isIncludes(record.productName)}/${record?.productId}`}>
 							<a target='_blank' className="ps-product__title" >{record.productName}</a>
 						</Link>
 					</div>

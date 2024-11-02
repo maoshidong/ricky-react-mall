@@ -332,7 +332,7 @@ const CatalogTop = ({ allCatalog, queryKeywords, results, keywordsProducts, top2
 	// <Element name={item.id}>
 
 	const getLeft = () => {
-		return <div ref={fContainerRef} className='catalogs__top-fixed w300 mt20'>
+		return <div ref={fContainerRef} className='catalogs__top-fixed w300 mt20' style={{top: '130px'}}>
 			{!top20Flag && (
 				<>
 					<div className='pub-left-title'>{i18Translate('i18SmallText.Search Part Number', 'Search Part Number')}</div>

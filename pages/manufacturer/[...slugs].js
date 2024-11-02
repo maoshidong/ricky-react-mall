@@ -6,6 +6,7 @@ import ManufacturerDetail from '~/components/partials/manufacturer/ManufacturerD
 import BreadCrumb from '~/components/elements/BreadCrumb';
 import classNames from 'classnames';
 import banStyles from '~/components/common/layout/_PubPageBanner.module.scss';
+import { Tabs } from '~/components/partials';
 
 import { ManufacturerRepository, NewsRepository, outProductRepository } from '~/repositories';
 import useLanguage from '~/hooks/useLanguage';
@@ -82,46 +83,20 @@ const ManufacturerDetailPage = ({
 		]
 	}
 
-	useEffect(async () => {
-		// const log= await NewsRepository.apiQueryManufactureRelaNews({
-		// 	manufactureId: 21392,
-		// 	languageType: 'zh',
-		// });
 
-		// console.log(log,'log')
-		// const threeProductParams = {
-		//     indexFlag: 1, pageSize: 10, manufacturerId: 21299,
-		// }
-		// // // 热卖产品
-		// await outProductRepository.getHotProductsList(threeProductParams);
-		// await outProductRepository.getRecommendListWeb(threeProductParams);
-		// // 折扣产品
-		// await outProductRepository.getGreatDealsList(threeProductParams);
-		// await ManufacturerRepository.apiManufacturersCatalogList({
-		// 	// manufacturerId: 743,
-		// 	slug: 'texas-instruments',
-		// 	languageType: 'en',
-		// })
-		//     await NewsRepository.apiQueryManufactureRelaNews({
-		//   manufacturerIdlanguageType: 'en',
-		// })
+	const iProductLine = i18Translate('i18CatalogHomePage.Product Line', 'Product Line')
+	const iFeaturedProducts = i18Translate('i18HomeNextPart.productsTitle', 'Featured Products')
+	const iRelatedContent = i18Translate('i18CatalogHomePage.Related Content', 'Related Content')
+	const iAbout = i18Translate('i18SmallText.About', 'About');
+	let tabsArr = [
+		{ label: iProductLine, value: '0' },
+	]
 
-		// const relaNews = await NewsRepository.apiQueryManufactureRelaNews({
-		//     manufactureId: 701,
-		//     languageType: 'en',
-		//     pageNum: 1,
-		//     pageNumber: 50,
-		// }); // 查询新闻
-
-		// const manufacturer1 = await ManufacturerRepository.getManufacturerBySlug(slug);
-		// let manufacturerVo = null;
-		// let catalogsVo = null;
-		// if (manufacturer1?.data?.data?.[0]?.attributes) {
-		//     const { catalogs, ...rest } = manufacturer1?.data?.data?.[0]?.attributes
-		//     manufacturerVo = filterBasicAtFields(rest);
-		//     catalogsVo = filterCatalogParentOtherChildren(catalogs)
-		// }
-	}, [])
+	if ([...hotProductsListServer, ...recommendResServer, ...greatResServer]?.length !== 0) tabsArr.push({ label: iFeaturedProducts, value: '1' });
+	if(relaNews?.data?.length > 0) tabsArr.push({ label: iRelatedContent, value: '2' });
+	if(introduce) tabsArr.push({ label: iAbout, value: '3' });
+	if(tabsArr?.length === 1) tabsArr = []; // 只有一个导航去接置空 relaNews
+	
 	const titleSeo = `${name} Distributor | ${process.env.title}`
 	// 之前关键词拼所有分类，现在不拼接了，只拿数量前5的
 	// const curAllCatalogs = catalogTreeVoList?.map(i => {
@@ -163,7 +138,7 @@ const ManufacturerDetailPage = ({
 			<div id="shop-categories" className="ps-page--shop" style={{ paddingBottom: 0 }}>
 				<div className={classNames('pub-top-bgc pub-top-bgc-minh260', banStyles.pubTopBgc)}>
 					<img className={classNames(banStyles.pubTopImg, banStyles.img1)} src={banner || '/static/img/bg/manufacturerBgc2.jpg'} alt="banner" />
-					<img className={classNames(banStyles.pubTopImg, banStyles.img3)} src={banner || '/static/img/bg/manufacturerBgc2Mobile.jpg'} alt="banner" />
+					<img className={classNames(banStyles.pubTopImg, banStyles.img3)} src={banner || '/static/img/bg/manufacturerBgc2Mobile.webp'} alt="banner" />
 					<div className='ps-container pub-top-bgc-content'>
 						{
 							introduce && logo && !imageError ? <img
@@ -179,6 +154,8 @@ const ManufacturerDetailPage = ({
 							)}
 					</div>
 				</div>
+				
+				<Tabs tabsArr={tabsArr} offset={-140} duration={300} />
 
 				<div className="ps-container">
 					<BreadCrumb breacrumb={breadcrumb} />
@@ -215,9 +192,9 @@ export async function getServerSideProps({ req, query }) {
 
 	const { manufacturerId } = manufacturerData?.data || {}
 
-	if (isNaN(Number(manufacturerId))) {
-		return redirect404(true)
-	}
+	// if (isNaN(Number(manufacturerId))) {
+	// 	return redirect404(true)
+	// }
 
 	const threeProductParams = {
 		indexFlag: 1, pageSize: 10, manufacturerId, languageType,
@@ -233,7 +210,7 @@ export async function getServerSideProps({ req, query }) {
 	])
 	
 	const hotProductsList = hotProductsListRes?.data?.data?.slice(0, 10)?.map(item => {
-		const { name, description, image, thumb, manufacturerLogo, manufacturerId="", productId } = item || {}
+		const { name, description='', image='', thumb='', manufacturerLogo='', manufacturerId="", productId } = item || {}
 		let obj = { name, description, image: thumb || image, manufacturerLogo, manufacturerId, productId }
 		return obj
 	});

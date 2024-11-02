@@ -42,7 +42,6 @@ const ProductHighlightsCom = ({ res, otherNews }) => {
 	let manufacturerNames = recommendManu ? [manufacturerName] : [] // 所有供应商名称
 	let catalogData = [] // 所有分类名称 + id
 	let catalogNames = []
-	console.log('specialProductList---del', specialProductList)
 	specialProductList?.map(item => {
 		// 产品列表
 		const arr = item?.productList?.map(i => {
@@ -67,7 +66,6 @@ const ProductHighlightsCom = ({ res, otherNews }) => {
 		seoKeyProductName?.push(arr)
 	})
 
-	// console.log('manufacturerNames---del', manufacturerNames)
 	const uniqueArrMan = [...new Set(manufacturerNames)]; // 去重
 
 	const uniqueArrCatalog = [...new Set(catalogNames)]; // 去重
@@ -392,10 +390,6 @@ const ProductHighlightsCom = ({ res, otherNews }) => {
 
 			</div>
 			<div className='pub-flex-shrink pub-fit-content pb-10 w300'>
-				{/* <div className='pub-border15'>
-                    <h2 className='mb12 pub-font14 pub-fontw'>{iShare}</h2>
-                    <ExternalShare paramMap={paramMap} />
-                </div> */}
 				<div>
 					<RecommendNews title={moreNewsTit} otherNews={otherNews} curContent={content} publishTime={publishTime} />
 				</div>

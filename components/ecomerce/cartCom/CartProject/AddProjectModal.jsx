@@ -7,7 +7,7 @@ import useLanguage from '~/hooks/useLanguage';
 import Link from 'next/link';
 import { useCookies } from 'react-cookie';
 import MinSucTip from '~/components/ecomerce/minCom/MinSucTip';
-import { getEnvUrl, ACCOUNT_PROJECT_DETAIL } from '~/utilities/sites-url';
+import { ACCOUNT_PROJECT_DETAIL } from '~/utilities/sites-url';
 
 const AddProjectModalCom = ({
     isShowModal, productList,
@@ -185,7 +185,7 @@ const AddProjectModalCom = ({
                             />
                         </div>
                         <div className="ps-add-cart-footer custom-antd-btn-more" style={{float:'none'}}>
-                            <Link href={getEnvUrl(ACCOUNT_PROJECT_DETAIL) + `/${sucId}`}>
+                            <Link href={ACCOUNT_PROJECT_DETAIL + `/${sucId}`}>
                                 <a>
                                     <Button
                                         type="primary" ghost

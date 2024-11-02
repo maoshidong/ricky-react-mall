@@ -32,23 +32,23 @@ export const customHeaders = {
 // 重启服务器或者数据库造成商城和官网服务断的,需要重新启动       cartNo: 0 检查修改为准确的
 // 更新： 所有分类AllCatalogTree,  分类有变化时， 更新FooterSeo
 // 打包配置 
-export const baseUrl = `/static`;
-export const baseStaticUrl = `/static`;
-export const backendServerUrl = `/app/api`;
-export const commonUploadUrl = `${backendServerUrl}/common/webUpload`;
+// export const baseUrl = `/static`;
+// export const baseStaticUrl = `/static`;
+// export const backendServerUrl = `/app/api`;
+// export const commonUploadUrl = `${backendServerUrl}/common/webUpload`;
 
 // 部署前更新语言包 - 目前需要
 
-// const HOST_DOMAIN = 'https://www.origin-ic.com';
-// const HOST = 'http://47.243.250.5:8088'; // 外网
-// const HOST1 = 'http://172.31.101.11:8088'; // 内网
-// const TEST_HOST = 'http://192.168.3.146:8088'; // 3.146   
-// const TEST_HOST1 = 'http://192.168.3.155:8088';
+const HOST_DOMAIN = 'https://www.origin-ic.com';
+const HOST = 'http://47.243.250.5:8088'; // 外网
+const HOST1 = 'http://172.31.101.11:8088'; // 内网
+const TEST_HOST = 'http://192.168.3.146:8088'; // 3.146   
+const TEST_HOST1 = 'http://192.168.3.155:8088';
 
-// export const baseUrl = HOST_DOMAIN + `static`;
-// export const baseStaticUrl = HOST_DOMAIN + `static`;
-// export const backendServerUrl = TEST_HOST;
-// export const commonUploadUrl = `${backendServerUrl}/common/webUpload`;
+export const baseUrl = HOST_DOMAIN + `static`;
+export const baseStaticUrl = HOST_DOMAIN + `static`;
+export const backendServerUrl = HOST;
+export const commonUploadUrl = `${backendServerUrl}/common/webUpload`;
 
 
 // export const baseUrl = `http://172.0.0.1:8088/static`;

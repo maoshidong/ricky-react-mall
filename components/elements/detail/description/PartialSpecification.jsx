@@ -5,7 +5,7 @@ import Link from 'next/link';
 import useLanguage from '~/hooks/useLanguage';
 import { ProductsDetailContext } from '~/utilities/shopCartContext';
 import { isIncludes } from '~/utilities/common-helpers';
-import { getEnvUrl, SERIES_PRODUCT_NUMBER, MANUFACTURER, PRODUCTS_CATALOG, PRODUCTS_FILTER } from '~/utilities/sites-url';
+import { SERIES_PRODUCT_NUMBER, MANUFACTURER, PRODUCTS_CATALOG, PRODUCTS_FILTER } from '~/utilities/sites-url';
 import { Flex } from '~/components/common';
 
 const PartialSpecificationCom = ({ attributeList, manufacturer, catalogsList }) => {
@@ -157,7 +157,7 @@ const PartialSpecificationCom = ({ attributeList, manufacturer, catalogsList }) 
 										{!item?.isSeries && <td>{renderDes(item)}</td>}
 										{item?.isSeries && (
 											<td>
-												<Link href={`${getEnvUrl(SERIES_PRODUCT_NUMBER)}/${isIncludes(seriesAdmin?.seriesName?.toUpperCase())}/${seriesAdmin?.id}`}>
+												<Link href={`${SERIES_PRODUCT_NUMBER}/${isIncludes(seriesAdmin?.seriesName?.toUpperCase())}/${seriesAdmin?.id}`}>
 													<a className="pub-color-link">{item?.attrValue}</a>
 												</Link>
 											</td>

@@ -6,8 +6,6 @@ import dynamic from 'next/dynamic';
 const BreadCrumb = dynamic(() => import('~/components/elements/BreadCrumb'));
 const PageContainer = dynamic(() => import('~/components/layouts/PageContainer'));
 const ProductHighlightsCom = dynamic(() => import('~/components/News/ProductHighlightsCom'));
-const ExternalShare = dynamic(() => import('~/components/shared/public/ExternalShare'));
-const Flex = dynamic(() => import('~/components/common/flex'));
 
 import NewsRepository from '~/repositories/zqx/NewsRepository';
 import useLanguage from '~/hooks/useLanguage';
@@ -104,15 +102,7 @@ const VideosPage = ({ paramMap, res, otherNews }) => {
 			</Head>
 			<div className="articles-detail-page product-table-container ps-page--single pub-bgc-f5 pb-60">
 				<div className='ps-container'>
-					{/* <BreadCrumb breacrumb={breadcrumb} layout="fullwidth" /> */}
-					<Flex justifyBetween>
-						<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
-						<Flex alignCenter style={{ paddingTop: '14px', paddingRight: '6px' }}>
-							<i className="fa fa-share-alt pub-color-link" style={{ cursor: 'auto' }} />
-							<span className='ml10 mr10 pub-font14'>{iShare}</span>
-							<ExternalShare paramMap={paramMap} />
-						</Flex>
-					</Flex>
+				<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
 
 					<ProductHighlightsCom paramMap={paramMap} res={res} otherNews={otherNews} />
 				</div>

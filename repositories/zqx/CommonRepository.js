@@ -25,6 +25,21 @@ class CommonRepository {
         });
         return res?.data
     };
+		// /  shareUrlLink  分享映射链接管理
+//  /getShareUrlLink 获取链接对应短语
+// /getShareUrlByCode 根据短语获取链接
+		// 获取链接对应短语
+		async apiGetShareUrlByCode(params) {
+			const res = await Repository.post(`${backendServerUrl}/shareUrlLink/getShareUrlByCode`, params);
+			return res?.data
+		};
+		// 根据短语获取链接
+		async apiGetShareUrlLink(params) {
+			const res = await Repository.post(`${backendServerUrl}/shareUrlLink/getShareUrlLink`, params);
+			return res?.data
+		};
+	
+		
 		// 不需要就删除
     // async getStaticJson(dataId="", languageType="en") {
     //     const host = process.env.NODE_ENV === 'development' ? "http://localhost:3003" : "https://www.origin-ic.com"

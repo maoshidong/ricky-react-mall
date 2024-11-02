@@ -8,13 +8,12 @@ import PageContainer from '~/components/layouts/PageContainer';
 
 import ProductHighlightsCom from '~/components/News/ProductHighlightsCom';
 import NewsRepository from '~/repositories/zqx/NewsRepository';
-import { Flex } from '~/components/common';
-import ExternalShare from '~/components/shared/public/ExternalShare';
+// import ExternalShare from '~/components/shared/public/ExternalShare';
 import useLanguage from '~/hooks/useLanguage';
 
 // import CommonRepository from '~/repositories/zqx/CommonRepository'; 
 import { PUB_ARTICLE_TYPE } from '~/utilities/constant';
-import { getEnvUrl, PRODUCT_HIGHLIGHTS } from '~/utilities/sites-url'
+import { PRODUCT_HIGHLIGHTS } from '~/utilities/sites-url'
 import { getLocale, changeServerSideLanguage, redirect404 } from '~/utilities/easy-helpers';
 
 const ProductHighlightsIndex = ({ paramMap, res, otherNews }) => {
@@ -34,7 +33,7 @@ const ProductHighlightsIndex = ({ paramMap, res, otherNews }) => {
 		},
 		{
 			text: iProductHighlights,
-			url: getEnvUrl(PRODUCT_HIGHLIGHTS),
+			url: PRODUCT_HIGHLIGHTS,
 		},
 		{
 			text: content?.title,
@@ -119,14 +118,14 @@ const ProductHighlightsIndex = ({ paramMap, res, otherNews }) => {
 			<div className="articles-detail-page product-table-container ps-page--single pub-bgc-f5 pb-60">
 				<div className='ps-container'>
 					{/* <BreadCrumb breacrumb={breadcrumb} layout="fullwidth" /> */}
-					<Flex justifyBetween>
+					{/* <Flex justifyBetween> */}
 						<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
-						<Flex alignCenter style={{ paddingTop: '14px', paddingRight: '6px' }}>
+						{/* <Flex alignCenter style={{ paddingTop: '14px', paddingRight: '6px' }}>
 							<i className="fa fa-share-alt pub-color-link" style={{ cursor: 'auto' }} />
 							<span className='ml10 mr10 pub-font14'>{iShare}</span>
 							<ExternalShare paramMap={paramMap} />
-						</Flex>
-					</Flex>
+						</Flex> */}
+			
 					<ProductHighlightsCom paramMap={paramMap} res={res} otherNews={otherNews} />
 				</div>
 			</div>

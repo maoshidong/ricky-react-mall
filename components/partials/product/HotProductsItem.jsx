@@ -35,7 +35,9 @@ const HotProductsItem = ({ dataItem }) => {
 				<div style={{ width: `calc(100% - 60px)` }}>
 					<div className="products-recommended-cont pub-line-clamp pub-clamp3">{description}</div>
 					<Link href={`${PRODUCTS_DETAIL}/${isIncludes(name)}/${productId}`}>
-						<a style={{ position: 'static' }}>
+						{/* 使用style={{ position: 'static' }}可以会出现style={{ position: 'static' }}样式丢失
+						 使用.products-recommended-bottom下a标签添加样式及 a标签添加类名解决 */}
+						<a className='positionStatic'>
 							<Button type="primary" ghost className="w120">
 								<p>{i18Translate('i18MenuText.Details', 'Details')}</p>
 							</Button>

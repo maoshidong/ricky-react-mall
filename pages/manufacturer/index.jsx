@@ -191,7 +191,6 @@ const ManufacturerPage = ({ paramMap, seo, global, ecomerce, languageType = "en"
 			</React.Fragment>
 		));
 	}, [toShowManufacturer]);
-	console.log(toShowManufacturer, 'toShowManufacturer---del')
 	// 字母导航
 	const headerIndex = useMemo(() => {
 		const indexs = Object.keys(toShowManufacturer)?.map(item => (
@@ -377,8 +376,8 @@ const ManufacturerPage = ({ paramMap, seo, global, ecomerce, languageType = "en"
 				<div className={classNames('pub-top-bgc pub-top-bgc-minh260 ', banStyles.pubTopBgc, banStyles.allManufacturer)} style={{ marginTop: '-60px' }}>
 					<div className={classNames(banStyles.banBgc)}></div>
 					{/* <img className={classNames(banStyles.pubTopImg, banStyles.img1)} src='/static/img/bg/manufacturer.jpg' alt="banner" />
-					<img className={classNames(banStyles.pubTopImg, banStyles.img2)} src='/static/img/bg/manufactureriPad.png' alt="banner" />
-					<img className={classNames(banStyles.pubTopImg, banStyles.img3)} src='/static/img/bg/manufacturerMobile.png' alt="banner" style={{ minHeight: '260px' }} /> */}
+					<img className={classNames(banStyles.pubTopImg, banStyles.img2)} src='/static/img/bg/manufactureriPad.webp' alt="banner" />
+					<img className={classNames(banStyles.pubTopImg, banStyles.img3)} src='/static/img/bg/manufacturerMobile.webp' alt="banner" style={{ minHeight: '260px' }} /> */}
 
 					<div className='ps-container pub-top-bgc-content'>
 						<h1 className='pub-font36 pub-fontw pub-top-bgc-title'>{iAllManufacturers}</h1>

@@ -29,11 +29,12 @@ const ProductTableFilterCom = ({
 	loading,
 	dataServer,
 	queryAttrList,
+	manufacturerIdList, // 供应商属性条件id
 	queryKeywordList,
 	tempDataServer,
 	catalogsBreadcrumb, // 分类面包屑
 	manufacturerRes, // 供应商数据
-	sortField, 字段排序
+	sortField, // 字段排序
 }) => {
 	const { i18Translate, getLanguageEmpty } = useLanguage();
 	const { sendTimeMap, adddressMap, getSysShippingTime, getGoodsSendFrom } = useApi();
@@ -348,11 +349,6 @@ const ProductTableFilterCom = ({
 	// 		params.keywords = encrypt(queryKeywordList.join(',') || '')
 	// 	}
 
-	// 	// 是否有选中属性
-	// 	if (queryAttrList?.length > 0) {
-	// 		params.attrList = queryAttrList.join(',') || ''
-	// 	}
-
 	// 	const resultURL = await buildUrl(currentUrl, params);
 
 	const getRowClassName = (record, index) => {
@@ -371,11 +367,12 @@ const ProductTableFilterCom = ({
 		if (queryAttrList?.length > 0) {
 			params.attrList = queryAttrList.join(',') || ''
 		}
+		// params.manufacturerIdList = manufacturerIdList.join(',') || null
+		if (manufacturerIdList?.length > 0) {
+			params.manufacturerIdList = manufacturerIdList.join(',') || ''
+		}
 
 		// 是否有制造商
-		// if (manufacturerId) {
-		// 	params.manufacturerId = manufacturerId
-		// }
 		if (slug) {
 			params.manufacturerSlug = slug
 		}
@@ -449,16 +446,7 @@ const ProductTableFilterCom = ({
 				// onChange={resetSCrollbar}
 				/>
 			</div>
-			{/* </div> */}
-			{/* <span style={{height: '50px', display: 'initial'}}> */}
-			{/* {
-                        selectedRows.length !== 0 && (
-                            <div className='sticky-box' style={{display: 'inline-block'}}>
-                                <MinAddMoreCart selectedRows={selectedRows} />
-                            </div>
-                        )
-                    } */}
-			{/* </span> */}
+
 		</div>
 	);
 };

@@ -5,7 +5,6 @@ import BreadCrumb from '~/components/elements/BreadCrumb';
 import PageContainer from '~/components/layouts/PageContainer';
 
 import RecommendNews from '~/components/News/RecommendNews';
-import ExternalShare from '~/components/shared/public/ExternalShare';
 import AddAttributesToImages from '~/components/elements/min/AddAttributesToImages';
 import { Flex } from '~/components/common';
 import NewsRepository from '~/repositories/zqx/NewsRepository';
@@ -57,15 +56,7 @@ const NewsDetailPage = ({ paramMap, res, otherNews }) => {
 			</Head>
 			<div className="articles-detail-page ps-page--single pub-bgc-f5 pb-60 pub-minh-1">
 				<div className='ps-container'>
-					{/* <BreadCrumb breacrumb={breadcrumb} layout="fullwidth" /> */}
-					<Flex justifyBetween>
-						<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
-						<Flex alignCenter style={{ paddingTop: '14px', paddingRight: '6px' }}>
-							<i className="fa fa-share-alt pub-color-link" style={{ cursor: 'auto' }} />
-							<span className='ml10 mr10 pub-font14'>{iShare}</span>
-							<ExternalShare paramMap={paramMap} />
-						</Flex>
-					</Flex>
+					<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
 
 
 					<div className='pub-flex mt25 news-detail-content'>
@@ -85,11 +76,7 @@ const NewsDetailPage = ({ paramMap, res, otherNews }) => {
 						</div>
 
 						<div className='pub-flex-shrink pub-fit-content pb-10 w300'>
-							{/* <div className='pub-border15'>
-                                <h2 className='mb12 pub-font14 pub-fontw'>{iShare}</h2>
 
-                                <ExternalShare paramMap={paramMap} />
-                            </div> */}
 							<div>
 								<RecommendNews title={i18Translate('i18ResourcePages.More News ', 'More News ')} otherNews={otherNews} curContent={content} newsType={newsType} curNewId={id} />
 							</div>

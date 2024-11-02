@@ -238,8 +238,8 @@ class ProductRepository {
 	 * @获取未分类供应商列表
 	 * @param languageType 语言类型
 	 * **/
-	async getUncategorizedManufacturerList(languageType = 'en') {
-		const reponse = await Repository.post(`${backendServerUrl}/app/products/getUncategorizedManufacturerList`, { languageType }).then((response) => {
+	async getUncategorizedManufacturerList(languageType = 'en', manufacturerIdList) {
+		const reponse = await Repository.post(`${backendServerUrl}/app/products/getUncategorizedManufacturerList`, { languageType, manufacturerIdList }).then((response) => {
 			return response?.data;
 		});
 		return reponse;

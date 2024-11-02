@@ -179,7 +179,7 @@ const TableOrders = ({ auth, type, ecomerce, isDesktop, resServer = [] }) => {
 		dispatch(setPageLoading(true));
 		const res = await OrderRepository.getOrder(orderId, token);
 		const res1 = await OrderRepository.apiOrderStatus(orderId);
-		// console.log(res1, 'res1---del')
+
 		dispatch(setPageLoading(false));
 		if (res?.code === 0) {
 			setOrderDetail(res?.data)

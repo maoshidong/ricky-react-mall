@@ -32,7 +32,7 @@ const featuredManufacturer = ({ type, manuServer }) => {
 									<LazyLoad height={50}>
 										<img className="featured-manufacturer-img" src={item.logo} alt={item?.name} title={item?.name} />
 									</LazyLoad>
-									{/* <img src='https://oss.origin-ic.net/otherFile/texasInstruments-logo.png' style={{height: '50px'}} /> */}
+									{/* <img src='https://oss.origin-ic.com/otherFile/texasInstruments-logo.png' style={{height: '50px'}} /> */}
 									{/* 143 76 */}
 									{/* <Image className="featured-manufacturer-img" width="auto" height={50} layout="intrinsic" src={item.logo} alt={item?.name} title={item?.name} /> */}
 								</h3>

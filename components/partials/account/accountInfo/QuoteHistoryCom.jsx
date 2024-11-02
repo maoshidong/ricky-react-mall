@@ -65,6 +65,8 @@ const QuoteHistoryCom = ({ auth }) => {
 
 
 	const getList = async (obj, param) => {
+		console.log(obj, 'obj----del')
+		console.log(orderStatus, 'orderStatus----del')
 		setLoading(true)
 		const curPartNum = isInitialRender ? query?.partNum : partNum
 		const params = {
@@ -118,25 +120,7 @@ const QuoteHistoryCom = ({ auth }) => {
 
 	// 询价信息  priceStatus  0 没收到报价 1收到采购报价，待报价客户（采购报给我们的）  2已报价 3无货
 	// 回传的报价信息过来时同时伴随 询价信息priceStatus  变为1，回传报价信息新创建状态status起始为1， 待报价给客户 ，报价给客户后变为2
-	// '0:未报价  1：已报价',
-	const getClass = record => {
-		const { priceStatus } = record?.itemList || {}
-		let className = 'mt3 pub-primary-tag'
-		if (priceStatus == 2) {
-			className = 'mt3 pub-suc-tag'
-		}
-		if (priceStatus == 3) {
-			className = 'mt3 pub-err-tag '
-		}
-		return className
-	}
 
-	const status_text = {
-		0: iPending,
-		1: iPending,
-		2: iComplete,
-		3: iSoldOut,
-	}
 
 	const handleDateChange = e => {
 		getList({
@@ -145,11 +129,13 @@ const QuoteHistoryCom = ({ auth }) => {
 		setCheckDate(e)
 	}
 	const handleStatusChange = e => {
-		getList({
-			status: e,
-		});
 		setOrderStatus(e)
 	}
+	useEffect(() => {
+		getList({
+			status: orderStatus,
+		});
+	}, [orderStatus])
 
 	const expandedRowRender1 = () => {
 		const columns = [
@@ -193,7 +179,7 @@ const QuoteHistoryCom = ({ auth }) => {
 		// }
 
 		// 型号对比改变颜色
-		if (!item?.itemList?.callBackList || item?.itemList?.callBackList?.length === 0) return null
+		if (!item?.itemList?.pushOrderDetailList || item?.itemList?.pushOrderDetailList?.length === 0) return null
 		const columns = [
 			{
 				title: iPartNumber,
@@ -250,7 +236,7 @@ const QuoteHistoryCom = ({ auth }) => {
 			},
 			{
 				title: `${iUnitPrice} (${currencyInfo.value})`,
-				dataIndex: 'price',
+				dataIndex: 'sellOnePrice',
 				key: 'expprice',
 				width: 110,
 				render: (text, record) => (
@@ -287,18 +273,18 @@ const QuoteHistoryCom = ({ auth }) => {
 					//     {item?.itemList?.productId && (
 					<div className="custom-antd-btn-more">
 						<MinAddMoreCart
-							// 数据已报价的为准(callBackList)
+							// 数据已报价的为准(pushOrderDetailList)
 							selectedRows={[{
-								productId: item?.itemList?.callBackList?.[index]?.productId,  // 报从价拿
-								quantity: item?.itemList?.callBackList?.[index]?.quantity, // 报价数量，最小购买数量
-								partNum: item?.itemList?.callBackList?.[index]?.partNum,  // 报从价拿
-								manufacturer: item?.itemList?.callBackList?.[index]?.manufacturer,  // 报从价拿
+								productId: item?.itemList?.pushOrderDetailList?.[index]?.productId,  // 报从价拿
+								quantity: item?.itemList?.pushOrderDetailList?.[index]?.quantity, // 报价数量，最小购买数量
+								partNum: item?.itemList?.pushOrderDetailList?.[index]?.partNum,  // 报从价拿
+								manufacturer: item?.itemList?.pushOrderDetailList?.[index]?.manufacturer,  // 报从价拿
 							}]}
 							otherParams={{
 								addText: i18Translate('i18FunBtnText.AddToCart', 'ADD TO CART'),
 								widthClass: '',
 								type: 2,
-								callBackId: item?.itemList?.callBackList?.[index]?.id, // 报价返回的callBackList的id
+								callBackId: item?.itemList?.pushOrderDetailList?.[index]?.id, // 报价返回的callBackList的id
 							}}
 						/>
 
@@ -323,7 +309,7 @@ const QuoteHistoryCom = ({ auth }) => {
 			<div className="mb10 pub-color555 pub-font14 pub-fontw">{iQuotationResults}:</div>
 			<Table
 				columns={columns}
-				dataSource={item?.itemList?.callBackList || []}
+				dataSource={item?.itemList?.pushOrderDetailList || []}
 				// rowKey={record => nanoid()}
 				pagination={false}
 				size='small'
@@ -335,7 +321,26 @@ const QuoteHistoryCom = ({ auth }) => {
 		</>
 
 	}
-
+	console.log(list, 'list----del')
+	const status_text = {
+		0: iPending,
+		1: iPending,
+		2: iPending,
+		4: iComplete,
+		3: iSoldOut,
+	}
+		// '0:未报价  1：已报价',
+		const getClass = record => {
+			const { priceStatus } = record?.itemList || {}
+			let className = 'mt3 pub-primary-tag'
+			if (priceStatus == 4) {
+				className = 'mt3 pub-suc-tag'
+			}
+			if (priceStatus == 3) {
+				className = 'mt3 pub-err-tag '
+			}
+			return className
+		}
 	const RequestColumn = [
 		{
 			title: iStatus,
@@ -588,8 +593,8 @@ const QuoteHistoryCom = ({ auth }) => {
 								showExpandColumn: false, // 设置是否展示行展开列
 								// defaultExpandedRowKeys: ['0'],
 							}
-							// if(item?.itemList?.callBackList?.length > 0) {
-							//     expandableParams.expandedRowRender = () => ((item?.itemList?.callBackList?.length > 0) ? expandedRowRender(item) : null
+							// if(item?.itemList?.pushOrderDetailList?.length > 0) {
+							//     expandableParams.expandedRowRender = () => ((item?.itemList?.pushOrderDetailList?.length > 0) ? expandedRowRender(item) : null
 							// }
 
 							return <div key={nanoid()}>
@@ -598,12 +603,12 @@ const QuoteHistoryCom = ({ auth }) => {
 									dataSource={[item]}
 									pagination={false}
 									size='small'
-									className={'mb20 pub-border-table box-shadow ' + (item?.itemList?.callBackList?.length > 0 ? '' : 'hideExpandedRowRender')}
+									className={'mb20 pub-border-table box-shadow ' + (item?.itemList?.pushOrderDetailList?.length > 0 ? '' : 'hideExpandedRowRender')}
 									scroll={list?.length > 0 ? { x: 500 } : null}
 									// rowKey={record => nanoid()}
 									expandable={{
 										...expandableParams,
-										expandedRowRender: () => ((item?.itemList?.callBackList?.length > 0) ? expandedRowRender(item) : null),
+										expandedRowRender: () => ((item?.itemList?.pushOrderDetailList?.length > 0) ? expandedRowRender(item) : null),
 									}}
 								/>
 							</div>

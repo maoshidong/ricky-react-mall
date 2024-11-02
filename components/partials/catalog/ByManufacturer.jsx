@@ -10,6 +10,7 @@ const ByManufacturerCom = ({ catalogName, catalogId, resByManufacturer }) => {
 			href: `${handManufacturerUrl(i.manufacturerSlug)}?catalogId=${catalogId}`
 		}
 	})
+	if(list?.length === 0	) return null
 	return (
 		<div className='mt30'>
 			<h2 className='mb10 pub-left-title'>{catalogName} {iByManufacturers}</h2>

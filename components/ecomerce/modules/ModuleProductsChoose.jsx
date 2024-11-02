@@ -11,7 +11,7 @@ import useI18 from '~/hooks/useI18';
 
 import { calculateItemPriceTotal, toFixedFun } from '~/utilities/ecomerce-helpers';
 import { onlyNumber, isIncludes, encrypt } from '~/utilities/common-helpers';
-import { getEnvUrl, PRODUCTS_DETAIL, PRODUCTS } from '~/utilities/sites-url';
+import { PRODUCTS_DETAIL, PRODUCTS } from '~/utilities/sites-url';
 import { TABLE_COLUMN } from '~/utilities/constant'
 
 import TablePriceList from '~/components/ecomerce/minCom/TablePriceList'
@@ -142,7 +142,7 @@ const ModuleProductsChoose = props => {
 					<div className='ml20'>
 						<div className="color-link product-name">
 							{/* 产品详情页减少层级 */}
-							<Link href={`${getEnvUrl(PRODUCTS_DETAIL)}/${isIncludes(record.name)}/${record?.productId}`}>
+							<Link href={`${PRODUCTS_DETAIL}/${isIncludes(record.name)}/${record?.productId}`}>
 								<a className="ps-product__title" >{record.name}</a>
 							</Link>
 						</div>
@@ -272,7 +272,7 @@ const ModuleProductsChoose = props => {
 	// 查看过多
 	const getMore = () => {
 		// Router.push(`/products/search?s=${modalData?.PartNumber || ''}`);
-		// Router.push(`${getEnvUrl(PRODUCTS)}?keywords=${encrypt(keyword || '')}` + "&results=" + resultTotal)
+		// Router.push(`${PRODUCTS}?keywords=${encrypt(keyword || '')}` + "&results=" + resultTotal)
 	}
 
 	const { total } = moreData

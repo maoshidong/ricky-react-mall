@@ -11,7 +11,7 @@ const getLanguageCurrency = (url = I18NEXT_LOCALE.enHost) => {
 	const host = url.match(regHost) ? url.match(regHost)[1] : I18NEXT_LOCALE.enHost;
 
 	switch (host) {
-		case 'www.origin-ic.net':
+		case 'www.origin-ic.com':
 			langCurr = { lng: 'en', cuy: 'USD' };
 			break;
 		case I18NEXT_LOCALE.enHost:

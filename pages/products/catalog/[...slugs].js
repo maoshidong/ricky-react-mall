@@ -23,6 +23,7 @@ const NewItemMin = dynamic(() => import('~/components/News/NewItemMin'))
 const HotProductsCatalog = dynamic(() => import('~/components/partials/product/HotProductsCatalog'))
 const PageTopBanner = dynamic(() => import('~/components/shared/blocks/banner/PageTopBanner'))
 const ByManufacturer = dynamic(() => import('~/components/partials/catalog/ByManufacturer'))
+import { Tabs } from '~/components/partials';
 
 
 import { CatalogRepository, outProductRepository, ProductRepository, ManufacturerRepository, NewsRepository } from '~/repositories';
@@ -49,7 +50,7 @@ const CatalogDetailPage = ({
 	catalogDescriptionInfo, // 分类描述
 	hotProductsListServer, recommendResServer, greatResServer,
 }) => {
-	// console.log(relaManufacturer,'relaManufacturer----del')
+	// console.log(manufacturerRes,'manufacturerRes----del')
 	const { i18Translate, getLanguageName, curLanguageCodeZh, getZhName, getLanguageHost, getLanguageEmpty } = useLanguage();
 	const { iItems, iFeaturedManufacturers, iByCategories } = useI18()
 	const iRelatedContent = i18Translate('i18CatalogHomePage.Related Content', 'Related Content')
@@ -350,7 +351,7 @@ const CatalogDetailPage = ({
 	}
 	// 左侧
 	const getLeft = allCatalog => {
-		return <div ref={fContainerRef} className='ps-product-catalog-left catalogs__top-fixed'>
+		return <div ref={fContainerRef} className='ps-product-catalog-left catalogs__top-fixed' style={{top: '130px'}}>
 			<div ref={filterRef} className='mb20'>
 				<MinQuerySearch
 					handleSearch={(e) => handleSearch(e)}
@@ -507,7 +508,24 @@ const CatalogDetailPage = ({
 		// const [pageUrl, breadcrumb] = getBreadCrumb(catalogs1);
 	}, [manufacturerRes])
 
-	// 不需要就删除
+
+	const iProducts = i18Translate('i18Head.products', 'Products');
+	const iFeaturedProducts = i18Translate('i18HomeNextPart.productsTitle', 'Featured Products')
+	const iRelatedManufacturer = i18Translate('i18CatalogHomePage.Related Manufacturer', 'Related Manufacturer')
+	const iAbout = i18Translate('i18SmallText.About', 'About');
+	let tabsArr = [
+		{ label: iProducts, value: '0' },
+	]
+	const isShowProducts = [...hotProductsListServer, ...recommendResServer, ...greatResServer]?.length !== 0
+	if(isShowProducts) {
+		tabsArr.push({ label: iFeaturedProducts, value: '1' })
+	}
+	if(relaNews?.length > 0) tabsArr.push({ label: iRelatedContent, value: '4' });
+	if(!queryManufacturerId) {
+		tabsArr.push({ label: iRelatedManufacturer, value: '2' })
+	}
+	if(catalogDescriptionInfo) tabsArr.push({ label: iAbout, value: '3' });
+
 
 	const allCatalogsArr = catalogsBreadcrumb?.slice()?.reverse().map(i => {
 		return getZhName(i)
@@ -542,9 +560,10 @@ const CatalogDetailPage = ({
 			</div>
 
 			<div id="shop-categories" className="ps-page--shop ps-page-catalog" style={{ paddingBottom: 0 }}>
+				<Tabs tabsArr={tabsArr} offset={-140} duration={300} />
 				<div className='ps-container'>
 					<BreadCrumb breacrumb={breadcrumb} />
-					<div className="ps-product-container" style={{ marginTop: '25px' }}>
+					<div name="0" className="ps-product-container" style={{ marginTop: '25px' }}>
 						{catalogsListComponent(last(catalogsBreadcrumb), keyword, searchManufacturers)}
 						
 					</div>
@@ -559,16 +578,18 @@ const CatalogDetailPage = ({
                             greatResServer={greatResServer}
                         /> 
                     </div> */}
+					{ [...hotProductsListServer, ...recommendResServer, ...greatResServer]?.length !== 0 && <div className='mt60' name="1">
+						<HotProductsCatalog
+							hotProductsList={hotProductsListServer}
+							recommendResServer={recommendResServer}
+							greatResServer={greatResServer}
+						/>
+					</div>}
 
-					<HotProductsCatalog
-						hotProductsList={hotProductsListServer}
-						recommendResServer={recommendResServer}
-						greatResServer={greatResServer}
-					/>
 
 					{/* 相关新闻 */}
 					{
-						relaNews?.length > 0 && <div className='mt60 mb30 pub-title-more'>
+						relaNews?.length > 0 && <div className='mt60 mb30 pub-title-more' name="4">
 							<div className='pub-title'>{iRelatedContent}</div>
 						</div>
 					}
@@ -588,7 +609,7 @@ const CatalogDetailPage = ({
 
 					{/* 如果有制造商id就不显示相关制造商的信息 */}
 					{!queryManufacturerId && (
-						<>
+						<div name="2">
 							{
 								relaManufacturer?.length > 0 && <div className='mt60 mb30 pub-title-more'>
 									<div className='pub-title'>{iFeaturedManufacturers}</div>
@@ -598,11 +619,11 @@ const CatalogDetailPage = ({
 							<div className='blocks-featured-manufacturer pb-0'>
 								<ManufacturerList manufacturerList={relaManufacturer?.slice(0, 10) || []} />
 							</div>
-						</>)}
+						</div>)}
 
 				</div>
 				{catalogDescriptionInfo ? <div className='mt50' style={{ background: '#fff' }}>
-					<div style={{
+					<div name="3" style={{
 						maxWidth: '1440px',
 						margin: '0 auto',
 						paddingBottom: '60px'
@@ -698,10 +719,10 @@ export async function getServerSideProps({ req, query, res }) {
 				catalogDescriptionInfo: catalogDescription?.data?.description || '',
 				relaNews: relaNewsServer || [], // 分类相关新闻
 				relaManufacturer: filteredRelaManufacturer || [], // 分类相关品牌
-				resByManufacturer: byManufacturer?.data, // 搜索分类关联品牌
+				resByManufacturer: byManufacturer?.data || [], // 搜索分类关联品牌
 
 				hotProductsListServer: hotProductsList || [],
-				recommendResServer: recommendRes?.data?.data,
+				recommendResServer: recommendRes?.data?.data || [],
 				greatResServer: greatRes?.data?.data,
 			},
 		}

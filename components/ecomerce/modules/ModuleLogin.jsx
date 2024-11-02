@@ -10,11 +10,11 @@ import useLanguage from '~/hooks/useLanguage';
 import useI18 from '~/hooks/useI18';
 import useLocalStorage from '~/hooks/useLocalStorage'
 
-import { AccountRepository, QuoteRepositry } from '~/repositories';
+import { AccountRepository } from '~/repositories';
 import FacebookLoginCom from '~/components/partials/account/FacebookLoginCom'; // facebook登录组件
 import GoogleLoginCom from '~/components/partials/account/GoogleLoginCom'; // google登录组件
 
-import { getEnvUrl, REGISTER, RETRIEVE_PASSWORD } from '~/utilities/sites-url';
+import { REGISTER, RETRIEVE_PASSWORD } from '~/utilities/sites-url';
 import styles from '~/scss/module/_account.module.scss'
 
 const LoginModal = ({ visible, onCancel, onLogin }) => {
@@ -160,7 +160,7 @@ const LoginModal = ({ visible, onCancel, onLogin }) => {
 							<div className="pub-color555 pub-color-hover-link">{iRemembeMe}</div>
 						</Checkbox>
 					</div>
-					<Link href={`${getEnvUrl(RETRIEVE_PASSWORD)}/?retrieveState=` + 1}>
+					<Link href={`${RETRIEVE_PASSWORD}/?retrieveState=` + 1}>
 						<a className="retrieve-password pub-color-hover-link">{iRetrievePassword}？</a>
 					</Link>
 				</div>
@@ -186,7 +186,7 @@ const LoginModal = ({ visible, onCancel, onLogin }) => {
 
 			<div className="mt60 pub-flex-center pub-font13">
 				<div className="pub-color555">{iNoAccountTip}</div>
-				<Link href={`${getEnvUrl(REGISTER)}`}>
+				<Link href={`${REGISTER}`}>
 					<a className="ml10 pub-color-link">{iRegisterNow}</a>
 				</Link>
 				{/* <div className='ml10 pub-color-link'></div> */}

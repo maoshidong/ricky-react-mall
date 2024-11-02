@@ -71,7 +71,6 @@ class CartRepository {
 
 		// const res = await getAuthorizeRequest(`${backendServerUrl}/cart/list_my_products?cartNo=${cartNo}&languageType=${languageType}`, token);
 		const res = await postAuthorizeRequest(`${backendServerUrl}/cart/list_my_products`, { ..._dt }, token);
-
 		if (res && res.status === 200) {
 			return res.data;
 		}

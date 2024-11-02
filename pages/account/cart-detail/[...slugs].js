@@ -288,7 +288,8 @@ const ProjectDetailPage = ({ paramMap }) => {
     const getProjectList = async () => {
         const res = await ZqxCartRepository.userCartListBasket(account?.token, {cartId});
         if (res?.code == 0) {
-            setCurrentProject(res?.data?.find(item => item?.id === cartId))
+					setCurCartDataHok()
+            setCurrentProject(res?.data?.find(item => item?.id === cartId) || {})
             // setProjectList(res?.data || [])
         }
     }
@@ -329,7 +330,8 @@ const ProjectDetailPage = ({ paramMap }) => {
 
     // 购物车确认激活
     const handleCartActive = async () => {
-        setCurCartDataHok(currentProject)
+
+        setCurCartDataHok(currentProject || {})
         addToLoadCarts('', cartId)
         setIsShowModal(false)
         Router.push(getEnvUrl(ACCOUNT_SHOPPING_CART))

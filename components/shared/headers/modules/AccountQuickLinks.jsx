@@ -114,7 +114,7 @@ const AccountQuickLinks = (props) => {
 	const iMyAccount = i18Translate('i18MyAccount.My Account', 'MY ACCOUNT')
 	const iLogout = i18Translate('i18Login.Logout', 'Logout')
 	// auth.isAccountLog === true && Boolean(typeof (auth.account) === 'string')
-
+	// .ps-cart__content  展示隐藏用户导航
 	// cookies?.account?.isAccountLog === true && Boolean(typeof (cookies?.account?.account) === 'string') && profileData?.firstName
 	if ((auth.isAccountLog === true && Boolean(typeof (auth.account) === 'string'))) {
 		return (
@@ -133,9 +133,9 @@ const AccountQuickLinks = (props) => {
 				}
 				{/* profileData?.firstName sprite-icons-1-9*/}
 				{
-					(isShowCart && isShow) && <div className="ps-cart__content" id="pub-modal-box" style={{ display: 'block !important' }}>
-						<div className='pub-modal-content'>
-							<div className='pub-modal-arrow'></div>
+					(isShowCart && isShow) && <div className="ps-cart__content" id="pub-modal-box" style={{ display: 'block !important', border: 'none !important' }}>
+						<div className='pub-modal-content' style={{border: 'none'}}>
+							{/* <div className='pub-modal-arrow'></div> */}
 							<div className='pub-modal-title'>{iMyAccount}</div>
 
 							<div className="ps-block__content">

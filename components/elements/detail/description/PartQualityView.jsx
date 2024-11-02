@@ -8,11 +8,10 @@ import TitleMore from '~/components/shared/public/titleMore';
 import { CheckCircleTwoTone } from '@ant-design/icons';
 import { CommonRepository } from '~/repositories';
 
-import { getEnvUrl, PAGE_CONTACT_US, PAGE_CERTIFICATIONS } from '~/utilities/sites-url';
+import { PAGE_CONTACT_US, PAGE_CERTIFICATIONS } from '~/utilities/sites-url';
 // import PageTopBanner from '~/components/shared/blocks/banner/PageTopBanner';
 import { PubPageBanner } from '~/components/common';
-import classNames from 'classnames'
-import banStyles from '~/components/common/layout/_PubPageBanner.module.scss';
+
 
 const PartQualityView = ({ minQuality }) => {
 	const { i18Translate, i18MapTranslate, temporaryClosureZh, getDomainsData } = useLanguage();
@@ -230,9 +229,9 @@ const PartQualityView = ({ minQuality }) => {
 	return (
 		<div className="ps-product_quality pub-minh-1 pb60">
 			<PubPageBanner
-				bgcImage="quality-bgc.png"
-				bgcImg="quality-bgc.png"
-				mobileBgcImg="quality-bgc.png"
+				bgcImage="quality-bgc.webp"
+				bgcImg="quality-bgc.webp"
+				mobileBgcImg="quality-bgc.webp"
 				title={i18Translate('i18QualityPage.bannerTitle', 'Origin Data Quality Control Laboratory')}
 				titleH1={true}
 				description={i18Translate('i18QualityPage.bannerDes', defaultDescription)}
@@ -241,7 +240,7 @@ const PartQualityView = ({ minQuality }) => {
 			>
 				{/* <div className={classNames(banStyles.popularManufacturersBgc)}></div> */}
 				<div className="pub-flex mt36">
-					<Link href={getEnvUrl(PAGE_CONTACT_US)}>
+					<Link href={PAGE_CONTACT_US}>
 						<a style={{ color: 'white' }}>
 							<div className="pub-flex-center contact-us pub-bgc-gradient w210">{i18Translate('i18MenuText.Contact Us', 'CONTACT US')}</div>
 						</a>
@@ -278,7 +277,7 @@ other certifications to maintain strict control over product and service quality
 							})}
 						</div>
 
-						{/* <Link href={getEnvUrl(PAGE_CERTIFICATIONS)}>
+						{/* <Link href={PAGE_CERTIFICATIONS}>
 							<a className="pub-content mt30 mb30 view-more">
 								<p className="sub-title pub-color-hover-link">{i18Translate('i18MenuText.View more', 'View more')}</p>
 								<div className="sprite-home-min sprite-home-min-3-9"></div>

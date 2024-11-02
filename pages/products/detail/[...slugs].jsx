@@ -95,6 +95,8 @@ const ProductsDetailPage = (props) => {
 	const [productDetailData, setProductDetailData] = useState(newProductServer ?? {})
 	const { updateProductDetailData } = useContext(ProductsDetailContext)
 	const [isShowShare, setIsShowShare] = useState(false)
+
+	const [defaultValue, setDefaultValue] = useState(getLanguageHost() + Router.asPath)
 	const [successCopy, setSuccessCopy] = useState(false) // 成功复制
 	const [isLog] = useLocalStorage('isLog', false); // 是否是账号登录
 	const [customerReference, setCustomerReference] = useState('')
@@ -171,13 +173,19 @@ const ProductsDetailPage = (props) => {
 		}
 	}
 
-	const handleClick = () => {
+	const handleClick = async () => {
+		const res = await CommonRepository.apiGetShareUrlLink({
+			realUrl: getLanguageHost() + Router.asPath
+		})
+		if (res?.code === 0) {
+			setDefaultValue(`${getLanguageHost()}/short/${res?.data}`)
+		}
 		setIsShowShare(true)
 	}
 
 	const handleCopy = () => {
 		//后端返回分享链接参数
-		copy(getLanguageHost() + Router.asPath);
+		copy(defaultValue);
 		setSuccessCopy(true)
 	}
 
@@ -302,8 +310,8 @@ const ProductsDetailPage = (props) => {
 	}
 
 	const iShare = i18Translate('i18AboutProduct.Share', 'Share')
-	const iShareThis = i18Translate('i18AboutProduct.Share This', 'Share This')
-	const iSharThisOn = i18Translate('i18AboutProduct.Share this on', 'Share this on:')
+	// const iShareThis = i18Translate('i18AboutProduct.Share This', 'Share This')
+	// const iSharThisOn = i18Translate('i18AboutProduct.Share this on', 'Share this on:')
 	const iCopy = i18Translate('i18SmallText.Copy', 'Copy')
 	const siteNameSeo = `${name} ${manufacturer?.name} / ${catalogsList?.[0]?.name} ${curLanguageCodeZh() ? SEO_COMPANY_NAME_ZH : SEO_COMPANY_NAME}`;
 	const allCatalogsArr = catalogsList?.slice()?.map(i => {
@@ -407,7 +415,7 @@ const ProductsDetailPage = (props) => {
 			>
 				<div className='custom-antd-btn-more' style={{ background: '#f5f7fa', position: 'relative' }}>
 					<div className='ps-container pub-flex-between' style={{ position: 'relative', display: 'flex' }}>
-						<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
+						<BreadCrumb breacrumb={breadcrumb} isShowShare={false} layout="fullwidth" />
 						<div
 							className='pub-flex-align-center detail-share mt16'
 						>
@@ -420,25 +428,25 @@ const ProductsDetailPage = (props) => {
 								isShowShare && (
 									<>
 										<div className='pub-modal-box-bgc pub-show-modal-box-bgc'></div>
-										<div className="share-content" id="pub-modal-box" style={{ top: "50px", right: '10px' }}>
+										<div className="share-content" id="pub-modal-box" style={{ top: "50px", right: '0' }}>
 											<div className="pub-modal-content">
 												<div className='pub-modal-arrow'></div>
 												<div className='pub-modal-title' style={{ justifyContent: 'space-between', paddingRight: '30px' }}>
 													<div className='pub-flex-align-center'>
 														<div className='mr10 sprite-icon4-cart sprite-icon4-cart-3-10'></div>
-														{iShareThis}</div>
+														{iShare}</div>
 													<i className="icon icon-cross2 pub-cursor-pointer" onClick={() => { setIsShowShare(false), setSuccessCopy(false) }}></i>
 												</div>
 												<div className='share-text'>
-													<div className='pub-font13 pub-color555 mb5'>{iSharThisOn}</div>
+													{/* <div className='pub-font13 pub-color555 mb5'>{iSharThisOn}</div> */}
 													<div className='mb20 pub-flex-align-center'>
-														<ExternalShare name={name} manufacturerName={manufacturer?.name} paramMap={paramMap} />
+														<ExternalShare jointUrl={`${name || ''} ${manufacturer?.name || ''} - `} name={name} manufacturerName={manufacturer?.name} paramMap={paramMap} />
 
 													</div>
 													<Space.Compact
-														style={{ minWidth: '380px' }}
+														style={{ minWidth: '330px' }}
 													>
-														<CustomInput defaultValue={getLanguageHost() + Router.asPath} />
+														<CustomInput defaultValue={defaultValue} />
 														<Button
 															type="primary" ghost
 															className='ps-add-cart-footer-btn custom-antd-primary'

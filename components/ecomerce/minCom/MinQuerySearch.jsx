@@ -14,7 +14,7 @@ const MinQuerySearch = ({ handleSearch, otherParams, onEnter }) => {
 	const [isSearch, setIsSearch] = useState(false);
 	const { queryKeywords = [] } = otherParams;
 	const [withinName, setWithinName] = useState('');
-	// const [searchData, setSearchData] = useLocalStorage('searchData', {});
+
 	const [searchKeywords, setSearchKeywords] = useLocalStorage('searchKeywords', queryKeywords || []);
 	const [curQueryKeywords, setCurQueryKeywords] = useState(queryKeywords || []);
 

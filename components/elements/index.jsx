@@ -4,9 +4,10 @@ import DefaultDescription2 from './detail/description/DefaultDescription2'; // �
 import CustomersAlsoBought from './detail/description/also/CustomersAlsoBought';
 import MyGrid from './min/MyGrid'; // GroupBy分组
 import GroupBy from './min/GroupBy'; // 自定义grid布局
+import ShortShare from './ShortShare'; // 生成分享的url短语
 
 export {
     DefaultDescription, DefaultDescription1, DefaultDescription2,
     CustomersAlsoBought,
-    MyGrid, GroupBy,
+    MyGrid, GroupBy, ShortShare,
 };

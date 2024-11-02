@@ -321,7 +321,7 @@ export const isIncludes = (string, symbol) => {
         returnStr = returnStr.replace(/\//g, "-")
 		}
 
-		return returnStr.replace(/[^a-zA-Z0-9]+/g, '-'); // 匹配所有非字母和非数字的字符
+		return returnStr.replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, ''); // 匹配所有非字母和非数字的字符, 然后去掉前后的-
 		// (/#/g, "-"); (' ')->(/\s/g, "-")
     // return string?.includes(symbol) ? string.replace(/[#\s]/g, "-") : string;
 

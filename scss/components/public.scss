@@ -472,7 +472,7 @@
 	display: inline-block;
 	width: 22px;
 	height: 22px;
-	background-position: -174px -22px;
+	background-position: -176px -22px;
 }
 
 .sprite-doubt-icon {
@@ -1060,6 +1060,7 @@
 	height: 16px;
 	background-position: -61px -2px;
 }
+
 .sprite-account-icons-1-5 {
 	width: 16px;
 	height: 16px;
@@ -1588,23 +1589,24 @@ $strength-gap: 6px;
 #pub-modal-box {
 	.pub-modal-content {
 		position: relative;
-		border: 1px solid $color-bgc555;
+		// border: 1px solid $color-bgc555; // bgcd3 bgc555
 		border-radius: $radius6;
 		background: $color-white;
 		z-index: 999999;
+		box-shadow: $box-shadow-hover;
 
-		.pub-modal-arrow {
-			position: absolute;
-			top: -5px;
-			right: 20px;
-			width: 10px;
-			height: 10px;
-			border: 1px solid #555;
-			border-top-color: transparent;
-			border-left-color: transparent;
-			background: #fff;
-			transform: rotateZ(-134deg);
-		}
+		// .pub-modal-arrow {
+		// 	position: absolute;
+		// 	top: -5px;
+		// 	right: 20px;
+		// 	width: 10px;
+		// 	height: 10px;
+		// 	border: 1px solid #555;
+		// 	border-top-color: transparent;
+		// 	border-left-color: transparent;
+		// 	background: #fff;
+		// 	transform: rotateZ(-134deg);
+		// }
 
 		.pub-modal-title {
 			display: flex;
@@ -1697,18 +1699,18 @@ $strength-gap: 6px;
 // banner-home-quote.jpg  banner-home-quote-pad.png  banner-home-quote-mobile 
 // banner-home-sign.jpg banner-home-sign-pad.jpg banner-home-sign-mobile.jpg
 .home-banner1 {
-	// background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('https://oss.origin-ic.net/homeSvg/banner-home-quote.webp') center center / 100% no-repeat
-	background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('https://oss.origin-ic.net/banner/banner-home-quote.jpg') center center / 100% no-repeat
+	// background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('https://oss.origin-ic.net/homeSvg/banner-home-quote.webp') center center / 100% no-repeat       https://oss.origin-ic.net/banner/banner-home-quote.jpg
+	background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/banner-home-quote.webp') center center / 100% no-repeat
 }
 
 .home-bannerPad {
 	// background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/banner-home-quote-pad.png') center center / 1920px 520px no-repeat
-	background: url('https://oss.origin-ic.net/banner/banner-home-quote-pad.png') right center / 100% no-repeat; // 100%避免偏移
+	background: url('/static/img/bg/banner-home-quote-pad.webp') right center / 100% no-repeat; // 100%避免偏移 https://oss.origin-ic.net/banner/banner-home-quote-pad.png
 }
 
 .home-banner2 {
-	// background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/banner-home-sign.jpg') center center / 100% no-repeat
-	background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('https://oss.origin-ic.net/banner/banner-home-sign.jpg') center center / 100% no-repeat
+	// background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/banner-home-sign.jpg') center center / 100% no-repeat       https://oss.origin-ic.net/banner/banner-home-sign.jpg
+	background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/banner-home-sign.webp') center center / 100% no-repeat
 }
 
 .home-banner2-Pad {
@@ -2439,11 +2441,7 @@ $margin-right-values: (
 .box-shadow {
 	&:hover {
 		border-radius: 6px !important;
-		// box-shadow: $box-shadow; rgba(55, 99, 170, .2)
-		box-shadow: 3px 3px 12px rgba(78, 113, 170, 0.2),
-			3px -3px 12px rgba(78, 113, 170, .2),
-			-3px 3px 12px rgba(78, 113, 170, .2),
-			-3px -3px 12px rgba(78, 113, 170, .2) !important;
+		box-shadow: $box-shadow-hover;
 	}
 }
 
@@ -2542,7 +2540,7 @@ $margin-right-values: (
 }
 
 .pub-line-clamp1 {
-	overflow: hidden;
+	overflow: hidden !important;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
@@ -2618,6 +2616,10 @@ $margin-right-values: (
 .pub-margin-8 {
 	margin-left: -8px !important;
 	margin-right: -8px !important;
+}
+
+.positionStatic {
+	position: static;
 }
 
 // 公共左侧
@@ -2740,6 +2742,7 @@ $margin-right-values: (
 		font-size: 16px;
 	}
 }
+
 
 
 @media (min-width: 1400px) {

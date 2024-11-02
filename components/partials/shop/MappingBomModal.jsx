@@ -276,7 +276,19 @@ const MappingBomModal = ({
 	const selectWorksheet = i18Translate('i18Bom.selectWorksheet', 'Sheet')
 	const rowBegin = i18Translate('i18Bom.rowBegin', 'Row Start')
 	const iView = i18Translate('i18MenuText.view', 'View')
-
+	const customStyle = {
+		// top: '50%',
+		// marginTop: '-15%',
+		minWidth: 1100,
+		// transition: 'none',
+		// transformOrigin: 'initial',
+		// transform: 'translateY(-70%)',  // 由于默认居中，需要调整回原来的位置参数  146 236    443
+		// paddingBottom: '0',
+		// display: 'flex',
+		// alignItems: 'center',  // 垂直居中
+		// justifyContent: 'center',  // 水平居中
+		// margin: '0 auto'  // 水平居中（备用方案）
+	};
 	return (
 		<div className="quote-bom-page upload-box">
 			<Modal
@@ -289,7 +301,8 @@ const MappingBomModal = ({
 					setIsShowTip(false)
 				}}
 				className="pub-border custom-antd-btn-more bom-upload-modal"
-				style={{ minWidth: 1100 }}
+				// style={{ minWidth: 1100 }}
+				style={customStyle}  // 应用自定义样式
 				maskClosable={false}
 				closeIcon={<i className="icon icon-cross2"></i>}
 			>

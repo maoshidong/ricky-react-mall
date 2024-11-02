@@ -38,7 +38,6 @@ const SearchHeader = ({ searchStyle, style }) => {
 	const [isInvalid, setIsInvalid] = useState(false); // 无效输入
 
 	const debouncedSearchTerm = useDebounce(keyword, 250);
-	const [searchData, setSearchData] = useLocalStorage('searchData', {});
 	const [recentViewLoc, setRecentViewLoc] = useLocalStorage('recentViewLoc', []) // 首页浏览记录
 
 	// 初始化数据
@@ -81,6 +80,7 @@ const SearchHeader = ({ searchStyle, style }) => {
 	}
 
 	const toSearchName = flag => {
+		dispatch(setPageLoading(false));
 		setLoading(true);
 		const products = ProductRepository.apiSearchProductByEs({
 			keyword: keyword.trim(),
@@ -93,7 +93,6 @@ const SearchHeader = ({ searchStyle, style }) => {
 			setCatalogNum(catalogCount); // 分类数量
 			setCatalogsVo(catalogsVo || {}); // 只有一个分类时 返回的数量
 			setIsAllMatch(isAllMatch)
-			setSearchData(result?.data || {});
 			setResultItems(searchVos?.data);
 			setResultTotal(searchVos?.total || 0);
 			// 传true或者已回车就跳转

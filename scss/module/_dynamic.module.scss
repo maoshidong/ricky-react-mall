@@ -10,7 +10,7 @@
 	margin-left: -4px;
 	background-color: $color-white;
 	border-radius: 6px !important;
-	box-shadow: 3px 3px 12px rgba(78, 113, 170, 0.2), 3px -3px 12px rgba(78, 113, 170, 0.2), -3px 3px 12px rgba(78, 113, 170, 0.2), -3px -3px 12px rgba(78, 113, 170, 0.2) !important;
+	box-shadow: $box-shadow-hover;
 	font-size: 18px;
 	z-index: 999;
 

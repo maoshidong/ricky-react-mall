@@ -37,11 +37,7 @@
 		cursor: pointer;
 		// border-color: $color-1st;
 		border-radius: 50px !important;
-		// box-shadow: $box-shadow; rgba(55, 99, 170, .2)
-		box-shadow: 3px 3px 12px rgba(78, 113, 170, 0.2),
-			3px -3px 12px rgba(78, 113, 170, .2),
-			-3px 3px 12px rgba(78, 113, 170, .2),
-			-3px -3px 12px rgba(78, 113, 170, .2) !important;
+		box-shadow: $box-shadow-hover;
 
 		i {
 			color: $color-1st;

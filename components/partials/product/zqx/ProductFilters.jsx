@@ -19,7 +19,8 @@ import useLanguage from '~/hooks/useLanguage';
 import useI18 from '~/hooks/useI18';
 import { List as ReactVirtualizedList } from 'react-virtualized';
 import styles from 'scss/module/_filter.module.scss';
-// 不需要就删除
+
+const MANUFACTURER_KEY = 'Manufacturer'
 /**
  * @queryData父组件传的查询商品 
 */
@@ -56,16 +57,22 @@ const ProductFilters = ({
 	const [isInitialRender, setIsInitialRender] = useState(true);
 
 	// 计算属性总数 - filter页面， 几个接口都传一样的参数，保持同步
-	const getProductsCountNum = async () => {
+	const countProductsCountNum = async () => {
 		// 选中的属性 - 选中恢复 ...queryAttrList
+		let manufacturerIdList = [] // 选中的供应商
 		let attributeIdList = []
 		for (let key in selectedItems) {
-			attributeIdList.push(...selectedItems[key])
+			if (key === MANUFACTURER_KEY) {
+				manufacturerIdList.push(...selectedItems[key])
+			} else {
+				attributeIdList.push(...selectedItems[key])
+			}
 		}
 		const params = {
 			keyword: last(queryKeywordList) || '',
 			keywordList: queryKeywordList || [],
 			attributeIdList,
+			manufacturerIdList,
 			catalogKeyword: queryCatalogId,
 			manufacturerKeyword: manufacturerId,
 		}
@@ -134,24 +141,31 @@ const ProductFilters = ({
 			return
 		}
 
-		getProductsCountNum()
+		countProductsCountNum()
 	}, []);
 
 	//  获取属性列表
 	async function getFilters(idList = [], useIdList = false) {
-		// 选中恢复 - ...queryAttrList 
-		let attrList = []
-		for (let key in selectedItems) {
-			attrList.push(...selectedItems[key])
-		}
+
 		setLoading(true);
 		if (!productAttributes || productAttributes?.length === 0) {
 			setLoading(true);
 		}
 
+		let manufacturerIdList = [] // 选中的供应商
+		let attributeIdList = []
+		for (let key in selectedItems) {
+			if (key === MANUFACTURER_KEY) {
+				manufacturerIdList.push(...selectedItems[key])
+			} else {
+				attributeIdList.push(...selectedItems[key])
+			}
+		}
+
 		const params = {
 			...filterServerParams,
-			attributeIdList: useIdList ? idList : queryAttrList, // useIdList为true，说明使用传过来的条件，为false使用queryAttrList
+			attributeIdList: useIdList ? attributeIdList : queryAttrList, // useIdList为true，说明使用传过来的条件，为false使用queryAttrList
+			manufacturerIdList: useIdList ? manufacturerIdList : filterServerParams?.manufacturerIdList, // useIdList为true，说明使用传过来的条件，为false使用queryAttrList
 		}
 
 		const res = await CatalogRepository.getProductFilter(params);
@@ -235,12 +249,12 @@ const ProductFilters = ({
 				[type]: itemValue
 			}
 		};
-
+		console.log('tmpSelectedItems', tmpSelectedItems)
 		saveSelectAttrObj(tmpSelectedItems)
 		updateFilterAttrIds(tmpSelectedItems)
 		// --del999 属性可能返回[]数组，先不执行 - 点击Apply All才去请求  选中条件改变时会调用， 这里不用重复调用
 		// handleSeach(null, tmpSelectedItems, true);  
-		getProductsCountNum()
+		countProductsCountNum()
 	}
 
 	// 删除供应商
@@ -257,18 +271,24 @@ const ProductFilters = ({
 			params.keywords = encrypt(newWithinResults.join('____') || '')
 		}
 		// 是否有选中属性  选中恢复 ...queryAttrList
-		let attrList = []
+		let manufacturerIdList = [] // 选中的供应商
+		let attrListArr = [] // 除供应商外的属性
 		for (let key in selectedItems) {
-			attrList.push(...selectedItems[key])
+			if (key === MANUFACTURER_KEY) {
+				manufacturerIdList.push(...selectedItems[key])
+			} else {
+				attrListArr.push(...selectedItems[key])
+			}
 		}
 
-		if (attrList?.length > 0) {
-			params.attrList = attrList.join(',') || ''
+		// return
+		if (attrListArr?.length > 0) {
+			params.attrList = attrListArr.join(',') || ''
+		}
+		if (manufacturerIdList?.length > 0) {
+			params.manufacturerIdList = manufacturerIdList.join(',') || ''
 		}
 		// // 是否有制造商
-		// if (manufacturerId && !delManufacturerId) {
-		// 	params.manufacturerId = manufacturerId
-		// }
 		if (slug && !delManufacturerId) {
 			params.manufacturerSlug = slug
 		}
@@ -307,7 +327,6 @@ const ProductFilters = ({
 	useEffect(() => {
 		return () => {
 			setTimeout(() => {
-				localStorage.removeItem('searchData')
 				localStorage.removeItem('searchKeywords')
 				localStorage.removeItem('saveSelectAttrObj')
 			}, 0)
@@ -325,7 +344,7 @@ const ProductFilters = ({
 		const isChecded = idList.find(item => item == i.productAttributeId)
 		return Boolean(isChecded)
 	}
-	// console.log(selectedItems, 'selectedItems----del')
+
 	// 属性是否还可选择
 	const handDisabled = (item, productAttributeId) => {
 		const isHaveItem = productAttributes?.find(i => i?.type === item?.type) || [] // 该属性类型下还有可选择的
@@ -379,7 +398,7 @@ const ProductFilters = ({
 			const countWid = handCountWid(item)
 			const { type } = item || {};
 			// 从制造商进入产品表格，在筛选条件中不显示制造商
-			if (type === "Manufacturer" && manufacturerRes?.name) return null
+			if (type === MANUFACTURER_KEY && manufacturerRes?.name) return null
 			return <div className="product-filter-column-wrapper" key={'virtualizedList' + index}>
 				<span className='pub-font14 pub-fontw'>{type}</span>
 				{/* minWidth: '100px', */}
@@ -409,7 +428,8 @@ const ProductFilters = ({
 											// checked={selectedFilterItems.indexOf(String(i?.productAttributeId)) >= 0}
 											onChange={(e) => onChecked(e, item?.dataList?.[index])}
 											checked={isChecked(item?.dataList?.[index])}
-											disabled={handDisabled(item, item?.dataList?.[index]?.productAttributeId) && !isChecked(item?.dataList?.[index])}
+											// && !isChecked(item?.dataList?.[index])
+											disabled={handDisabled(item, item?.dataList?.[index]?.productAttributeId)}
 										>
 											<span style={{ maxWidth: '300px', display: 'block' }} className='pub-line-clamp1' title={item?.dataList?.[index]?.attrValue}>{item?.dataList?.[index]?.attrValue}</span>
 										</Checkbox>
@@ -497,8 +517,9 @@ const ProductFilters = ({
 				attrsElm.push(
 					<div className='product-filter-selected-group pub-border' key={nanoid()}>
 						{
-							selectedItems[key].map((item, i) => (
-								<div className='ml10 pub-flex-align-center pub-font12' key={nanoid()}>
+							selectedItems[key].map((item, i) => {
+								// 有值才展示
+								if(getProductAttributesName(key, item)) { return <div className='ml10 pub-flex-align-center pub-font12' key={nanoid()}>
 									<div className='pub-lh18'>{getProductAttributesName(key, item)}</div>
 									<div className='filter-close'
 										onClick={(e) => onChecked(e, {
@@ -509,7 +530,8 @@ const ProductFilters = ({
 										<div className='ml5 sprite-about-us sprite-about-us-1-4' />
 									</div>
 								</div>
-							))
+								}
+							})
 						}
 					</div>
 				);
@@ -587,6 +609,7 @@ const ProductFilters = ({
 
 			<h1 className='mt20 mb15 pub-font24'>{checkSeriesName + name}</h1>
 			{/* -between */}
+			{/* 关键词输入框 */}
 			<div className='pub-flex-align-center'>
 				<Flex column gap={6} className='pub-flex-align-center pub-flex-wrap mb20'>
 					<Flex>
@@ -613,6 +636,7 @@ const ProductFilters = ({
 				</Flex>
 				<div className='mb20'>{iFilters}<Switch checked={showFilter} checkedChildren={ION} unCheckedChildren={IOFF} onChange={showChange} className='ml10 mr30' /></div>
 			</div>
+
 			<div>
 				{renderSelectedItems()}
 				{/* defaultChecked */}

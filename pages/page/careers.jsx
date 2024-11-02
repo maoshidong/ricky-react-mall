@@ -44,7 +44,7 @@ const Careers = ({ paramMap, isMobile }) => {
 			</Head>
 			<div className="ps-careers ps-page--single ps-about-us pub-bgc-f5 pub-minh-1">
 				<PageTopBanner
-					bgcImg="careersBan.jpg"
+					bgcImg="careersBan.webp"
 					title={i18Translate("i18CareersPage.bannerTitle", "Careers at Origin Data")}
 					titleH1={true}
 					description={i18Translate("i18CareersPage.bannerDes", "Our diverse team of professionals is redefining the industry and helping expand the boundaries of our technological future. Join us.")}

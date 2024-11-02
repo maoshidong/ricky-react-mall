@@ -139,7 +139,7 @@ const FreeSamplePage = ({ paramMap }) => {
 
 			<div className={classNames('free-sample-page pub-bgc-f5 custom-antd-btn-more')}>
 				<div className={classNames('pub-top-bgc pub-top-bgc-minh260', banStyles.pubTopBgc)} style={{ maxHeight: '450px' }}>
-					<img className={classNames(banStyles.pubTopImg)} src='/static/img/bg/freeSampleAll/free-sample.png' alt="banner" />
+					<img className={classNames(banStyles.pubTopImg)} src='/static/img/bg/freeSampleAll/free-sample.webp' alt="banner" />
 
 					<div className='ps-container pub-top-bgc-content pub-flex-between' style={{ overflow: 'visible' }}>
 						<div>
@@ -158,7 +158,7 @@ const FreeSamplePage = ({ paramMap }) => {
 				</div>
 
 				{/* <PubPageBanner
-					bgcImg="free-sample.png"
+					bgcImg="free-sample.webp"
 					title={iFreeSampleTit}
 					titleH1={true}
 					description={iFreeSampleDes}

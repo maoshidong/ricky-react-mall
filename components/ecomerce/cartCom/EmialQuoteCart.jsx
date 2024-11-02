@@ -36,7 +36,7 @@ const EmialQuoteCartCom = () => {
 	const addCart = () => {
 		useAddMoreCart(
 			curParams,
-			{ newToken: cookies?.['account']?.token, type: 2, }
+			{ newToken: cookies?.['account']?.token, type: 4, } // 旧版的type2也改为4了
 		);
 		setIsShow(false)
 	}
@@ -44,7 +44,7 @@ const EmialQuoteCartCom = () => {
 	const addNewCart = () => {
 		useAddMoreCart(
 			curParams,
-			{ newToken: cookies?.['account']?.token, type: 2, cartNo: -1 }
+			{ newToken: cookies?.['account']?.token, type: 4, cartNo: -1 } // 旧版的type2也改为4了
 		);
 		setIsShow(false)
 	}
@@ -106,7 +106,7 @@ const EmialQuoteCartCom = () => {
 		}
 		if (emailQuoteIds && emailQuoteIds?.length > 0) {
 			const res = await CartRepository.queryCallbackInfoList(cookies?.['account']?.token, emailQuoteIds?.split(','))
-			handleRes(res, 2)
+			handleRes(res, 4) // handleRes(res, 2) => handleRes(res, 4)  旧版的type2也改为4了
 		}
 	}
 	useEffect(async () => {

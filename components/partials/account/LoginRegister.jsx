@@ -497,6 +497,8 @@ const LoginRegisterCom = (props) => {
                     onClick={handleLoginSubmitNew}
                 >Login</Button>
             </div> */}
+						<span id="qqLoginBtn"></span>
+				{ curLanguageCodeZh() && <img src={'/static/img/common/qqLogin.png'} alt="" />}
 				<div className="login-page-privacy">
 					<div>
 						{iAgreedProtocol}&nbsp;

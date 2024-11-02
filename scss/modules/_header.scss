@@ -93,6 +93,7 @@
         font-size: 12px;
         color: $color-bgc555;
     }
+		// $color-bgcd3
 
     .header__left {
         // min-width: 530px;
@@ -147,10 +148,6 @@
         .container {
             display: flex;
             flex-flow: row nowrap;
-
-            > * {
-                // width: 100%;
-            }
         }
     }
 

@@ -98,8 +98,8 @@ export const LEAD_TIME = [
 ]
 
 export const QUOTE_STATUS_TEXT = [
-    {label: 'Pending', value: 9},
-    {label: 'Complete', value: 2},
+    {label: 'Pending', value: 9}, // 对应管理端的是待报价
+    {label: 'Complete', value: 4}, // 旧版2是完成，新版4是完成(生成报价单后才是完成), 
     {label: 'Sold Out', value: 3},
 ]
 
@@ -191,7 +191,7 @@ export const COUPON_TAB = [
     { name: 'Used', value: 2 },
     { name: 'Expired', value: 3 },
 ]
-// https://oss.origin-ic.net/authPdfZh/ISO13485.png
+
 export const CERTIFICATIONS_LIST = [
         {
             id: 1, // id, 排序不可随意变

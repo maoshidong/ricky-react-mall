@@ -12,7 +12,7 @@ import useLanguage from '~/hooks/useLanguage';
 
 import { scrollToTop, handleMomentTime } from '~/utilities/common-helpers';
 import { TABLE_COLUMN, DEL_ONE_TEXT } from '~/utilities/constant';
-import { getEnvUrl, ACCOUNT_PROJECT_DETAIL, ACCOUNT_CART_PROJECT_HASH } from '~/utilities/sites-url'
+import { ACCOUNT_PROJECT_DETAIL, ACCOUNT_CART_PROJECT_HASH } from '~/utilities/sites-url'
 
 
 import ZqxCartRepository from '~/repositories/zqx/CartRepository';
@@ -122,7 +122,7 @@ const MyProjectCom = ({ showTitle = true, tabActive, getTotal }) => {
 			width: 400,
 			render: (text, record) => {
 				return <div className='pub-flex-align-center'>
-					<Link href={getEnvUrl(ACCOUNT_PROJECT_DETAIL) + `/${record?.id}`}>
+					<Link href={ACCOUNT_PROJECT_DETAIL + `/${record?.id}`}>
 						<a className='pub-color-hover-link' style={{ maxWidth: '300px' }}>{editId !== record?.id && text}</a>
 					</Link>
 					{/* 编辑状态输入框 */}
@@ -163,11 +163,11 @@ const MyProjectCom = ({ showTitle = true, tabActive, getTotal }) => {
 		{
 			title: iOperation,
 			render: (text, record) => (
-				<Link href={getEnvUrl(ACCOUNT_PROJECT_DETAIL) + `/${record?.id}`}>
+				<Link href={ACCOUNT_PROJECT_DETAIL + `/${record?.id}`}>
 					<a><button
 						type="submit" ghost='true'
 						className='login-page-login-btn custom-antd-primary w80'
-						onClick={() => Router.push(getEnvUrl(ACCOUNT_PROJECT_DETAIL) + `/${record?.id}`)}
+						onClick={() => Router.push(ACCOUNT_PROJECT_DETAIL + `/${record?.id}`)}
 					>{iView}</button></a>
 				</Link>
 			),

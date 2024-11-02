@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import TitleMore from '~/components/shared/public/titleMore';
 import { CONTENT_SEARCH } from '~/utilities/sites-url';
-import { isIncludes } from '~/utilities/common-helpers';
 import { getNewsUrl } from '~/utilities/easy-helpers';
 import useLanguage from '~/hooks/useLanguage';
 
@@ -12,8 +11,8 @@ const productNews = ({ newsServer }) => {
 
 	// 所有getDetailHref方法同时修改
 	const getDetailHref = (item) => {
-		const routerTitle = isIncludes(item?.title)
-		const lastUrl = `/${routerTitle}/${item?.id}`
+		// const routerTitle = isIncludes(item?.title)
+		const lastUrl = `/${item?.id}` // /${routerTitle} 标题太长，不要了
 		return getNewsUrl(item?.newsType, lastUrl)
 		
 		// const { id, title, newsType } = item || {};

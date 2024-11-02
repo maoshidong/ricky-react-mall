@@ -49,6 +49,7 @@ const Tabs = ({ tabsArr = [], otherArr = [], offset = -140, duration = 500 }) =>
 	// delay：滚动开始前的延迟时间，单位是毫秒。默认值是 0。
 	// spy：当滚动到目标元素时，自动更新链接的状态。布尔值（true 或 false）。
 	// exact：当目标元素精确匹配时，更新链接的状态。布尔值（true 或 false）。
+	if(tabsArr?.length === 0 && otherArr?.length === 0) return null
 	return (
 		<div id="pubSticky" className="tabs-container">
 			{tabsArr?.map((item) => {

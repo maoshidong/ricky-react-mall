@@ -48,11 +48,6 @@ const InventorySolutions = ({ paramMap, isMobile }) => {
 		setCfToken(token)
 	};
 
-	// useEffect(() => {
-	//     const data = "https://oss.origin-ic.net/concatFile/ODGde0927126d82155741d5eeb7dd3d490606d56d11faed6fb261e4bda45de605f9.xlsx"
-	//     contactFileList.push(data)
-	//     setContactFileList(contactFileList)
-	// }, [])
 	// 文件上传
 	const uploadProps = {
 		name: 'file',

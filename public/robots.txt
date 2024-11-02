@@ -44,6 +44,6 @@ Disallow: *.pdf
 # Sitemaps   
 Sitemap: https://www.origin-ic.com/sitemap-head.xml
 Sitemap: https://www.origin-ic.com/sitemap.xml
-Sitemap: https://www.origin-ic.com/product-list.xml
+Sitemap: https://www.origin-ic.com/sitemapindex.xml
 Sitemap: https://www.origin-ic.com/sitemap.html
 Sitemap: https://www.origin-ic.com/sitemap.txt

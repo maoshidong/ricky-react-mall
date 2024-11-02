@@ -652,10 +652,10 @@ const BomDetail = ({ paramMap }) => {
 				<div className='cart-img-sort'>
 					<span>
 						{/* <InputNumber
-                            className="form-control w80"
-                            min={1} defaultValue={text}
-                            onChange={(e) => changeQuantity(e, record)}
-                        /> */}
+									className="form-control w80"
+									min={1} defaultValue={text}
+									onChange={(e) => changeQuantity(e, record)}
+							/> */}
 						<CustomInputNumber
 							className="form-control w80"
 							min={1}
@@ -673,7 +673,7 @@ const BomDetail = ({ paramMap }) => {
 			width: 140,
 			render: (text, record) => {
 				return <div style={{ display: 'flex' }}>
-					<TablePriceList pricesList={text || []} initNum={1} quantity={record?.quantity} isShowContactUs={false} />
+					<TablePriceList pricesList={text || []} initNum={1} quantity={record?.quantity} showQuantityPrice={true} isShowContactUs={false} />
 				</div>
 			}
 		},

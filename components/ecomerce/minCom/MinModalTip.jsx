@@ -1,6 +1,6 @@
 import { Modal, Button } from 'antd';
 import useLanguage from '~/hooks/useLanguage';
-
+// keyboard: 是否支持键盘 esc 关闭
 // 公共提示框Modal
 const MinModalTip = ({
 	width = 500, // 宽度
@@ -24,16 +24,31 @@ const MinModalTip = ({
 	const { i18Translate } = useLanguage();
 	const iCancel = cancelText || i18Translate('i18FunBtnText.Cancel', 'Cancel');
 	const iConfirm = submitText || i18Translate('i18FunBtnText.Confirm', 'Confirm');
+
+	// 自定义 Modal 的样式
+	const customStyle = {
+		top: '50%',
+		// marginTop: '-15%',
+		// transition: 'none',
+		// transformOrigin: 'initial',
+		transform: 'translateY(-70%)',  // 由于默认居中，需要调整回原来的位置参数  146 236    443
+		// paddingBottom: '0',
+		// display: 'flex',
+		// alignItems: 'center',  // 垂直居中
+		// justifyContent: 'center',  // 水平居中
+		// margin: '0 auto'  // 水平居中（备用方案）
+	};
 	return (
 		<Modal
 			open={isShowTipModal}
 			width={width}
 			title={tipTitle?.toUpperCase()}
 			onCancel={() => onCancel()}
-			centered
 			footer={null}
 			closeIcon={<i className="icon icon-cross2"></i>}
 			maskClosable={maskClosable}
+			centered
+			// style={customStyle}  // 应用自定义样式
 			{...rest}
 		>
 			{!isChildrenTip && <div className="pub-lh20">{tipText}</div>}

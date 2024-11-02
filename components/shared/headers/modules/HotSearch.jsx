@@ -45,7 +45,6 @@ const HotSearchCom = () => {
 	const [catalogsVo, setCatalogsVo] = useState({});
 	const [isAllMatch, setIsAllMatch] = useState(0); // 是否全匹配
 	const [resultTotal, setResultTotal] = useState(0); // 结果总数
-	const [_searchData, setSearchData] = useLocalStorage('searchData', {});
 
 	const [weekSearchList, setWeekSearchList] = useState([]); // 获取7天内浏览量最多的有货商品10个
 
@@ -101,8 +100,9 @@ const HotSearchCom = () => {
 		}
 	}, [isOpen]);
 
-	// 跳转到对应的页面
+	// 跳转到对应的页面  MT25QL128ABA1ESE-0SIT   stm23232323
 	const jumpToThePage = () => {
+		dispatch(setPageLoading(false));
 		setIsToPage(false); // 需要重置为false, 不然下次不能触发jumpToThePage
 		if (isInvalid) {
 			return;
@@ -145,7 +145,6 @@ const HotSearchCom = () => {
 			setCatalogNum(catalogCount); // 分类数量
 			setCatalogsVo(catalogsVo || {}); // 只有一个分类时 返回的数量
 			setIsAllMatch(isAllMatch);
-			setSearchData(result?.data || {});
 			setResultItems(searchVos?.data);
 			setResultTotal(searchVos?.total || 0);
 			// 传true或者已回车就跳转
@@ -317,7 +316,7 @@ const HotSearchCom = () => {
 			{/* Text content did not match. Server: "Popular Products" Client: "Recent Products" */}
 
 			{recentViewLoc?.length > 0 && <Fragment>
-				<div className='search-found'>{iRecent}</div>
+				<div className='search-found' key="iRecentKey">{iRecent}</div>
 				<ul role='listbox' className='recent-products'>
 					{recentViewLoc?.slice(0, 10)?.map((item, index) => (
 						<li role='option' className='recent-products-name' key={'recentView' + index} onClick={() => setIsOpen(false)}>
@@ -331,7 +330,7 @@ const HotSearchCom = () => {
 				</ul>
 			</Fragment>}
 
-			<div className='search-found'>{iPopularProducts}</div>
+			<div className='search-found' key="iPopularProductsKey">{iPopularProducts}</div>
 			<ul className='recent-products'>
 				{weekSearchList?.map((item, index) => (
 					//  onClick={() => setIsOpen(false)}

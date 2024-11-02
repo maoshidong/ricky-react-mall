@@ -46,8 +46,10 @@
 		// transition: all .1s ease;
 		// transition: none;
 		// @include hidden;
-		display: none;
+		display: none; // 展示隐藏用户导航
 		z-index: 999999;
+		border-radius: 6px !important;
+		box-shadow: $box-shadow-hover;
 
 
 		.ps-product__color18 {

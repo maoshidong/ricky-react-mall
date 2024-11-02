@@ -8,8 +8,8 @@ const Experience = () => {
 	const iUeditorAboutUs = i18Translate('i18Ueditor.UeditorAboutUs', ABOUT_US_ONE_ARR[0]);
 	const [visible, setVisible] = useState(false);
 
-	const imgUrl = `/static/img/about-us/${curLanguageCodeZh() ? 'abus-9.jpg' : 'abus-8.jpg'}`;
-	const imgUrlBig = `/static/img/about-us/${curLanguageCodeZh() ? 'abus-9.jpg' : 'abus-8-big.png'}`;
+	const imgUrl = `/static/img/about-us/${curLanguageCodeZh() ? 'abus-9.webp' : 'abus-8.jpg'}`;
+	const imgUrlBig = `/static/img/about-us/${curLanguageCodeZh() ? 'abus-9.webp' : 'abus-8-big.webp'}`;
 
 	return (
 		<div className="ps-container exper-container">

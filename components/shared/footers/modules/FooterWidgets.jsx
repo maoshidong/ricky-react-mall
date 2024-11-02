@@ -111,12 +111,12 @@ const FooterWidgets = ({ paramMap = {} }) => {
 		{ name: "About Us", url: '/page/about-us' },
 		{ name: "Certifications", url: '/page/certifications' },
 		{ name: "Quality", url: '/quality' },
-		{ name: "Newsroom", url: getEnvUrl(NEWSROOM) },
+		// { name: "Newsroom", url: getEnvUrl(NEWSROOM) }, // url不对，暂时去掉
 		{ name: "Careers", url: '/page/careers' },
 		{ name: "Contact Us", url: '/page/contact-us' },
 	]
 	const resourcesArr = [
-		{ name: "Blog", url: CONTENT_SEARCH },
+		// { name: "Blog", url: CONTENT_SEARCH }, // url不对，暂时去掉
 		{ name: "All Products", url: '/products' },
 		{ name: "BOM Tools", url: getEnvUrl(ACCOUNT_QUOTE_BOM_UPLOAD) },
 		{ name: "Free Sample", url: HELP_FREE_SAMPLE },

@@ -38,7 +38,7 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 	const i18UnclassifiedTitle = i18Translate('i18Seo.Unclassified.title', 'Unclassified');
 	const i18UnclassifiedKey = i18Translate('i18Seo.Unclassified.keywords', 'Unclassified');
 	const i18UnclassifiedDes = i18Translate('i18Seo.Unclassified.description', 'Unclassified');
-
+	console.log(manufacturerList, 'manufacturerList---del')
 
 	const [withinName, setWithinName] = useState(''); // 输入内容
 	const [withinResults, setWithinResults] = useState([]); // 添加的withinResults, 当前选中的条件
@@ -51,7 +51,8 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 	const [total, setTotal] = useState(totalServer ?? 0)
 	const [selectedRows, setSelectedRows] = useState([])
 	const [selectedRowKeys, setSelectedRowKeys] = useState([]); // 选中的行key集合
-	const [manufacturer, setManufacturer] = useState({})
+
+	const [manufacturerArr, setManufacturerArr] = useState([])
 	const [flag, setFlag] = useState(false)
 	const { sendTimeMap, adddressMap } = useEcomerce();
 
@@ -62,11 +63,8 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 	}, [curKeyword])
 	useEffect(() => {
 
-		setManufacturer({
-			...manufacturer,
-			name: (manufacturerList?.find(i => i.manufacturerId === Number(Router?.query?.manufacturerId)))?.name,
-			manufacturerId: Router?.query?.manufacturerId || null,
-		})
+		setManufacturerArr(manufacturerList.filter(i => i.isSelect))
+		// Router?.query?.manufacturerId
 	}, [Router?.query?.manufacturerId])
 	useEffect(() => {
 		setList(productsList)
@@ -80,7 +78,7 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 
 		Router.push(handAllRouter())
 		setIsInitialRender(true)
-	}, [withinResults, manufacturer])
+	}, [withinResults, manufacturerArr])
 	// 测试接口
 	// useEffect(async () => {
 	// 	ProductRepository.getUncategorizedManufacturerList('en') // 供应商
@@ -101,15 +99,21 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 		setPageSize(PUB_PAGINATION?.pageSize);
 	}
 
-	// 获取跳转的链接参数
+	// 获取跳转的链接参数 20659        10194 + 21   manufacturerId
 	const handAllRouter = useCallback(params => {
-		const obj = {
-			manufacturerId: manufacturer?.manufacturerId || null,
-			keyword: withinResults?.join(',') || null,
-			...params,
+		let arr = [...manufacturerArr]
+		if (params?.manufacturerId) {
+			arr.push(params)
 		}
+		const obj = {
+			keyword: withinResults?.join(',') || null,
+			manufacturerId: arr?.length > 0 ? arr?.map(item => item?.manufacturerId).join(',') : null,  // 无限种供应商id组合
+			// manufacturerId: manufacturerArr?.length > 0 ? manufacturerArr?.[0]?.manufacturerId : null,
+			// ...params,
+		}
+
 		return easySerializeQuery(obj) ? `${currentUrl}?${easySerializeQuery(obj)}` : currentUrl
-	}, [manufacturer, withinResults])
+	}, [manufacturerArr, withinResults])
 
 	// 面包屑
 	const breadcrumb = [
@@ -239,11 +243,18 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 		setIsInitialRender(false);
 	};
 
-	// 选中分类
+	// 选中供应商
 	const handleManufacturerChange = item => {
-		setManufacturer(item)
+		setManufacturerArr([...manufacturerArr, item])
 		// 初始化页码
 		resetPageParam()
+	}
+	// 关闭供应商 20659      10194 + 21
+	const clostManu = item => {
+		console.log(manufacturerArr, 'manufacturerArr---del')
+		const arr = manufacturerArr?.filter(i => i?.manufacturerId !== item?.manufacturerId)
+		console.log(arr, 'arr---del')
+		setManufacturerArr(arr)
 	}
 
 	// 左侧供应商
@@ -251,8 +262,8 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 		return manufacturerList?.map((item, index) => (
 			<li
 				key={index}
-				className={'menu-item-has-children ' + (manufacturer?.manufacturerId == item?.manufacturerId ? 'pub-left-active' : '')}
-				onClick={() => handleManufacturerChange(item)}
+				className={'menu-item-has-children ' + (item?.isSelect === 1 ? 'pub-left-active' : '')}
+			// onClick={() => handleManufacturerChange(item)}
 			>
 				<Link href={handAllRouter({ manufacturerId: item?.manufacturerId, })}>
 					<a>{item.name}</a>
@@ -264,7 +275,8 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 	// 除分页外其它参数，传给分页组件
 	const getOtherUrlParams = params => {
 		const obj = {
-			manufacturerId: manufacturer?.manufacturerId || null,
+			manufacturerId: manufacturerArr?.length > 0 ? manufacturerArr?.map(item => item?.manufacturerId).join(',') : null,
+			// manufacturerId: manufacturerArr?.length > 0 ? manufacturerArr?.join(',') : null,
 			keyword: withinResults?.join(',') || null,
 			...params,
 		}
@@ -313,15 +325,16 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 	};
 
 	const getName = (str = ', ') => {
+		const arr = manufacturerList.filter(i => i.isSelect)?.map(i => i?.name)
 		const finItem = manufacturerList?.find(item => item?.manufacturerId === Number(manufacturerId))
-		return finItem ? (finItem?.name + str) : ''
+		return arr?.length > 0 ? (arr?.join(str) + str) : ''
 	}
 
 	// 添加到购物车数据
 	const addList = filter(selectedRows || [], sr => !sr.isQuote)
 	// 添加到询价单数据
 	const quoteList = filter(selectedRows || [], sr => sr.isQuote)
-
+	console.log(manufacturerArr, 'manufacturerArr---del')
 	return (
 		<PageContainer paramMap={paramMap}>
 			<Head>
@@ -357,14 +370,14 @@ const Unclassified = ({ paramMap, productsList, manufacturerList, manufacturerId
 								</div>
 
 								{/* 条件集合 */}
-								{(withinResults?.length > 0 || manufacturer?.name) && (
+								{(withinResults?.length > 0 || manufacturerArr?.length > 0) && (
 									<div className="applied-filters pub-flex-align-center mt10">
-										<div className="pub-fontw pub-font14 mb3">{iAppliedFilters}:</div>
+										<div className="pub-fontw pub-font14">{iAppliedFilters}:</div>
 
 										{
-											(manufacturer?.name) && (
-												<FilterItem text={manufacturer?.name} onClick={() => (setManufacturer({}), setIsInitialRender(false))} />
-											)
+											manufacturerArr?.map(i => (
+												<FilterItem text={i?.name} onClick={() => (clostManu(i), setIsInitialRender(false))} />
+											))
 										}
 
 										{withinResults?.map((item, index) => (
@@ -457,7 +470,8 @@ export async function getServerSideProps({ req, query }) {
 		keyword,
 		keywordList: _keyword || [],
 		catalogKeyword: 844,
-		manufacturerKeyword: manufacturerId || '',
+		manufacturerIdList: manufacturerId?.split(','),
+		manufacturerKeyword: '',
 		pageListNum: query?.pageNum || PUB_PAGINATION?.pageNum,
 		pageListSize: query?.pageSize || PUB_PAGINATION?.pageSize,
 		languageType,
@@ -465,7 +479,7 @@ export async function getServerSideProps({ req, query }) {
 
 	const [translations, manufacturerListRes, responseData] = await Promise.all([
 		changeServerSideLanguage(req), // 语言包等页面基础逻辑
-		ProductRepository.getUncategorizedManufacturerList(languageType), // 供应商
+		ProductRepository.getUncategorizedManufacturerList(languageType, manufacturerId?.split(',')), // 供应商
 		ProductAllRepository.getProducts(filterServerParams), // 获取未分类下的产品列表
 	]);
 
@@ -477,7 +491,7 @@ export async function getServerSideProps({ req, query }) {
 			...translations,
 			curKeyword: _keyword,
 			manufacturerList: manufacturerListRes?.data || [],
-			manufacturerId: manufacturerId || '',
+			manufacturerId: manufacturerId || [],
 			productsList: _prodList,
 			totalServer: _total,
 		}

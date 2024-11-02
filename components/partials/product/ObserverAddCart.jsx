@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Button } from 'antd';
 import Link from 'next/link';
 import useLanguage from '~/hooks/useLanguage';
+import useI18 from '~/hooks/useI18';
 import { getStockThousandsData } from '~/utilities/ecomerce-helpers';
 import { isIncludes } from '~/utilities/common-helpers'
 import { ProductsDetailContext } from '~/utilities/shopCartContext'
@@ -19,6 +20,7 @@ import styles from "~/scss/module/_dynamic.module.scss"
 
 const ObserverAddCartCom = ({ buyQuantity, addBack, curIsSame, onChangeInput }) => {
 	const { i18Translate } = useLanguage();
+	const { iQuantity } = useI18();
 	const iAddToCart = i18Translate('i18FunBtnText.AddToCart', 'ADD TO CART')
 	const iAvailable = i18Translate('i18PubliceTable.Available', 'Available');
 
@@ -78,6 +80,7 @@ const ObserverAddCartCom = ({ buyQuantity, addBack, curIsSame, onChangeInput }) 
 							value={Number(buyQuantity) || ''}
 							// propsValue={Number(buyQuantity)}
 							// min={minQUantity}
+							placeholder={iQuantity}
 							controls={false}
 							style={{ width: '100%' }}
 						/>

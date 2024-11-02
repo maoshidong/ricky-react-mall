@@ -138,7 +138,7 @@ const ModulePaymentMethods = (props) => {
 		{
 			title: <span className='ml6'>{iVATNumber}</span>,
 			dataIndex: 'vatNumber',
-			width: 350,
+			width: '40%',
 			render: (text, row) => {
 				return (
 					<div className='pub-flex-align-center'>
@@ -155,7 +155,7 @@ const ModulePaymentMethods = (props) => {
 		{
 			title: iRemark,
 			dataIndex: 'remark',
-			width: 500,
+			width: '60%',
 			// ellipsis: true, // 设置文字溢出时省略 white-space: normal !important; /* 强制换行 */
 			render: (text) => <div style={{ maxWidth: '480px', whiteSpace: 'normal' }}>{text}</div>,
 		},
@@ -250,7 +250,7 @@ const ModulePaymentMethods = (props) => {
 								columns={columns}
 								rowKey={record => record.id}
 								dataSource={vatList}
-								className='pub-border-table maxW640'
+								className='pub-border-table'
 								rowClassName="pub-cursor-pointer"
 								onRow={(record) => {
 									return {

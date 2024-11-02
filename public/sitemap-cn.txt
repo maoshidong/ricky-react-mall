@@ -2433,7 +2433,7 @@ https://www.szxlxc.com/manufacturer/arduino?catalogId=5
 https://www.szxlxc.com/manufacturer/lelon?catalogId=49
 https://www.szxlxc.com/manufacturer/rochester-electronics
 https://www.szxlxc.com/products/filter/batteries-rechargeable-secondary/70
-https://www.szxlxc.com/static/img/bg/freeSampleAll/free-sample.png
+https://www.szxlxc.com/static/img/bg/freeSampleAll/free-sample.webp
 https://www.szxlxc.com/manufacturer/mikroelektronika?catalogId=222
 https://www.szxlxc.com/manufacturer/mini-circuits?catalogId=1105
 https://www.szxlxc.com/manufacturer/si?catalogId=49
@@ -2861,7 +2861,7 @@ https://www.szxlxc.com/manufacturer/schneider-electric?catalogId=1212
 https://www.szxlxc.com/products/filter/optical-sensors-phototransistors/695
 https://www.szxlxc.com/products/unclassified?manufacturerId=25290
 https://www.szxlxc.com/manufacturer/ch-products?catalogId=44
-https://www.szxlxc.com/static/img/bg/manufacturerBgc2Mobile.jpg
+https://www.szxlxc.com/static/img/bg/manufacturerBgc2Mobile.webp
 https://www.szxlxc.com/manufacturer/comet-america-lp?catalogId=1152
 https://www.szxlxc.com/manufacturer/leuze?catalogId=20
 https://www.szxlxc.com/manufacturer/moreze
@@ -7997,7 +7997,7 @@ https://www.szxlxc.com/products/filter/specialized-connectors/972
 https://www.szxlxc.com/manufacturer/bel-fuse?catalogId=11
 https://www.szxlxc.com/manufacturer/audience
 https://www.szxlxc.com/manufacturer/bernier-connect?catalogId=201
-https://www.szxlxc.com/static/img/about-us/abus-9.jpg
+https://www.szxlxc.com/static/img/about-us/abus-9.webp
 https://www.szxlxc.com/products/filter/thyristors-triacs/262
 https://www.szxlxc.com/manufacturer/nanmac?catalogId=1220
 https://www.szxlxc.com/manufacturer/golledge-electronics

@@ -6,7 +6,6 @@ import PageContainer from '~/components/layouts/PageContainer';
 
 import ProductHighlightsCom from '~/components/News/ProductHighlightsCom';
 import NewsRepository from '~/repositories/zqx/NewsRepository';
-import ExternalShare from '~/components/shared/public/ExternalShare';
 import useLanguage from '~/hooks/useLanguage';
 
 import { PUB_ARTICLE_TYPE } from '~/utilities/constant';
@@ -124,14 +123,7 @@ const ProductHighlightsIndex = ({ paramMap, res, otherNews }) => {
 			</Head>
 			<div className="articles-detail-page product-table-container ps-page--single pub-bgc-f5 pb-60">
 				<div className='ps-container'>
-					<Flex justifyBetween>
-						<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
-						<Flex alignCenter style={{ paddingTop: '14px', paddingRight: '6px' }}>
-							<i className="fa fa-share-alt pub-color-link" style={{ cursor: 'auto' }} />
-							<span className='ml10 mr10 pub-font14'>{iShare}</span>
-							<ExternalShare paramMap={paramMap} />
-						</Flex>
-					</Flex>
+					<BreadCrumb breacrumb={breadcrumb} layout="fullwidth" />
 
 					<ProductHighlightsCom paramMap={paramMap} res={res} otherNews={otherNews} />
 				</div>

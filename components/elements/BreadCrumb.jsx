@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import { ShortShare } from '~/components/elements'
 // import styles from "scss/module/_minPage.module.scss";
 // 公共面包屑组件
-const BreadCrumb = ({ breacrumb, layout }) => {
+const BreadCrumb = ({ breacrumb, isShowShare=true }) => {
     
     return (
         <div className="ps-breadcrumb">
-            <div>
+            <div className='pub-flex-between'>
                 <ul className="breadcrumb">
                     {breacrumb.map((item, index) => {
                         if (!item.url) {
@@ -24,6 +25,8 @@ const BreadCrumb = ({ breacrumb, layout }) => {
                         }
                     })}
                 </ul>
+								
+								{ isShowShare && <ShortShare /> }
             </div>
         </div>
     );

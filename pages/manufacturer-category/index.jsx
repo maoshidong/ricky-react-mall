@@ -200,15 +200,15 @@ const ManufacturerCategoryPage = ({ paramMap, manufacturers, manufacturersCatego
 			>{item?.typeName}</ScrollLink>
 		));
 		return (
-			<div id="pubSticky" className='mt30'
-				style={{ position: 'sticky', maxWidth: '100%', overflowY: 'hidden !important' }}>
-				{showLeft && <button className={styles.btnPrev} style={{ position: 'absolute', left: 0, zIndex: 999, opacity: 0.4 }} onClick={handScrollRight}>
+			<div id="pubSticky" className={classNames('mt30 ', showLeft ? 'outerBefore' : 'outerAfter')}
+				style={{ position: 'sticky', maxWidth: '100%', overflow: 'hidden !important', zIndex: 11, top: '60px' }}>
+				{showLeft && <button className={styles.btnPrev} style={{ position: 'absolute', left: 0, zIndex: 999, height: '44px' }} onClick={handScrollRight}>
 					<Svg />
 				</button>}
-				<div ref={scrollRef} className='ps-header--manufacturer' style={{ position: 'relative', scrollBehavior: 'smooth', overflowX: 'hidden !important' }}>
+				<div ref={scrollRef} className='ps-header--manufacturer pub-line-clamp1' style={{ position: 'relative', scrollBehavior: 'smooth', overflow: 'hidden !important' }}>
 					{indexs}
 				</div>
-				{!showLeft && <button className={styles.btnNext} style={{ position: 'absolute', right: 0, opacity: 0.4 }} onClick={handScrollLeft}>
+				{!showLeft && <button className={styles.btnNext} style={{ position: 'absolute', right: 0, height: '44px' }} onClick={handScrollLeft}>
 					<Svg />
 				</button>}
 			</div>
@@ -241,12 +241,13 @@ const ManufacturerCategoryPage = ({ paramMap, manufacturers, manufacturersCatego
 		if (header !== null) {
 			if (number >= 280) {
 				header.classList.add('pubSticky');
+				
 			} else {
 				header.classList.remove('pubSticky');
 			}
 		}
 	};
-
+// showLeft ? 'outerBefore' : 'outerAfter
 
 	useEffect(async () => {
 

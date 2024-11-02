@@ -53,9 +53,7 @@ const ProductQuoteForm = ({
 	const { productDetailData, isHavePrice, customerReference, paramMap } = useContext(ProductsDetailContext)
 	const {
 		id, name, description, manufacturer, manufacturerSlug, image, thumb,
-		addressId,
 	} = productDetailData
-	// console.log(productDetailData, 'productDetailData-----del')
 	const iInvalidQuantity = i18Translate('i18AboutProduct.InvalidQuantity', 'invalid quantity')
 	const iQuantity = i18Translate('i18PubliceTable.Quantity', 'Quantity')
 	const iAddToCart = i18Translate('i18FunBtnText.AddToCart', 'ADD TO CART')
@@ -241,7 +239,7 @@ const ProductQuoteForm = ({
 		setQuantity(value);
 	}
 	const observerChangeInput = (value) => {
-		console.log(value, 'observerChangeInput---del')
+
 		form.setFields([
 			{
 				name: 'quantity',

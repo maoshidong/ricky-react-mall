@@ -66,6 +66,13 @@ const LoginPage = ({ paramMap }) => {
 					<meta name="keywords" content={i18Key} key="keywords" />
 					<meta name="description" content={i18Des} key="description" />
 					<meta name="og:description" content={i18Des} key="og:description" />
+					{/* APP Key: gGdqocBakkcLp9FA */}
+					{/* <script type="text/javascript"  charset="utf-8"
+							src="http://connect.qq.com/qc_jssdk.js"
+							data-appid="102436955"
+							data-redirecturi="REDIRECTURI"
+					></script> */}
+					
 				</Head>
 				<LoginRegister defaultKey="1" back403={() => back403()} />
 				{/* 停用提示 */}

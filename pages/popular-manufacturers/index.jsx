@@ -192,7 +192,7 @@ const PopularManufacturersCom = ({ paramMap, seo, global, ecomerce, recommendMan
 
 				<div className={classNames('pub-top-bgc pub-top-bgc-minh260', banStyles.pubTopBgc)}>
 					<div className={classNames(banStyles.popularManufacturersBgc)}></div>
-					{/* <img className={classNames('pub-top-img', banStyles.popularManufacturersBgc)} src='/static/img/bg/popular-manufacturers.jpg' alt="banner" /> */}
+					{/* <img className={classNames('pub-top-img', banStyles.popularManufacturersBgc)} src='/static/img/bg/popular-manufacturers.webp' alt="banner" /> */}
 
 					<div className='ps-container pub-top-bgc-content'>
 						<h1 className='pub-font36 pub-fontw pub-top-bgc-title'>{iPopularManufacturers}</h1>

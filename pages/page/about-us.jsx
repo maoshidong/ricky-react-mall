@@ -39,7 +39,7 @@ const AboutUsPage = ({ paramMap, blocks, isMobile, test }) => {
 		// const data = await response.json();
 		// const response = await axios.get(`/api/getData?dataId=${1}`);
 
-		//     const test = require("https://www.origin-ic.net111/staticData/test.json");
+		//     const test = require("https://www.origin-ic.com111/staticData/test.json");
 
 		// let test = []
 		// if(process.env.NODE_ENV === 'development') {
@@ -93,7 +93,7 @@ const AboutUsPage = ({ paramMap, blocks, isMobile, test }) => {
 			</Head>
 			<div className="ps-containeps-page--single ps-about-us custom-antd-btn-more">
 				<PubPageBanner
-					bgcImg="aboutBan.png"
+					bgcImg="aboutBan.webp"
 					title={i18Translate('i18AboutUs.bannerTitle', 'Why Origin Data')}
 					titleH1={true}
 					titleStyle={{ color: '#fff' }}
@@ -150,7 +150,7 @@ export async function getServerSideProps({ req }) {
 	// if(process.env.NODE_ENV === 'development') {
 	//     test = require("~/public/staticData/test.json");
 	// }else{
-	//     const response = await fetch(`https://www.origin-ic.net111/staticData/test.json`)
+	//     const response = await fetch(`https://www.origin-ic.com111/staticData/test.json`)
 	//     test = await response.json();
 	// }
 	// const data = await fetch(`${req?.headers?.host}/api/getData?dataId=${1}`);
