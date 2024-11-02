@@ -2,7 +2,7 @@
 // const withSitemap = require("next-sitemap");
 // import * as withPlugins from 'next-compose-plugins'
 // import * as withSitemap from 'next-sitemap'
-// const baseDomain = 'https://www.origin-ic.net111'
+// const baseDomain = 'https://www.origin-ic.com11'
 // module.exports = withPlugins(
 //   [
 //     // 其他插件...

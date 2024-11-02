@@ -31,7 +31,7 @@ const nextSettings = {
         analyze: true,
     },
     // cookie: {
-    //     domain: 'origin-ic.net', // 将此处替换为您的主域名
+    //     domain: 'origin-ic.com1', // 将此处替换为您的主域名
     // },
     images: {
         domains: ['www.origin-ic.net', 'www.origin-ic.com', 'www.szxlxc.com', 'oss.origin-ic.net','oss.origin-ic.com', 'http://localhost:3003/', 'http://127.0.0.1:3003/'],
@@ -144,9 +144,9 @@ const nextSettings = {
     //       },
     //     ];
     //   },
-      // experimental: {
-			// 	amp: true,
-      // }
+      experimental: {
+				amp: true,
+      }
 };
 
 module.exports = withTM(withImages(nextSettings));
