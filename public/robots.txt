@@ -7,6 +7,12 @@ Allow: /
 
 User-agent: Googlebot
 Allow: /
+Disallow: *?manufacturerId=*
+Disallow: *?manufacturerSlug=*
+Disallow: *?attrList=*
+Disallow: *&attrList=*
+Disallow: */compare?s=*
+Disallow: /products?keywords=*
 
 User-agent: *
 Disallow: /account/
@@ -40,10 +46,14 @@ Disallow: /prod-api/biz/
 Disallow: /app/api/app/*
 Disallow: /prod-api/biz/news/*
 Disallow: *.pdf
+Disallow: *?manufacturerId=*
+Disallow: *?manufacturerSlug=*
+Disallow: *?attrList=*
+Disallow: *&attrList=*
+Disallow: */compare?s=*
+Disallow: /products?keywords=*
 
 # Sitemaps   
 Sitemap: https://www.origin-ic.com/sitemap-head.xml
 Sitemap: https://www.origin-ic.com/sitemap.xml
 Sitemap: https://www.origin-ic.com/sitemapindex.xml
-Sitemap: https://www.origin-ic.com/sitemap.html
-Sitemap: https://www.origin-ic.com/sitemap.txt
