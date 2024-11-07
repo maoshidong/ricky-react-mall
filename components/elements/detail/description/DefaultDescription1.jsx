@@ -43,9 +43,9 @@ const DefaultDescription1 = ({ newsServer }) => {
 		{
 			label: iSimilarProducts,
 		},
-		{
-			label: iPopularSearches,
-		},
+	//	{
+	// 		label: iPopularSearches,
+	// 	},
 	]
 
 	// 没有相关新闻
@@ -96,7 +96,7 @@ const DefaultDescription1 = ({ newsServer }) => {
 					/>
 				</div>
 			}
-			{
+			{/* {
 				<div className={(tabActive === iPopularSearches ? 'pub-color555 pt-20 pr-20 pb-20 pl-20' : 'pub-seo-visibility1')}>
 					<div className="pub-flex-wrap">
 						{
@@ -113,7 +113,7 @@ const DefaultDescription1 = ({ newsServer }) => {
 						}
 					</div>
 				</div>
-			}
+			} */}
 
 			{/* 详情页询价 */}
 			{/* {isQuoteView && (
