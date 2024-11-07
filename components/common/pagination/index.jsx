@@ -24,7 +24,7 @@ const Pagination = ({
 	total = 0,
 	pageNum = 1,
 	pagesTotal = 1,
-	pageSize = 20,
+	pageSize = 500,
 	currentUrl,
 	otherUrlParams = '',
 	isSEO = true,
