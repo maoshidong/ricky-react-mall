@@ -44,10 +44,10 @@ const CatalogPage = ({ paramMap, query, keywordsProducts, queryKeywords, top20Fl
 					"@id": `${getLanguageHost()}/#website`,
 					"Url": getLanguageHost(),
 					"Name": iProductIndex
-				},
-				"Image": null,
-				"ItemListElement": null,
-				"Description": null,
+				}
+				//"Image": null,
+				//"ItemListElement": null,
+				//"Description": null,
 				// "Sku":null,
 				// "Mpn":null,
 				// "Brand":null,
