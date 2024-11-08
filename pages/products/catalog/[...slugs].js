@@ -248,7 +248,7 @@ const CatalogDetailPage = ({
 					"@id": `${getLanguageHost()}/products/#productindex`,
 					"Url": `${getLanguageHost()}/products`,
 					"Name": iProductIndex,
-				},
+				}
 				//"Image": null,
 				//"ItemListElement": null,
 				//"Description": null,
