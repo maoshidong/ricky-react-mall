@@ -217,10 +217,10 @@ const FilterPage = ({
 					"@id": isMax ? twoLastUrl : twoUrl,
 					"url": isMax ? twoLastUrl : twoUrl,
 					"name": isMax ? catalogsBreadcrumb[1]?.name : catalogsBreadcrumb[0]?.name
-				},
-				"Image": null,
-				"ItemListElement": null,
-				"Description": null,
+				}
+				//"Image": null,
+				//"ItemListElement": null,
+				//"Description": null,
 				// "Sku":null,"Mpn":null,"Brand":null,"Offers":null,
 			},
 			{
