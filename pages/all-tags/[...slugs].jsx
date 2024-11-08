@@ -63,7 +63,9 @@ const TagContents = ({ paramMap, numberList, newsList, firstLetter, tags, tagNam
 				<meta property="og:title" content={i18Title} key="og:title" />
 				<meta name="keywords" content={i18Key} key="keywords" />
 				<meta name="description" content={i18Des} key="description" />
-				<meta name="og:description" content={i18Des} key="og:description" />
+				<meta property="og:description" content={i18Des} key="og:description" />
+				<meta property="og:url" content={`https://www.origin-ic.com/${currentUrl}`} key="og:url" />
+  				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" key="og:image" />
 			</Head>
 
 			<div className="ps-page--shop pb-60">
