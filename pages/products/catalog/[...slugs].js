@@ -249,9 +249,9 @@ const CatalogDetailPage = ({
 					"Url": `${getLanguageHost()}/products`,
 					"Name": iProductIndex,
 				},
-				"Image": null,
-				"ItemListElement": null,
-				"Description": null,
+				//"Image": null,
+				//"ItemListElement": null,
+				//"Description": null,
 				// "Sku": null, "Mpn": null, "Brand": null, "Offers": null
 			},
 			{
