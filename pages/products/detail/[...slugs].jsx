@@ -285,13 +285,12 @@ const ProductsDetailPage = (props) => {
 				"@type": "Product",
 				"name": name,
 				"image": image || manufacturer?.logo || `${getLanguageHost()}${getLanguageEmpty()}`,
-				"description": description,
+				"description": description || name,
 				"sku": `${id}-${name}`,
 				"mpn": name,
 				"brand": {
-					"@type": "Organization",
-					"name": (manufacturer?.name || ''),
-					"url": brandUrl
+					"@type": "Brand",
+					"name": (manufacturer?.name || '')
 				},
 				"offers": {
 					"priceValidUntil": "2030-12-31T23:59:59+08:00",
@@ -300,10 +299,54 @@ const ProductsDetailPage = (props) => {
 					"priceCurrency": currencyInfo.value,
 					"price": productData.product_prices,
 					"availability": "https://schema.org/InStock",
+					...(productData.product_prices === 0 && {
+						"priceSpecification": {
+							"@type": "PriceSpecification",
+							"name": "Request a quote for pricing",
+							"priceCurrency": "USD",
+							"price": "0"
+						}
+					}),
 					// "availability":"https://schema.org/" + (productData.product_prices > 0 ? 'InStock' : 'OutOfSto'), // OutOfStock无货，InStock有货,
 					"seller": {
 						"@type": "Organization", "name": iCompanyName
-					}
+					},
+					"hasMerchantReturnPolicy": {
+						"@type": "MerchantReturnPolicy",
+						"applicableCountry": "XX",
+						"returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+						"merchantReturnDays": 30,
+						"returnMethod": "https://schema.org/ReturnByMail",
+						"returnFees": "https://schema.org/FreeReturn"
+					},
+					"shippingDetails": {
+						"@type": "OfferShippingDetails",
+						"shippingRate": {
+							"@type": "MonetaryAmount",
+							"minValue": 50,
+							"maxValue": 100,
+							"currency": "USD"
+						},
+						"shippingDestination": {
+							"@type": "DefinedRegion",
+							"addressCountry": "XX"
+						},
+						"deliveryTime": {
+							"@type": "ShippingDeliveryTime",
+							"handlingTime": {
+							"@type": "QuantitativeValue",
+							"minValue": 1,
+							"maxValue": 2,
+							"unitCode": "DAY"
+							},
+							"transitTime": {
+							"@type": "QuantitativeValue",
+							"minValue": 3,
+							"maxValue": 5,
+							"unitCode": "DAY"
+							}
+						}
+					},
 				}
 			}
 		]
