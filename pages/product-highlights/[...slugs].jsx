@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 // import { Helmet } from "react-helmet";
 // import LazyLoad from 'react-lazyload';
 import last from 'lodash/last';
@@ -25,6 +26,9 @@ const ProductHighlightsIndex = ({ paramMap, res, otherNews }) => {
 	const iHome = i18Translate('i18MenuText.Home', 'Home')
 	const iProductHighlights = i18Translate('i18ResourcePages.Product Highlights', 'Product Highlights')
 	const iShare = i18Translate('i18AboutProduct.Share', 'Share')
+
+	const Router = useRouter();
+	const currentUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${Router.asPath.split('?')[0]}`;
 
 	const breadcrumb = [
 		{
@@ -110,10 +114,12 @@ const ProductHighlightsIndex = ({ paramMap, res, otherNews }) => {
 				<title>{titleSeo}</title>
 				<meta property="og:image" content={coverImage}></meta>
 				<meta property="og:title" content={titleSeo} key="og:title" />
-
+				<meta property="og:url" content={currentUrl} key="og:url" />
 				<meta name="keywords" content={seoKeyAddName} key="keywords" />
 				<meta name="description" content={content?.contentSummary} key="description" />
-				<meta name="og:description" content={content?.contentSummary} key="og:description" />
+				<meta property="og:description" content={content?.contentSummary} key="og:description" />
+				<meta name="twitter:card" content="summary_large_image" />
+				
 			</Head>
 			<div className="articles-detail-page product-table-container ps-page--single pub-bgc-f5 pb-60">
 				<div className='ps-container'>
