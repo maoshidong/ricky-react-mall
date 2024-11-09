@@ -47,8 +47,8 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 	// 创建一个 URL 对象  URL 对象用于表示和操作 URL（统一资源定位符）。它提供了一个结构化的方式来访问 URL 的不同部分，如协议、主机、路径和查询参数等。
 	let canonicalUrl = new URL(Router.asPath, host); // 需要提供一个基本 URL
 	let params = new URLSearchParams(canonicalUrl.search); // URLSearchParams 对象用于处理 URL 查询字符串。它提供了方法来检索、添加、更新或删除查询参数。
-	params.delete('pageNum');
-	params.delete('pageSize');
+	//params.delete('pageNum');
+	//params.delete('pageSize');
 	// 重新设置 URL 对象的查询部分 
 	canonicalUrl.search = params.toString();
 
@@ -100,7 +100,7 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 			{isShowAlternate() && <link rel="alternate" href={`https://www.origin-ic.com${Router.asPath}`} hrefLang={I18NEXT_LOCALE.en} />}
 			{isShowAlternate() && <link rel="alternate" href={`https://www.szxlxc.com${Router.asPath}`} hrefLang={I18NEXT_LOCALE.zh} />}
 			{isShowAlternate() && <link rel="alternate" href={`https://www.origin-ic.com${Router.asPath}`} hrefLang="x-default" />}
-			
+
 			{isResetCanonical && <link rel="canonical" href={canonicalUrl.href} />}
 			{/* <meta name="robots" content="index,follow"></meta> */}
 			<meta name="robots" content="index,follow" />
