@@ -337,6 +337,7 @@ const FilterPage = ({
 	// 标题1：    - Series, Machine Safety - Mats / Machine Safety / Industrial Automation and Controls | Origin Data  
 	// 标题2：   * Series, Machine Safety - Mats / Machine Safety / Industrial Automation and Controls | Origin Data为什么检测网站工具 https://sem.3ue.com/     还提示页面没有 h1 标题
 	// 为什么检测网站工具 https://sem.3ue.com/     还提示以上两个页面的 标题一样   某些检测工具可能不够智能，无法识别细微的差异。
+	const og_url = `${baseUrl}${Router.pathname}`;
 	return (
 		<PageContainer paramMap={paramMap} isResetCanonical={false}>
 			<Head>
@@ -345,7 +346,10 @@ const FilterPage = ({
 				<meta property="og:title" content={getSeries() + seoHeadTitle} key="og:title" />
 				<meta name="keywords" content={getSeries() + curAllCatalogs.join(', ')} key="keywords" />
 				<meta name="description" content={getSeries() + i18Des} key="description" />
-				<meta name="og:description" content={getSeries() + i18Des} key="og:description" />
+				<meta property="og:description" content={getSeries() + i18Des} key="og:description" />
+				
+				<meta property="og:url" content={`${getLanguageHost()}${Router.asPath.split('?')[0]}`} key="og:url" />
+  				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" key="og:image" />
 				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(isMax ? productsSeo : productsThreeSeo) }}></script>
 			</Head>
 			<ProductsFilterContext.Provider
