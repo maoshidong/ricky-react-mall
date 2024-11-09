@@ -99,6 +99,8 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 			{/* 自引用 hreflang，所以得使用完整的Router.asPath */}
 			{isShowAlternate() && <link rel="alternate" href={`https://www.origin-ic.com${Router.asPath}`} hrefLang={I18NEXT_LOCALE.en} />}
 			{isShowAlternate() && <link rel="alternate" href={`https://www.szxlxc.com${Router.asPath}`} hrefLang={I18NEXT_LOCALE.zh} />}
+			{isShowAlternate() && <link rel="alternate" href={`https://www.origin-ic.com${Router.asPath}`} hrefLang="x-default" />}
+			
 			{isResetCanonical && <link rel="canonical" href={canonicalUrl.href} />}
 			{/* <meta name="robots" content="index,follow"></meta> */}
 			<meta name="robots" content="index,follow" />
