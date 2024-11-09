@@ -131,7 +131,10 @@ const ManufacturerDetailPage = ({
 				<meta property="og:title" content={getName() + i18Title} key="og:title" />
 				<meta name="keywords" content={getName() + i18Key} key="keywords" />
 				<meta name="description" content={getName() + i18Des} key="description" />
-				<meta name="og:description" content={getName() + i18Des} key="og:description" />
+				<meta property="og:description" content={getName() + i18Des} key="og:description" />
+				<meta property="og:url" content={`${getLanguageHost()}${Router.asPath.split('?')[0]}`} key="og:url" />
+				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" key="og:image" />
+				<meta name="twitter:card" content="summary_large_image" />
 				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(manufacturerSeo) }}></script>
 			</Head>
 			{/* custom-antd-btn-more */}
