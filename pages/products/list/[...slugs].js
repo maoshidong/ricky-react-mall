@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import last from 'lodash/last';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 const PageContainer = dynamic(() => import('~/components/layouts/PageContainer'));
 const ProductListFirstLetter = dynamic(() => import('~/components/ecomerce/modules/ProductListFirstLetter'));
 import ProductRepository from '~/repositories/ProductRepository';
-
+const router = useRouter();
 
 import { SEO_COMPANY_NAME, SEO_COMPANY_NAME_ZH } from '~/utilities/constant';
 import useLanguage from '~/hooks/useLanguage';
@@ -40,7 +41,10 @@ const ProductsListPage = ({ paramMap, serverList, query, firstLetter, serverData
                 <meta property="og:title" content={i18Title} key="og:title" />
                 <meta name="keywords" content={i18Key} key="keywords" />
                 <meta name="description" content={i18Des} key="description" />
-                <meta name="og:description" content={i18Des} key="og:description" />
+                <meta property="og:description" content={i18Des} key="og:description" />
+                <meta property="og:url" content={`${getLanguageHost()}${router.asPath.split('?')[0]}`} key="og:url" />
+  				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" key="og:image" />
+                <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <ProductListFirstLetter serverList={serverList} serverData={serverData} query={query} firstLetter={firstLetter} />
         </PageContainer>
