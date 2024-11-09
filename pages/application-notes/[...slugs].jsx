@@ -11,6 +11,7 @@ import useLanguage from '~/hooks/useLanguage';
 import { PUB_ARTICLE_TYPE } from '~/utilities/constant';
 import { getEnvUrl, APPLICATION_NOTES } from '~/utilities/sites-url'
 import { getLocale, changeServerSideLanguage, redirect404 } from '~/utilities/easy-helpers';
+import { useRouter } from 'next/router';
 import { Flex } from '~/components/common';
 // import Flex from '~/components/common/Flex';
 
@@ -22,6 +23,9 @@ const ProductHighlightsIndex = ({ paramMap, res, otherNews }) => {
 	const iHome = i18Translate('i18MenuText.Home', 'Home')
 	const iApplicationNotes = i18Translate('i18ResourcePages.Application Notes', 'Application Notes')
 	const iShare = i18Translate('i18AboutProduct.Share', 'Share')
+
+	const router = useRouter();
+	const currentUrl = `${getLanguageHost()}${router.asPath.split('?')[0]}`;
 
 	const breadcrumb = [
 		{
@@ -116,10 +120,11 @@ const ProductHighlightsIndex = ({ paramMap, res, otherNews }) => {
 				<title>{titleSeo}</title>
 				<meta property="og:image" content={coverImage}></meta>
 				<meta property="og:title" content={titleSeo} key="og:title" />
-
+				<meta property="og:url" content={currentUrl} key="og:url" />
 				<meta name="keywords" content={seoKeyAddName} key="keywords" />
 				<meta name="description" content={content?.contentSummary} key="description" />
-				<meta name="og:description" content={content?.contentSummary} key="og:description" />
+				<meta property="og:description" content={content?.contentSummary} key="og:description" />
+				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
 			<div className="articles-detail-page product-table-container ps-page--single pub-bgc-f5 pb-60">
 				<div className='ps-container'>
