@@ -62,7 +62,7 @@ function AddAttributesToImagesCom({ children, imgAlt, imgTitle, imgUrl, contents
 				contents.replace(/<br\s*\/?>/gi, '');
 		} else {
 			newsContents =
-				`<img id='myNewsContent' src=${newsImgUrl} style=float:right;width:200px;padding:10px;cursor:pointer;></img>` + contents?.replace(/<br\s*\/?>/gi, '');
+				`<img id='myNewsContent' alt=${imgAlt} src=${newsImgUrl} style=float:right;width:200px;padding:10px;cursor:pointer;></img>` + contents?.replace(/<br\s*\/?>/gi, '');
 		}
 	}
 
