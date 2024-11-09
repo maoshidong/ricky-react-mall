@@ -103,6 +103,7 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 			{/* <meta name="robots" content="index,follow"></meta> */}
 			<meta name="robots" content="index,follow" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
+			<meta name="twitter:card" content="summary_large_image" />
 			<meta property="og:type" content="website" />
 			
 			{/* <!-- Google Tag Manager --> */}
