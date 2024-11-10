@@ -44,6 +44,8 @@ import {
 const renderHead = (seo, host, isResetCanonical = true) => {
 	const Router = useRouter();
 	const canonicalUrl1 = Router.asPath?.split("?")?.[0] // 每个页面不带参数的完整url(之前的逻辑， 现在只去掉分页, 不带参数的供alternate使用)
+	const { pageNum, pageSize } = Router.query;
+	
 	// 创建一个 URL 对象  URL 对象用于表示和操作 URL（统一资源定位符）。它提供了一个结构化的方式来访问 URL 的不同部分，如协议、主机、路径和查询参数等。
 	let canonicalUrl = new URL(Router.asPath, host); // 需要提供一个基本 URL
 	let params = new URLSearchParams(canonicalUrl.search); // URLSearchParams 对象用于处理 URL 查询字符串。它提供了方法来检索、添加、更新或删除查询参数。
@@ -51,6 +53,17 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 	//params.delete('pageSize');
 	// 重新设置 URL 对象的查询部分 
 	canonicalUrl.search = params.toString();
+
+	const getPaginationUrl = (newPageNum) => {
+		let paginationParams = new URLSearchParams(params);
+		if (pageSize) paginationParams.set('pageSize', pageSize);
+		if (newPageNum && newPageNum > 1) paginationParams.set('pageNum', newPageNum);
+		return `${host}${canonicalUrl1}?${paginationParams.toString()}`;
+	};
+
+	const nextUrl = pageNum ? getPaginationUrl(parseInt(pageNum) + 1) : null;
+	const prevUrl = pageNum && parseInt(pageNum) > 1 ? getPaginationUrl(parseInt(pageNum) - 1) : null;
+	const canonicalHref = pageNum && parseInt(pageNum) === 1 ? `${host}${canonicalUrl1}` : canonicalUrl.href;
 
 
 	// 新闻有可能没发布，所以需要判断
@@ -100,6 +113,9 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 			{isShowAlternate() && <link rel="alternate" href={`https://www.origin-ic.com${Router.asPath}`} hrefLang={I18NEXT_LOCALE.en} />}
 			{isShowAlternate() && <link rel="alternate" href={`https://www.szxlxc.com${Router.asPath}`} hrefLang={I18NEXT_LOCALE.zh} />}
 			{isShowAlternate() && <link rel="alternate" href={`https://www.origin-ic.com${Router.asPath}`} hrefLang="x-default" />}
+
+			{nextUrl && <link rel="next" href={nextUrl} />}
+			{prevUrl && <link rel="prev" href={prevUrl} />}
 
 			{isResetCanonical && <link rel="canonical" href={canonicalUrl.href} />}
 			{/* <meta name="robots" content="index,follow"></meta> */}
