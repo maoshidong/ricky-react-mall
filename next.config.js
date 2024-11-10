@@ -126,6 +126,21 @@ const nextSettings = {
         return config
       },
 
+      async redirects() {
+        return [
+          {
+            source: '/zh/:path*', 
+            has: [
+              {
+                type: 'host',
+                value: 'www.origin-ic.com',
+              },
+            ],
+            destination: 'https://www.szxlxc.com/:path*', 
+            permanent: true,
+          },
+        ];
+      },
     // async rewrites() {
     //   return [
     //     {
