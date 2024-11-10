@@ -330,6 +330,12 @@ const FilterPage = ({
 	if (query?.manufacturerIdList) {
 		params.manufacturerIdList = query?.manufacturerIdList
 	}
+	if (Router.query?.pageNum) {
+		params.pageNum = Router.query.pageNum;
+	}
+	if (Router.query?.pageSize) {
+		params.pageSize = Router.query.pageSize;
+	}		
 	if(qs.stringify(params)) {
 		hUrl = `${hUrl}?${qs.stringify(params)}`
 	}
