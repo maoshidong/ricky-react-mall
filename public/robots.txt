@@ -9,6 +9,8 @@ User-agent: Googlebot
 Allow: /
 Disallow: *?manufacturerId=*
 Disallow: *?manufacturerSlug=*
+Disallow: *&manufacturerId=*
+Disallow: *&manufacturerSlug=*
 Disallow: *?attrList=*
 Disallow: *&attrList=*
 Disallow: */compare?s=*
