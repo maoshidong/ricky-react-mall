@@ -324,18 +324,14 @@ const FilterPage = ({
 	// 	hUrl = hUrl + `?attrList=${attrList}`
 	// }
 	let params = {};
-	if (attrList) {
-		params.attrList = attrList
-	}
-	if (query?.manufacturerIdList) {
-		params.manufacturerIdList = query?.manufacturerIdList
-	}
-	if (Router.query?.pageNum) {
+	if (Router.query?.pageNum && Router.query.pageNum !== '1') {
 		params.pageNum = Router.query.pageNum;
+		
+		// Add `pageSize` only if `pageNum` is greater than 1
+		if (Router.query?.pageSize) {
+		  params.pageSize = Router.query.pageSize;
+		}
 	}
-	if (Router.query?.pageSize) {
-		params.pageSize = Router.query.pageSize;
-	}		
 	if(qs.stringify(params)) {
 		hUrl = `${hUrl}?${qs.stringify(params)}`
 	}
