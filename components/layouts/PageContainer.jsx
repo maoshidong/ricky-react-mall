@@ -55,9 +55,16 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 	canonicalUrl.search = params.toString();
 
 	const getPaginationUrl = (newPageNum) => {
-		let paginationParams = new URLSearchParams(params);
+		let paginationParams = new URLSearchParams();
 		if (pageSize) paginationParams.set('pageSize', pageSize);
 		if (newPageNum && newPageNum > 1) paginationParams.set('pageNum', newPageNum);
+
+		for (const [key, value] of params.entries()) {
+			if (key !== 'pageSize' && key !== 'pageNum') {
+				paginationParams.append(key, value);
+			}
+		}
+
 		return `${host}${canonicalUrl1}?${paginationParams.toString()}`;
 	};
 
