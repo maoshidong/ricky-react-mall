@@ -352,7 +352,7 @@ const FilterPage = ({
 				<meta name="keywords" content={getSeries() + curAllCatalogs.join(', ')} key="keywords" />
 				<meta name="description" content={getSeries() + i18Des} key="description" />
 				<meta property="og:description" content={getSeries() + i18Des} key="og:description" />
-				<meta property="og:url" content={`${getLanguageHost()}${Router.asPath.split('?')[0]}`} key="og:url" />
+				<meta property="og:url" content={hUrl} key="og:url" />
   				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" key="og:image" />
 				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(isMax ? productsSeo : productsThreeSeo) }}></script>
 			</Head>
