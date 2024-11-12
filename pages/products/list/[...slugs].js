@@ -42,7 +42,6 @@ const ProductsListPage = ({ paramMap, serverList, query, firstLetter, serverData
                 <meta name="keywords" content={i18Key} key="keywords" />
                 <meta name="description" content={i18Des} key="description" />
                 <meta property="og:description" content={i18Des} key="og:description" />
-                <meta property="og:url" content={`${getLanguageHost()}${router.asPath.split('?')[0]}`} key="og:url" />
   				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" key="og:image" />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
