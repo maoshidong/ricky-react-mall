@@ -70,7 +70,22 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 
 	const nextUrl = pageNum ? getPaginationUrl(parseInt(pageNum) + 1) : null;
 	const prevUrl = pageNum && parseInt(pageNum) > 1 ? getPaginationUrl(parseInt(pageNum) - 1) : null;
-	const canonicalHref = pageNum && parseInt(pageNum) === 1 ? `${host}${canonicalUrl1}` : canonicalUrl.href;
+	
+	const getCanonicalUrl = () => {
+		let canonicalParams = new URLSearchParams();
+		
+		// Include pageNum only if it’s greater than 1
+		if (pageNum && parseInt(pageNum) > 1) canonicalParams.set('pageNum', pageNum);
+		
+		// Include pageSize if it’s defined
+		if (pageSize) canonicalParams.set('pageSize', pageSize);
+		
+		// Build the canonical URL
+		return `${host}${canonicalUrl1}${canonicalParams.toString() ? '?' + canonicalParams.toString() : ''}`;
+	};
+	
+	const canonicalHref = getCanonicalUrl();
+	
 
 
 	// 新闻有可能没发布，所以需要判断
@@ -124,7 +139,8 @@ const renderHead = (seo, host, isResetCanonical = true) => {
 			{nextUrl && <link rel="next" href={nextUrl} />}
 			{prevUrl && <link rel="prev" href={prevUrl} />}
 
-			{isResetCanonical && <link rel="canonical" href={canonicalUrl.href} />}
+			{isResetCanonical && <link rel="canonical" href={canonicalHref} />}
+			<meta property="og:url" content={canonicalHref} key="og:url" />
 			{/* <meta name="robots" content="index,follow"></meta> */}
 			<meta name="robots" content="index,follow" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
