@@ -1699,8 +1699,23 @@ $strength-gap: 6px;
 // banner-home-quote.jpg  banner-home-quote-pad.png  banner-home-quote-mobile 
 // banner-home-sign.jpg banner-home-sign-pad.jpg banner-home-sign-mobile.jpg
 .home-banner1 {
-	// background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('https://oss.origin-ic.net/homeSvg/banner-home-quote.webp') center center / 100% no-repeat       https://oss.origin-ic.net/banner/banner-home-quote.jpg
-	background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/banner-home-quote.webp') center center / 100% no-repeat
+	@media (min-width: 426px) {
+	  background: linear-gradient(
+			to right,
+			rgb(242, 245, 255),
+			rgb(242, 245, 255) 50%,
+			rgba(242, 245, 255, 0)
+		  )
+		  left center / calc(100% - 1920px) 100% no-repeat,
+		linear-gradient(
+			to left,
+			rgb(242, 245, 255),
+			rgb(242, 245, 255) 50%,
+			rgba(242, 245, 255, 0)
+		  )
+		  right center / calc(100% - 1920px) 100% no-repeat,
+		url('/static/img/bg/banner-home-quote.webp') center center / 100% no-repeat;
+	}
 }
 
 .home-bannerPad {
@@ -1709,8 +1724,23 @@ $strength-gap: 6px;
 }
 
 .home-banner2 {
-	// background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/banner-home-sign.jpg') center center / 100% no-repeat       https://oss.origin-ic.net/banner/banner-home-sign.jpg
-	background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/banner-home-sign.webp') center center / 100% no-repeat
+	@media (min-width: 426px) {
+	  background: linear-gradient(
+			to right,
+			rgb(242, 245, 255),
+			rgb(242, 245, 255) 50%,
+			rgba(242, 245, 255, 0)
+		  )
+		  left center / calc(100% - 1920px) 100% no-repeat,
+		linear-gradient(
+			to left,
+			rgb(242, 245, 255),
+			rgb(242, 245, 255) 50%,
+			rgba(242, 245, 255, 0)
+		  )
+		  right center / calc(100% - 1920px) 100% no-repeat,
+		url('/static/img/bg/banner-home-sign.webp') center center / 100% no-repeat;
+	}
 }
 
 .home-banner2-Pad {
@@ -1719,12 +1749,16 @@ $strength-gap: 6px;
 }
 
 .home-banner3 {
-	background: url('https://oss.origin-ic.net/banner/banner-home-quote-mobile.jpg') right center / cover no-repeat;
+	@media (max-width: 425px) {
+        background: url('https://oss.origin-ic.net/banner/banner-home-quote-mobile.jpg') right center / cover no-repeat;
+    }
 }
 
 // pad mobile 
 .home-banner4 {
-	background: url('https://oss.origin-ic.net/banner/banner-home-sign-mobile-optimized.jpg') right center / cover no-repeat;
+	@media (max-width: 425px) {
+		background: url('https://oss.origin-ic.net/banner/banner-home-sign-mobile-optimized.jpg') right center / cover no-repeat;
+	}
 }
 
 .print-container {
