@@ -42,7 +42,8 @@ const HelpCenterDetailPage = ({ paramMap, resServer }) => {
 				<meta property="og:title" content={titleSeo} key="og:title" />
 				<meta name="keywords" content={seokeywords} key="keywords" />
 				<meta name="description" content={seoDescription} key="description" />
-				<meta name="og:description" content={seoDescription} key="og:description" />
+				<meta property="og:description" content={seoDescription} key="og:description" />
+				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" />
 			</Head>
 			<div className='pub-minh-1 pb60'>
 				<PageTopBanner
