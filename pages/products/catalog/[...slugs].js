@@ -547,7 +547,9 @@ const CatalogDetailPage = ({
 				{/* keywords 子级name, 上级name */}
 				<meta name="keywords" content={getName() + (catalogDescription?.seoKeyword || allCatalogsArr?.join(', '))} key="keywords" />
 				<meta name="description" content={getName() + descriptionContent} key="description" />
-				<meta name="og:description" content={getName() + descriptionContent} key="og:description" />
+				<meta property="og:description" content={getName() + descriptionContent} key="og:description" />
+				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" />
+				<meta property="og:url" content={`${getLanguageHost()}${Router.asPath}`} />
 				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productsSeo) }}></script>
 			</Head>
 			<div ref={bannerRef}>
