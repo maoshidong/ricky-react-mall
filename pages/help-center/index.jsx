@@ -69,6 +69,7 @@ const HelpSupportPage = ({ paramMap, newsTypeTreeServer }) => {
 				<meta name="keywords" content={i18Key} key="keywords" />
 				<meta name="description" content={i18Des} key="description" />
 				<meta name="og:description" content={i18Des} key="og:description" />
+				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" />
 			</Head>
 			<div className='help-support-page pub-bgcdf5 pub-minh-1 pb60 custom-antd-btn-more'>
 				<PageTopBanner
