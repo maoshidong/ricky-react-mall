@@ -75,7 +75,8 @@ const BlogDetail = ({ paramMap, res, otherNews }) => {
 				<meta property="og:title" content={titleSeo} key="og:title" />
 				<meta name="keywords" content={keywords} key="keywords" />
 				<meta name="description" content={content?.contentSummary} key="description" />
-				<meta name="og:description" content={content?.contentSummary} key="og:description" />
+				<meta property="og:description" content={content?.contentSummary} key="og:description" />
+				<meta property="og:image" content={contentImage} key="og:image" />
 			</Head>
 			<div className="articles-detail-page ps-page--single pub-bgc-f5 pb-60 pub-minh-1">
 				<div className='ps-container'>
