@@ -268,4 +268,4 @@ const Banner = ({ auth, isMobile }) => {
 	</Device>
 }
 
-export default connect(state => state)(Banner);
+export default dynamic(() => Promise.resolve(connect((state) => state)(Banner)), { ssr: false });
