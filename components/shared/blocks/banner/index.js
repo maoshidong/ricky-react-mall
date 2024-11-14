@@ -191,80 +191,64 @@ const MobileSwiper = ({ auth }) => {
 		Router.push(`${getEnvUrl(REGISTER)}`)
 	}
 
-	return <Swiper
-		loop
-		autoplay={false}
-		onIndexChange={i => {
-		}}
-	>
-		<Swiper.Item>
-			<div className='m-swiper-item home-banner3'>
-					{/* <img
-						priority={true}
-						src='/static/img/bg/banner-home-quote-pad.png'
-						alt={iOriginMall}
-						title={iOriginMall}
-						// layout='fill'
-						className='pubObjectFitNone'
-						style={{ width: '100%', display: 'block' }} /> */}
-
-				<div className='ps-block-banner-content'>
-					<div className='ps-container'>
-						<div className='ps-block-banner-box'>
-
-							<div className='ps-block-banner-title'>
-								{iComponentProcurement}
-								{/* {i18Translate('i18Home.componentProcurement', 'Maximize efficiency with our streamlined component procurement.')} */}
-							</div>
-
-							<h3 className='ps-block-banner-text mt15'>
-								{iOneStop}
-								{/* {i18Translate('i18Home.oneStop', 'Your one-stop shop for all electronic components.')} */}
-							</h3>
-							<Button color='primary'>
-								<Link href={getEnvUrl(ACCOUNT_QUOTE)}>
-									<a className='banner-btn'>
-										{i18Translate('i18Home.requestQuote', 'REQUEST A QUOTE')}
-									</a>
-								</Link>
-							</Button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</Swiper.Item>
-		<Swiper.Item>
-			<div className='m-swiper-item home-banner4'>
-				{/* <img
-					src='/static/img/bg/banner-home-sign-pad.jpg'
-					alt={iOriginMall}
-					title={iOriginMall}
-					// layout='fill'
-					className='pubObjectFitNone'
-					style={{ width: '100%', display: 'block' }} /> */}
-
-				<div className='ps-block-banner-content'>
-					<div className='ps-container'>
-						<div className='ps-block-banner-box'>
-							<div className='ps-block-banner-title'>
-								{i18Translate('i18Home.limitedTimeOffer', "Don't miss this limited-time offer:")}
-							</div>
-							<h3 className='ps-block-banner-text mt15'>
-								{i18Translate('i18Home.cashVoucher', "a $200 cash voucher upon registration.")}
-							</h3>
-							<Button color='primary'>
-								<Link href={`${getEnvUrl(REGISTER)}`}>
-									<a onClick={(e) => handleRegister(e)} className='banner-btn w210'>
-										{i18Translate('i18Home.singUp', "SIGN UP TODAY")}
-									</a>
-								</Link>
-							</Button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</Swiper.Item>
-	</Swiper>
+	return (
+        <div
+            className="m-static-banner home-banner3"
+            style={{
+                width: '100%',
+                height: '200px',
+                display: 'flex',
+                backgroundColor: '#F1F4FF',
+                alignItems: 'center',
+            }}
+        >
+            <div className="ps-block-banner-content">
+                <div className="ps-container">
+                    <div className="ps-block-banner-box">
+                        <div
+                            className="ps-block-banner-title"
+                            style={{
+                                fontSize: '16px',
+                                fontWeight: 600,
+                                lineHeight: '22px',
+                            }}
+                        >
+                            Streamline components procurement for maximum efficiency
+                        </div>
+                        <h3
+                            className="ps-block-banner-text mt5"
+                            style={{
+                                lineHeight: '24px',
+                                fontWeight: 400,
+                                fontSize: '14px',
+                            }}
+                        >
+                            Quality Electronic Components, Always Accessible
+                        </h3>
+                        <button
+                            type="button"
+                            className="adm-button adm-button-primary adm-button-shape-default mt10"
+                            style={{
+                                fontSize: '12px',
+                            }}
+                        >
+                            <span>
+                                <a
+                                    className="banner-btn"
+                                    href="https://www.origin-ic.com/quote"
+                                    style={{
+                                        fontSize: '12px',
+                                    }}
+                                >
+                                    REQUEST A QUOTE
+                                </a>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 // 首页轮播
