@@ -8,6 +8,7 @@ import { isIncludes } from '~/utilities/common-helpers';
 import useLanguage from '~/hooks/useLanguage';
 import useI18 from '~/hooks/useI18';
 import useLocalStorage from '~/hooks/useLocalStorage';
+import { lazyload } from 'react-lazyload';
 const ProductWidgets = dynamic(() => import('/components/partials/product/ProductWidgets'));
 
 const ProductDetailsRight = (props) => {
@@ -30,7 +31,7 @@ const ProductDetailsRight = (props) => {
 					<Link href={PAGE_CERTIFICATIONS}>
 						<a className="pub-flex-wrap mt10 mb10" style={{ gap: '20px' }}>
 							{authList?.map((item) => {
-								return <img key={item.name} src={item?.imageUrl} alt={item.name} className="certificate-icon" style={{ width: '80px', height: '73px' }} />;
+								return <img key={item.name} src={item?.imageUrl} alt={item.name} loading="lazy" className="certificate-icon"  style={{ width: '80px', height: '73px' }} />;
 							})}
 						</a>
 					</Link>
