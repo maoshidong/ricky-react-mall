@@ -32,9 +32,9 @@ const ProductCard = ({ item }) => {
 				<a target='_blank'>
 					<Flex column alignCenter gap={10} className={styles.CardItem}>
 						{item?.image ? (
-							<img src={item?.image} title={item?.name} alt={item?.name} />
+							<img src={item?.image} title={item?.name} alt={item?.name} loading="lazy"/>
 						) : (
-							<img src={getLanguageEmpty()} title={item?.name} alt={item?.name} />
+							<img src={getLanguageEmpty()} title={item?.name} alt={item?.name} loading="lazy"/>
 						)}
 						<div width={'100%'} className={classNames('mt10 pub-lh18 pub-center pub-line-clamp pub-clamp2', styles.label)} title={_name}>{_name}</div>
 						{/* pub-line-clamp1 justifyCenter */}
