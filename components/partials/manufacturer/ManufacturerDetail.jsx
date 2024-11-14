@@ -442,7 +442,7 @@ const StoreDetail = ({
 							subTitle={!!website ? i18Translate('i18CatalogHomePage.Our Website', 'Our Website') : ''}
 							linkUrl={website}
 							isLink={false}
-							titleH1={true}
+							titleH1={false}
 						/>
 					}
 					{
