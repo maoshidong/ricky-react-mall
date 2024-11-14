@@ -105,7 +105,7 @@
 .popularManufacturersBgc {
 	height: 380px;
 	@include bgcBase;
-	background-image: url('/static/img/bg/popular-manufacturers.webp'); // background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/popular-manufacturers.webp') center center / 100% no-repeat
+	//background-image: url('/static/img/bg/popular-manufacturers.webp'); // background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/popular-manufacturers.webp') center center / 100% no-repeat
 }
 
 @media (min-width: 1930px) {
