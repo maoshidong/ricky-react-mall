@@ -182,6 +182,7 @@ const ProductTableFilterCom = ({
 					src={`${record.thumb || record.image}`}
 					alt={record.productNo}
 					title={record.productNo}
+					loading="lazy"
 					onError={e => { e.target.src = getLanguageEmpty() }}
 				/>,
 		},
