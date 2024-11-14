@@ -1750,14 +1750,14 @@ $strength-gap: 6px;
 
 .home-banner3 {
 	@media (max-width: 425px) {
-        background: url('https://oss.origin-ic.net/banner/banner-home-quote-mobile.jpg') right center / cover no-repeat;
+        background-color: #F1F4FF;
     }
 }
 
 // pad mobile 
 .home-banner4 {
 	@media (max-width: 425px) {
-		background: url('https://oss.origin-ic.net/banner/banner-home-sign-mobile-optimized.jpg') right center / cover no-repeat;
+		background-color: #F1F4FF;
 	}
 }
 
