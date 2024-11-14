@@ -139,9 +139,9 @@ const ManufacturerDetailPage = ({
 			</Head>
 			{/* custom-antd-btn-more */}
 			<div id="shop-categories" className="ps-page--shop" style={{ paddingBottom: 0 }}>
-				<div className={classNames('pub-top-bgc pub-top-bgc-minh260', banStyles.pubTopBgc)}>
-					<img className={classNames(banStyles.pubTopImg, banStyles.img1)} src={banner || '/static/img/bg/manufacturerBgc2.jpg'} alt="banner" />
-					<img className={classNames(banStyles.pubTopImg, banStyles.img3)} src={banner || '/static/img/bg/manufacturerBgc2Mobile.webp'} alt="banner" />
+				<div className={classNames('pub-top-bgc pub-top-bgc-minh260', banStyles.pubTopBgc)} style={{ height: '100px' }}>
+					{/* <img className={classNames(banStyles.pubTopImg, banStyles.img1)} src={banner || '/static/img/bg/manufacturerBgc2.jpg'} alt="banner" /> */}
+					{/* <img className={classNames(banStyles.pubTopImg, banStyles.img3)} src={banner || '/static/img/bg/manufacturerBgc2Mobile.webp'} alt="banner" /> */}
 					<div className='ps-container pub-top-bgc-content'>
 						{
 							introduce && logo && !imageError ? <img
