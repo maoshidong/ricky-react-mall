@@ -247,19 +247,22 @@ const MobileSwiper = ({ auth }) => {
 
 // 首页轮播
 const Banner = ({ auth, isMobile }) => {
-	return <Device>
-		{
-			// isMobile,
-			({ isPad, isDesktop }) => {
-				// if (isMobile) return <MobileSwiper auth={auth} />
+    return (
+      <Device isMobile={isMobile}>
+        {({ isMobile: isDeviceMobile, isPad, isDesktop }) => {
+ 
+          if (isDeviceMobile) {
+            return <MobileSwiper auth={auth} />;
+          }
 
-				if (isPad) return <DesktopSwiper auth={auth} isDesktop={isDesktop} />
-
-				if (isDesktop) return <DesktopSwiper auth={auth} isDesktop={isDesktop} />
-				return <MobileSwiper auth={auth} />
-			}
-		}
-	</Device>
+          if (isPad || isDesktop) {
+            return <DesktopSwiper auth={auth} isDesktop={isDesktop} />;
+          }
+ 
+          return <MobileSwiper auth={auth} />;
+        }}
+      </Device>
+    );
 }
 
 export default dynamic(() => Promise.resolve(connect((state) => state)(Banner)), { ssr: false });
