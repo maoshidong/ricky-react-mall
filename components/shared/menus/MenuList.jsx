@@ -106,7 +106,7 @@ const MenuList = () => {
 						className={'menu-item ' + (item.key === curNavId ? 'menu-item-active ' : '')}
 					// aria-label={`go to ${item.label}`}
 					>
-						<h3 className="pub-font500">{item.label.toUpperCase()}</h3>
+						<li className="pub-font500">{item.label.toUpperCase()}</li>
 					</a>
 				</Link>
 			)
@@ -121,11 +121,11 @@ const MenuList = () => {
 	}, [])
 
 	return (
-		<div className="menu--product-categories" id="navList">
+		<ul className="menu--product-categories" id="navList">
 
 			{menuView}
 			<NavContentBox curNavId={curNavId} changeNavId={changeNavId} />
-		</div>
+		</ul>
 	)
 }
 
