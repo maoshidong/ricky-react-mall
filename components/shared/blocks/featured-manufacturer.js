@@ -27,7 +27,7 @@ const featuredManufacturer = ({ type, manuServer }) => {
 					{mList?.map((item) => (
 						// /${item?.parentId || item?.id}
 						<Link href={`${MANUFACTURER}/${isIncludes(item.slug)}`} key={'m' + item?.id}>
-							<a className="col-xl-3 col-md-4 col-sm-4 col-6 col-sm-6" style={{ padding: '0 5px' }}>
+							<a aria-label={`Visit ${item?.name} page`} className="col-xl-3 col-md-4 col-sm-4 col-6 col-sm-6" style={{ padding: '0 5px' }}>
 								<div className="featured-manufacturer-item">
 									<LazyLoad height={50}>
 										<img className="featured-manufacturer-img" src={item.logo} alt={item?.name} title={item?.name} />
