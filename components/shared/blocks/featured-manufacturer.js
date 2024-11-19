@@ -23,23 +23,23 @@ const featuredManufacturer = ({ type, manuServer }) => {
 		<div className="ps-product-list blocks-featured-manufacturer pt-80 pb-90">
 			<div className="ps-container">
 				{type !== 'mIndex' && <TitleMore title={iFeaturedManufacturers} subTitle={iViewMore} linkUrl={MANUFACTURER} />}
-				<ul className="row pub-margin-8 mt30">
+				<div className="row pub-margin-8 mt30">
 					{mList?.map((item) => (
 						// /${item?.parentId || item?.id}
 						<Link href={`${MANUFACTURER}/${isIncludes(item.slug)}`} key={'m' + item?.id}>
 							<a className="col-xl-3 col-md-4 col-sm-4 col-6 col-sm-6" style={{ padding: '0 5px' }}>
-								<h3 className="featured-manufacturer-item">
+								<div className="featured-manufacturer-item">
 									<LazyLoad height={50}>
 										<img className="featured-manufacturer-img" src={item.logo} alt={item?.name} title={item?.name} />
 									</LazyLoad>
 									{/* <img src='https://oss.origin-ic.com/otherFile/texasInstruments-logo.png' style={{height: '50px'}} /> */}
 									{/* 143 76 */}
 									{/* <Image className="featured-manufacturer-img" width="auto" height={50} layout="intrinsic" src={item.logo} alt={item?.name} title={item?.name} /> */}
-								</h3>
+								</div>
 							</a>
 						</Link>
 					))}
-				</ul>
+				</div>
 			</div>
 		</div>
 	);
