@@ -80,7 +80,7 @@ const DefaultDescription = () => {
 						authList?.slice(0, 9).map(item => {
 							return (
 								<a key={item.name} target="_blank" href={item.url}>
-									<img src={item?.imageUrl} alt={item.name} width={90} height={82} className="certificate-icon" />
+									<img loading="lazy" src={item?.imageUrl} alt={item.name} width={90} height={82} className="certificate-icon" />
 								</a>
 							)
 						})
