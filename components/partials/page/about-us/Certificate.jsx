@@ -24,7 +24,7 @@ const Certificate = () => {
 				{authList?.slice(0, 12).map((item, index) => {
 					return (
 						<a className="pub-color-hover-link" key={item.name} target="_blank" href={item.url}>
-							<img style={{ marginTop: index === 0 ? '5px' : '0px' }} src={item?.imageUrl} alt={item.name} className="certificate-icon" />
+							<img style={{ marginTop: index === 0 ? '5px' : '0px' }} src={item?.imageUrl} alt={item.name} loading="lazy" className="certificate-icon" />
 							<h3 className="pub-font500 pub-font14 pub-color18 mb10" />
 							{item.name}
 						</a>
