@@ -201,10 +201,10 @@ const MenuProducts = React.memo(({ catalog, curNavId, newsProList }) => {
 							>
 								<Link href={hrefUrl}>
 									<a className={(currentItem === index ? 'active' : '') + ' pub-hover-text'}>
-										<h2 className="navigation-fixed-left-name nav-left-item">
+										<div className="navigation-fixed-left-name nav-left-item">
 											<div className="name">{getLanguageName(item)}</div>
 											<div className={'sprite-home-min ' + (index === currentItem ? 'sprite-home-min-3-9' : 'sprite-home-min-3-10')}></div>
-										</h2>
+										</div>
 									</a>
 								</Link>
 							</div>
