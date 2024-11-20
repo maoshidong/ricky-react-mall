@@ -100,10 +100,10 @@ const DesktopSwiper = ({ auth, isDesktop }) => {
 					<div className='ps-container'>
 						<div className='ps-block-banner-box'>
 						{/* pub-top-bgc-title */}
-							<div className='ps-block-banner-title' style={{maxWidth: '800px'}}>
+							<h2 className='ps-block-banner-title' style={{maxWidth: '800px'}}>
 								{iComponentProcurement}
 								{/* {i18Translate('i18Home.componentProcurement', 'Maximize efficiency with our streamlined component procurement.')} */}
-							</div>
+							</h2>
 							<h3 className='ps-block-banner-text mt15'>
 								{iOneStop}
 								{/* {i18Translate('i18Home.oneStop', 'Your one-stop shop for all electronic components.')} */}
