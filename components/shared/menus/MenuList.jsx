@@ -98,6 +98,7 @@ const MenuList = () => {
 			if (temporaryClosureZh() && item?.id === 3) return null
 			return (
 				<Link href={item.slug} key={index}>
+					<li className="pub-font500">
 					<a
 						// 点击事件放在这里才正确，修改：悬浮展开导航有误
 						onClick={(e) => clickNav(e, item)}
@@ -105,9 +106,8 @@ const MenuList = () => {
 						onMouseLeave={() => navMouseLeave(item)}
 						className={'menu-item ' + (item.key === curNavId ? 'menu-item-active ' : '')}
 					// aria-label={`go to ${item.label}`}
-					>
-						<li className="pub-font500">{item.label.toUpperCase()}</li>
-					</a>
+					>{item.label.toUpperCase()}</a>
+					</li>
 				</Link>
 			)
 		});
