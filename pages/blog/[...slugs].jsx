@@ -85,7 +85,7 @@ const BlogDetail = ({ paramMap, res, otherNews }) => {
 
 
 					<div className='pub-flex mt25 blog-detail'>
-						<div className='pub-flex-grow pub-border15 mr20' style={{ minHeight: '500px' }}>
+						<div className='pub-flex-grow pub-border15 mr20'>
 							<div className='articles-detail-title'>
 								<h1 className='pub-font22 pub-lh26 mb15'>{title}</h1>
 							</div>
