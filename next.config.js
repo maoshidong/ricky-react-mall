@@ -155,6 +155,19 @@ const nextSettings = {
     //   },
       experimental: {
 				amp: true,
+      },
+      async headers() {
+        return [
+          {
+            source: '/(.*)',
+            headers: [
+              {
+                key: 'Cache-Control',
+                value: 'public, max-age=604800, must-revalidate',
+              },
+            ],
+          },
+        ];
       }
 };
 
