@@ -5,7 +5,7 @@ const DefaultImageCom = ({ type, imgUrl, title, className, imgClassName, style, 
 	const blogImgUrl = '/static/img/default/bog_tmb.jpg' || '/static/img/default/bog.jpg';
 	return (
 		<Flex className={className} style={style}>
-			<img className={imgClassName} alt={'Image of ' + title} title={title} style={imgStyle} src={imgUrl || blogImgUrl} />
+			<img loading="lazy" className={imgClassName} alt={'Image of ' + title} title={title} style={imgStyle} src={imgUrl || blogImgUrl} />
 			{children}
 		</Flex>
 	);
