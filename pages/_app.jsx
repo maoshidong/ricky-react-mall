@@ -7,7 +7,7 @@ import MasterLayout from '~/components/layouts/MasterLayout';
 // 回到顶部按钮、i标签有使用 43kb,打包9k,   <i class="icon icon-cross2"></i>
 import '~/public/static/fonts/Linearicons/Font/demo-files/demo.css';
 // import '~/scss/_font-awesome.scss';
-import '~/public/static/fonts/font-awesome/css/font-awesome.min.css'; // use? 详情页分享图标有用
+// import '~/public/static/fonts/font-awesome/css/font-awesome.min.css'; // use? 详情页分享图标有用
 // import '~/public/static/fonts/iconfont/iconfont.css';
 import '~/public/static/css/bootstrap.min.css';
 import '~/public/static/css/slick.min.css';
