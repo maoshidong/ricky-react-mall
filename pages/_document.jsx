@@ -108,15 +108,15 @@ class MyDocument extends Document {
 					/>
 					{/* cf人机验证 */}
 					<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-					<script defer src="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z"></script>
-					{/* <script defer src="https://www.googletagmanager.com/gtag/js?id=G-7DS1CF2E9H"></script> */}
+					{/*<script defer src="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z"></script>
+					 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-7DS1CF2E9H"></script> 
 					<script defer dangerouslySetInnerHTML={{
 						__html: `window.dataLayer = window.dataLayer || [];
                             function gtag(){dataLayer.push(arguments)}
                             gtag('js', new Date());
                             gtag('config', 'G-CDWFBKFV3Z');`
 					}}>
-					</script>
+					</script>*/}
 
 					{/* <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" crossorigin="anonymous"></script> */}
 				</Head>
