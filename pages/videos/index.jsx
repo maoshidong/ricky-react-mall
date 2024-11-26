@@ -34,10 +34,6 @@ const NewsBolgPage = ({ paramMap, newsData, newsTypeTreeServer }) => {
 				"@id": getLanguageHost() + Router.asPath,
 				"url": getLanguageHost() + Router.asPath,
 				"name": iVideos,
-			},
-			{
-				"@type": "News",
-				"name": iVideos,
 			}
 		]
 	}
