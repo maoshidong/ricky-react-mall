@@ -129,10 +129,17 @@
 
 // 所有供应商
 .allManufacturer {
-	.banBgc {
-		height: 500px;
-		background: linear-gradient(to right, rgb(226, 234, 248), rgb(226, 234, 248) 50%, rgba(240, 249, 254, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(212, 224, 238), rgb(212, 224, 238) 50%, rgba(222, 233, 245, 0)) right center / calc(100% - 1920px) 100% no-repeat;
-		// background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/manufacturer.jpg') center center / 100% no-repeat
+	@media(max-width:480px){
+		.banBgc {
+			height: 500px;
+			background: linear-gradient(to right, rgb(226, 234, 248), rgb(226, 234, 248) 50%, rgba(240, 249, 254, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(212, 224, 238), rgb(212, 224, 238) 50%, rgba(222, 233, 245, 0)) right center / calc(100% - 1920px) 100% no-repeat;
+		}
+	}
+	@media(min-width:481px){
+		.banBgc {
+			height: 500px;
+			background: linear-gradient(to right, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) left center / calc(100% - 1920px) 100% no-repeat, linear-gradient(to left, rgb(242, 245, 255), rgb(242, 245, 255) 50%, rgba(242, 245, 255, 0)) right center / calc(100% - 1920px) 100% no-repeat, url('/static/img/bg/manufacturer.jpg') center center / 100% no-repeat
+		}
 	}
 
 	@media (max-width: 1179px) {
