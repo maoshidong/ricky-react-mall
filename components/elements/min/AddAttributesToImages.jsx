@@ -58,7 +58,7 @@ function AddAttributesToImagesCom({ children, imgAlt, imgTitle, imgUrl, contents
 	if (!!contents) {
 		if (!!manufacturerLogo) {
 			newsContents =
-				`<div style='border:1px solid #e3e7ee;border-radius: 6px;float:right;width:240px;margin-left:30px;padding:10px;text-align:center'><img id='manufacturer' style='object-fit:contain;height:50px;margin-bottom:20px;cursor:pointer;' src=${manufacturerLogo} title=${manufacturerName} alt=${manufacturerName}></img><img id='myNewsContent' src=${newsImgUrl} style='width:200px;cursor:pointer;'></img></div>` +
+				`<div style='border:1px solid #e3e7ee;border-radius: 6px;float:right;width:240px;margin-left:30px;padding:10px;text-align:center'><img id='manufacturer' style='object-fit:contain;height:50px;margin-bottom:20px;cursor:pointer;' src="${manufacturerLogo}" title="${manufacturerName}" alt="${manufacturerName}"></img><img id='myNewsContent' alt="${'Image of ' + imgTitle}" src="${newsImgUrl}" style='width:200px;cursor:pointer;'></img></div>` +
 				contents.replace(/<br\s*\/?>/gi, '');
 		} else {
 			newsContents =
