@@ -40,7 +40,8 @@ const Careers = ({ paramMap, isMobile }) => {
 				<meta property="og:title" content={i18Title} key="og:title" />
 				<meta name="keywords" content={i18Key} key="keywords" />
 				<meta name="description" content={i18Des} key="description" />
-				<meta name="og:description" content={i18Des} key="og:description" />
+				<meta property="og:description" content={i18Des} key="og:description" />
+				<meta property="og:image" content="https://www.origin-ic.com/static/img/logo.png" key="og:image" />
 			</Head>
 			<div className="ps-careers ps-page--single ps-about-us pub-bgc-f5 pub-minh-1">
 				<PageTopBanner
