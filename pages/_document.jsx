@@ -68,6 +68,7 @@ class MyDocument extends Document {
 				<link rel="preconnect" href="//www.paypal.com" />
 				<link rel="dns-prefetch" href="//www.paypalobjects.com" />
 				<link rel="preconnect" href="//www.paypalobjects.com" />
+				
 				{/* <!-- Preload for Critical Resources --> */}
 				{/* <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script" /> */}
 				<link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script" />
@@ -88,6 +89,7 @@ class MyDocument extends Document {
 					<link rel="shortcut icon" href={url} />
 					<link rel="icon" href={url} />
 					<link rel="apple-touch-icon-precomposed" href={url} />
+					<meta name="twitter:card" content="summary_large_image" />
 					{/* <link rel="shortcut icon" href='/static/img/min-favicon.png' /> */}
 					{/* <link rel="icon" href='/static/img/favicon.png' />
                 <link rel="apple-touch-icon-precomposed" href='/static/img/favi.png' /> */}
