@@ -59,10 +59,10 @@ class MyDocument extends Document {
 				<link rel="dns-prefetch" href="//adservice.google.com" />
 				<link rel="preconnect" href="//adservice.google.com" />
 				{/* <!-- Google Analytics --> */}
-				<link rel="dns-prefetch" href="//www.google-analytics.com" />
+				{/* <link rel="dns-prefetch" href="//www.google-analytics.com" />
 				<link rel="preconnect" href="//www.google-analytics.com" />
 				<link rel="dns-prefetch" href="//analytics.google.com" />
-				<link rel="preconnect" href="//analytics.google.com" />
+				<link rel="preconnect" href="//analytics.google.com" /> */}
 				{/* <!-- PayPal --> */}
 				<link rel="dns-prefetch" href="//www.paypal.com" />
 				<link rel="preconnect" href="//www.paypal.com" />
@@ -71,7 +71,7 @@ class MyDocument extends Document {
 				
 				{/* <!-- Preload for Critical Resources --> */}
 				{/* <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z" as="script" /> */}
-				<link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script" />
+				{/* <link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script" /> */}
 												
 					{/* <script type="text/javascript" src="//www.17track.net/externalcall.js"></script> */}
 					{/* Google tag (gtag.js) */}
@@ -104,10 +104,10 @@ class MyDocument extends Document {
 					<script src="//cdn.shopify.com/s/files/1/0565/7503/3493/files/omsl1.js?v=1726147437" type="text/javascript"></script>
 					
 					{/* 暂时隐藏Lighthouse性能 用于在网页中引入Google Fonts字体的CSS链接。它的作用是提供了一种简单的方式来加载和应用指定的字体样式。 */}
-					<link
-						href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext"
+					{/* <link
+						href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&amp;amp;subset=latin-ext"
 						rel="stylesheet"
-					/>
+					/> */}
 					{/* cf人机验证 */}
 					<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 					{/*<script defer src="https://www.googletagmanager.com/gtag/js?id=G-CDWFBKFV3Z"></script>
