@@ -90,6 +90,7 @@ class MyDocument extends Document {
 					<link rel="icon" href={url} />
 					<link rel="apple-touch-icon-precomposed" href={url} />
 					<meta name="twitter:card" content="summary_large_image" />
+					<meta property="og:type" content="website" />
 					{/* <link rel="shortcut icon" href='/static/img/min-favicon.png' /> */}
 					{/* <link rel="icon" href='/static/img/favicon.png' />
                 <link rel="apple-touch-icon-precomposed" href='/static/img/favi.png' /> */}
