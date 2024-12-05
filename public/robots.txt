@@ -56,6 +56,4 @@ Disallow: */compare?s=*
 Disallow: /products?keywords=*
 
 # Sitemaps   
-Sitemap: https://www.origin-ic.com/sitemap-head.xml
-Sitemap: https://www.origin-ic.com/sitemap.xml
 Sitemap: https://www.origin-ic.com/sitemapindex.xml
